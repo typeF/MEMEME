@@ -2,12 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './screens/App';
+import { ApolloProvider } from 'react-apollo';
+import client from "./graphQL/client";
 import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   (<BrowserRouter>
-    <App />
+    <ApolloProvider client={ client }>
+      <App />
+    </ApolloProvider>
   </BrowserRouter>
 ), document.getElementById('root'));
 

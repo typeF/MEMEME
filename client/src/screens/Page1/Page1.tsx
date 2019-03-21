@@ -1,12 +1,9 @@
 import React, { Fragment } from 'react';
+import TestGraphQL from '../../components/TestGraphQL';
 
 const Page1 = () => {
   return (
-    <Fragment>
-      <p>
-        Page 1
-      </p>
-    </Fragment>
+    <TestGraphQL/>
   )
 }
 
