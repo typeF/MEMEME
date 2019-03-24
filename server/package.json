@@ -5,15 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node server.ts",
-    "dev": "ts-node-dev --no-notify --respawn --transpileOnly server.ts"
+    "start": "ts-node ./src/server.ts",
+    "dev": "ts-node-dev --no-notify --respawn --transpileOnly ./src/server.ts",
+    "seed": "ts-node ./prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.5",
     "graphql": "^14.1.1",
+    "graphql-shield": "^5.3.1",
     "graphql-yoga": "^1.17.4",
+    "jsonwebtoken": "^8.5.1",
     "nexus": "^0.11.5",
     "nexus-prisma": "^0.3.5",
     "prisma-client-lib": "^1.28.5"

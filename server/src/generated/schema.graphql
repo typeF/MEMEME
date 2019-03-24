@@ -6,6 +6,17 @@ type AggregateUser {
   count: Int!
 }
 
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type Mutation {
+  login(email: String, password: String): AuthPayload!
+  signup(email: String, name: String, password: String): AuthPayload!
+  updateUser(id: ID, name: String): User
+}
+
 type PageInfo {
   endCursor: String
   hasNextPage: Boolean!
@@ -20,8 +31,10 @@ type Query {
 }
 
 type User {
+  email: String!
   id: ID!
   name: String!
+  password: String!
 }
 
 type UserConnection {
@@ -38,16 +51,34 @@ type UserEdge {
 enum UserOrderByInput {
   createdAt_ASC
   createdAt_DESC
+  email_ASC
+  email_DESC
   id_ASC
   id_DESC
   name_ASC
   name_DESC
+  password_ASC
+  password_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
 
 input UserWhereInput {
   AND: [UserWhereInput!]
+  email: String
+  email_contains: String
+  email_ends_with: String
+  email_gt: String
+  email_gte: String
+  email_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_not: String
+  email_not_contains: String
+  email_not_ends_with: String
+  email_not_in: [String!]
+  email_not_starts_with: String
+  email_starts_with: String
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -78,8 +109,23 @@ input UserWhereInput {
   name_starts_with: String
   NOT: [UserWhereInput!]
   OR: [UserWhereInput!]
+  password: String
+  password_contains: String
+  password_ends_with: String
+  password_gt: String
+  password_gte: String
+  password_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_not: String
+  password_not_contains: String
+  password_not_ends_with: String
+  password_not_in: [String!]
+  password_not_starts_with: String
+  password_starts_with: String
 }
 
 input UserWhereUniqueInput {
+  email: String
   id: ID
 }
