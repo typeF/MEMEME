@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.5",
+    "express-session": "^1.15.6",
     "graphql": "^14.1.1",
     "graphql-shield": "^5.3.1",
     "graphql-yoga": "^1.17.4",

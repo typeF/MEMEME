@@ -7,7 +7,6 @@ type AggregateUser {
 }
 
 type AuthPayload {
-  token: String!
   user: User!
 }
 

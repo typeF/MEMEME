@@ -8,9 +8,8 @@ interface Token {
 }
 
 export function getUserId(context: Context) {
-  const Authorization = context.request.get('Authorization');
-  if (Authorization) {
-    const token = Authorization.replace('Bearer ', '');
+  const token = context.request.session.jwt;
+  if (token) {
     const verifiedToken = verify(token, PRIVATE_KEY) as Token;
     return verifiedToken && verifiedToken.userId;
   }

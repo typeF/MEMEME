@@ -87,7 +87,6 @@ export interface NexusGenRootTypes {
     count: number; // Int!
   }
   AuthPayload: { // root type
-    token: string; // String!
     user: NexusGenRootTypes['User']; // User!
   }
   Mutation: {};
@@ -130,7 +129,6 @@ export interface NexusGenFieldTypes {
     count: number; // Int!
   }
   AuthPayload: { // field return type
-    token: string; // String!
     user: NexusGenRootTypes['User']; // User!
   }
   Mutation: { // field return type

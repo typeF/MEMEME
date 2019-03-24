@@ -20,7 +20,6 @@ export const Mutation = mutationType({
           password: hashedPassword
         });
         return {
-          token: sign({ userId: user.id }, PRIVATE_KEY),
           user
         }
       }
@@ -37,12 +36,16 @@ export const Mutation = mutationType({
         if (!user) {
           throw new Error(`No user found for email: ${email}`);
         }
+
         const passwordValid = await compare(password, user.password);
         if (!passwordValid) {
           throw new Error('Invalid password');
         }
+        
+        const token = sign({ userId: user.id }, PRIVATE_KEY);
+        context.request.session.jwt = token;
+
         return {
-          token: sign({ userId: user.id }, PRIVATE_KEY),
           user
         }
       }
@@ -63,7 +66,4 @@ export const Mutation = mutationType({
       }
     });
   },
-
 });
-
-// export default Mutation;
