@@ -1,34 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavBarLogo from './NavBarLogo';
 import './NavBar.scss';
 import { Link } from 'react-router-dom';
+import Login from '../Login';
 
 const NavBar = () => {
+
+  const [bugerActive, setBurgerActive] = useState(false);
+
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a className="navbar-item" href="https://bulma.io">
           <NavBarLogo/>
         </a>
-
-        <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <Link to="/" className="navbar-item">
+          Home
+        </Link>
+        <Link to="/1" className="navbar-item">
+          GraphQL
+        </Link>
+        <a role="button" className={ bugerActive ? "navbar-burger burger is-active" : "navbar-burger burger"} aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={() => setBurgerActive(!bugerActive)}>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
 
-      <div id="navbarBasicExample" className="navbar-menu">
+      <div id="navbarBasicExample" className={ bugerActive ? "navbar-menu is-active" : "navbar-menu" }>
         <div className="navbar-start">
-          <Link to="/" className="navbar-item">
-            Home
-          </Link>
-
-          <Link to="/1" className="navbar-item">
-            Page 1
-          </Link>
-
           <div className="navbar-item has-dropdown is-hoverable">
+            <Link to="/" className="navbar-item">
+              Home
+            </Link>
+            <Link to="/1" className="navbar-item">
+              GraphQL
+            </Link>
             <a className="navbar-link">
               More
             </a>
@@ -36,12 +43,6 @@ const NavBar = () => {
             <div className="navbar-dropdown">
               <a className="navbar-item">
                 More 1
-              </a>
-              <a className="navbar-item">
-                More 2
-              </a>
-              <a className="navbar-item">
-                More 3
               </a>
               <hr className="navbar-divider" />
               <a className="navbar-item">
@@ -54,12 +55,7 @@ const NavBar = () => {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <a className="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a className="button is-light">
-                Log in
-          </a>
+              <Login/>
             </div>
           </div>
         </div>

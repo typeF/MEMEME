@@ -33,7 +33,6 @@ const server = new GraphQLServer({
   }
 });
 
-
 server.express.use(session({
   name: 'qid',
   secret: PRIVATE_KEY,
@@ -41,8 +40,9 @@ server.express.use(session({
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production"
-  }
+    secure: process.env.NODE_ENV === "production",
+  },
+  unset: 'destroy'
 }));
 
 const cors = {

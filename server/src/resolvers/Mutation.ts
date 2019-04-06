@@ -32,6 +32,7 @@ export const Mutation = mutationType({
         password: stringArg(),
       },
       resolve: async (parent, { email, password }, context) => {
+        console.log("Login attempt with user/pass: " + email + ", " + password);
         const user = await context.prisma.user({ email })
         if (!user) {
           throw new Error(`No user found for email: ${email}`);
@@ -39,15 +40,29 @@ export const Mutation = mutationType({
 
         const passwordValid = await compare(password, user.password);
         if (!passwordValid) {
-          throw new Error('Invalid password');
+            context.request.session.jwt = null;
+            throw new Error('Invalid password');
         }
         
         const token = sign({ userId: user.id }, PRIVATE_KEY);
         context.request.session.jwt = token;
 
+        console.log(`${user.name} logged in`);
+
         return {
           user
         }
+      }
+    });
+
+    t.field('logout', {
+      type: 'User',
+      nullable: true, // Allows mutation to return null
+      resolve: async (parent, {}, context) => {
+        console.log('Logged user out');
+        context.request.session.cookie.maxAge = new Date(Date.now() - 1);
+        context.request.session.jwt = "Good-bye!";
+        return null;
       }
     });
 

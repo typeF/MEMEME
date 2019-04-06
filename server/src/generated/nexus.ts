@@ -133,6 +133,7 @@ export interface NexusGenFieldTypes {
   }
   Mutation: { // field return type
     login: NexusGenRootTypes['AuthPayload']; // AuthPayload!
+    logout: NexusGenRootTypes['User'] | null; // User
     signup: NexusGenRootTypes['AuthPayload']; // AuthPayload!
     updateUser: NexusGenRootTypes['User'] | null; // User
   }

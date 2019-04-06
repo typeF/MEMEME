@@ -1,9 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import TestGraphQL from '../../components/TestGraphQL';
 
 const Page1 = () => {
   return (
-    <TestGraphQL/>
+    <div className="testGraphQL-container">
+      <TestGraphQL/>
+    </div>
   )
 }
 

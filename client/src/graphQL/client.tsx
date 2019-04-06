@@ -4,6 +4,8 @@ import { HttpLink } from 'apollo-link-http';
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 
+const cache = new InMemoryCache();
+
 const client = new ApolloClient({
   link: ApolloLink.from([
     onError(({ graphQLErrors, networkError }) => {
@@ -17,10 +19,16 @@ const client = new ApolloClient({
     }),
     new HttpLink({
       uri: 'http://127.0.0.1:4000',
-      credentials: 'same-origin'
+      credentials: 'include'
     })
   ]),
-  cache: new InMemoryCache()
+  cache,
+});
+
+cache.writeData({
+  data: {
+    isLoggedIn: false
+  }
 });
 
 export default client;

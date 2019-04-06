@@ -1,9 +1,12 @@
 import React from 'react';
-import Button from "../../components/Button/Button";
+import { Button, ButtonWithFunctionProp } from "../../components/Button/";
 
 const Home = () => {
   return (
-    <Button/>
+    <ButtonWithFunctionProp 
+      clickFunction={() => console.log('allo')} 
+      text={'Hello'} 
+    />
   )
 }
 

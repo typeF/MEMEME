@@ -4,10 +4,10 @@ import styled from 'styled-components';
 const StyledButton = styled.button`
 `;
 
-const Button = () => {
+const Button = ({ text } : { text: string}) => {
   return (
     <StyledButton className='button is-success is-outlined'>
-      TESTER
+      { text }
     </StyledButton>
   )
 }
