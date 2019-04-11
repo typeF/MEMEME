@@ -11,7 +11,7 @@ const LoginMutation = gql`
     login(email: $email, password: $password){ 
       user {
         id
-        name
+        username
       }
     }
   }
@@ -37,7 +37,7 @@ const LoginButton = () => {
               return (
                 <StyledButton 
                   className='button is-success is-outlined' 
-                  onClick={ () => login() }>
+                  onClick={() => login()}>
                   LOGIN
                 </StyledButton>
               )

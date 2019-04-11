@@ -2,6 +2,18 @@
 ### Do not make changes to this file directly
 
 
+type AggregateForum {
+  count: Int!
+}
+
+type AggregatePost {
+  count: Int!
+}
+
+type AggregateThread {
+  count: Int!
+}
+
 type AggregateUser {
   count: Int!
 }
@@ -10,11 +22,83 @@ type AuthPayload {
   user: User!
 }
 
+scalar DateTime
+
+type Forum {
+  id: ID!
+  name: String!
+  threads(after: String, before: String, first: Int, last: Int, orderBy: ThreadOrderByInput, skip: Int, where: ThreadWhereInput): [Thread!]
+}
+
+type ForumConnection {
+  aggregate: AggregateForum!
+  edges: [ForumEdge!]!
+  pageInfo: PageInfo!
+}
+
+type ForumEdge {
+  cursor: String!
+  node: Forum!
+}
+
+enum ForumOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input ForumWhereInput {
+  AND: [ForumWhereInput!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [ForumWhereInput!]
+  OR: [ForumWhereInput!]
+  threads_every: ThreadWhereInput
+  threads_none: ThreadWhereInput
+  threads_some: ThreadWhereInput
+}
+
+input ForumWhereUniqueInput {
+  id: ID
+  name: String
+}
+
 type Mutation {
   login(email: String, password: String): AuthPayload!
   logout: User
-  signup(email: String, name: String, password: String): AuthPayload!
-  updateUser(id: ID, name: String): User
+  signup(email: String, password: String, username: String): AuthPayload!
+  updateUser(id: ID, username: String): User
 }
 
 type PageInfo {
@@ -24,17 +108,226 @@ type PageInfo {
   startCursor: String
 }
 
+type Post {
+  author: User!
+  content: String!
+  createdAt: DateTime!
+  id: ID!
+  postnumber: Int!
+  thread: Thread!
+  updatedAt: DateTime!
+}
+
+type PostConnection {
+  aggregate: AggregatePost!
+  edges: [PostEdge!]!
+  pageInfo: PageInfo!
+}
+
+type PostEdge {
+  cursor: String!
+  node: Post!
+}
+
+enum PostOrderByInput {
+  content_ASC
+  content_DESC
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  postnumber_ASC
+  postnumber_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input PostWhereInput {
+  AND: [PostWhereInput!]
+  author: UserWhereInput
+  content: String
+  content_contains: String
+  content_ends_with: String
+  content_gt: String
+  content_gte: String
+  content_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_not: String
+  content_not_contains: String
+  content_not_ends_with: String
+  content_not_in: [String!]
+  content_not_starts_with: String
+  content_starts_with: String
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  NOT: [PostWhereInput!]
+  OR: [PostWhereInput!]
+  postnumber: Int
+  postnumber_gt: Int
+  postnumber_gte: Int
+  postnumber_in: [Int!]
+  postnumber_lt: Int
+  postnumber_lte: Int
+  postnumber_not: Int
+  postnumber_not_in: [Int!]
+  thread: ThreadWhereInput
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
+
+input PostWhereUniqueInput {
+  id: ID
+}
+
 type Query {
+  forum(where: ForumWhereUniqueInput!): Forum
+  forums(after: String, before: String, first: Int, last: Int, orderBy: ForumOrderByInput, skip: Int, where: ForumWhereInput): [Forum!]!
+  forumsConnection(after: String, before: String, first: Int, last: Int, orderBy: ForumOrderByInput, skip: Int, where: ForumWhereInput): ForumConnection!
+  post(where: PostWhereUniqueInput!): Post
+  posts(after: String, before: String, first: Int, last: Int, orderBy: PostOrderByInput, skip: Int, where: PostWhereInput): [Post!]!
+  postsConnection(after: String, before: String, first: Int, last: Int, orderBy: PostOrderByInput, skip: Int, where: PostWhereInput): PostConnection!
+  thread(where: ThreadWhereUniqueInput!): Thread
+  threads(after: String, before: String, first: Int, last: Int, orderBy: ThreadOrderByInput, skip: Int, where: ThreadWhereInput): [Thread!]!
+  threadsConnection(after: String, before: String, first: Int, last: Int, orderBy: ThreadOrderByInput, skip: Int, where: ThreadWhereInput): ThreadConnection!
   user(where: UserWhereUniqueInput!): User
   users(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): [User!]!
   usersConnection(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): UserConnection!
 }
 
+type Thread {
+  author: User!
+  createdAt: DateTime!
+  id: ID!
+  posts(after: String, before: String, first: Int, last: Int, orderBy: PostOrderByInput, skip: Int, where: PostWhereInput): [Post!]
+  subForum: Forum!
+  threadnumber: Int!
+  title: String!
+  updatedAt: DateTime!
+}
+
+type ThreadConnection {
+  aggregate: AggregateThread!
+  edges: [ThreadEdge!]!
+  pageInfo: PageInfo!
+}
+
+type ThreadEdge {
+  cursor: String!
+  node: Thread!
+}
+
+enum ThreadOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  threadnumber_ASC
+  threadnumber_DESC
+  title_ASC
+  title_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input ThreadWhereInput {
+  AND: [ThreadWhereInput!]
+  author: UserWhereInput
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  NOT: [ThreadWhereInput!]
+  OR: [ThreadWhereInput!]
+  posts_every: PostWhereInput
+  posts_none: PostWhereInput
+  posts_some: PostWhereInput
+  subForum: ForumWhereInput
+  threadnumber: Int
+  threadnumber_gt: Int
+  threadnumber_gte: Int
+  threadnumber_in: [Int!]
+  threadnumber_lt: Int
+  threadnumber_lte: Int
+  threadnumber_not: Int
+  threadnumber_not_in: [Int!]
+  title: String
+  title_contains: String
+  title_ends_with: String
+  title_gt: String
+  title_gte: String
+  title_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_not: String
+  title_not_contains: String
+  title_not_ends_with: String
+  title_not_in: [String!]
+  title_not_starts_with: String
+  title_starts_with: String
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
+
+input ThreadWhereUniqueInput {
+  id: ID
+}
+
 type User {
   email: String!
   id: ID!
-  name: String!
   password: String!
+  username: String!
 }
 
 type UserConnection {
@@ -55,12 +348,12 @@ enum UserOrderByInput {
   email_DESC
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
   password_ASC
   password_DESC
   updatedAt_ASC
   updatedAt_DESC
+  username_ASC
+  username_DESC
 }
 
 input UserWhereInput {
@@ -93,20 +386,6 @@ input UserWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
-  name: String
-  name_contains: String
-  name_ends_with: String
-  name_gt: String
-  name_gte: String
-  name_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_not: String
-  name_not_contains: String
-  name_not_ends_with: String
-  name_not_in: [String!]
-  name_not_starts_with: String
-  name_starts_with: String
   NOT: [UserWhereInput!]
   OR: [UserWhereInput!]
   password: String
@@ -123,6 +402,26 @@ input UserWhereInput {
   password_not_in: [String!]
   password_not_starts_with: String
   password_starts_with: String
+  posts_every: PostWhereInput
+  posts_none: PostWhereInput
+  posts_some: PostWhereInput
+  threads_every: ThreadWhereInput
+  threads_none: ThreadWhereInput
+  threads_some: ThreadWhereInput
+  username: String
+  username_contains: String
+  username_ends_with: String
+  username_gt: String
+  username_gte: String
+  username_in: [String!]
+  username_lt: String
+  username_lte: String
+  username_not: String
+  username_not_contains: String
+  username_not_ends_with: String
+  username_not_in: [String!]
+  username_not_starts_with: String
+  username_starts_with: String
 }
 
 input UserWhereUniqueInput {

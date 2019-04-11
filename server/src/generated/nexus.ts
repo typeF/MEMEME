@@ -11,6 +11,173 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  ForumWhereInput: { // input type
+    AND?: NexusGenInputs['ForumWhereInput'][] | null; // [ForumWhereInput!]
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['ForumWhereInput'][] | null; // [ForumWhereInput!]
+    OR?: NexusGenInputs['ForumWhereInput'][] | null; // [ForumWhereInput!]
+    threads_every?: NexusGenInputs['ThreadWhereInput'] | null; // ThreadWhereInput
+    threads_none?: NexusGenInputs['ThreadWhereInput'] | null; // ThreadWhereInput
+    threads_some?: NexusGenInputs['ThreadWhereInput'] | null; // ThreadWhereInput
+  }
+  ForumWhereUniqueInput: { // input type
+    id?: string | null; // ID
+    name?: string | null; // String
+  }
+  PostWhereInput: { // input type
+    AND?: NexusGenInputs['PostWhereInput'][] | null; // [PostWhereInput!]
+    author?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    content?: string | null; // String
+    content_contains?: string | null; // String
+    content_ends_with?: string | null; // String
+    content_gt?: string | null; // String
+    content_gte?: string | null; // String
+    content_in?: string[] | null; // [String!]
+    content_lt?: string | null; // String
+    content_lte?: string | null; // String
+    content_not?: string | null; // String
+    content_not_contains?: string | null; // String
+    content_not_ends_with?: string | null; // String
+    content_not_in?: string[] | null; // [String!]
+    content_not_starts_with?: string | null; // String
+    content_starts_with?: string | null; // String
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    NOT?: NexusGenInputs['PostWhereInput'][] | null; // [PostWhereInput!]
+    OR?: NexusGenInputs['PostWhereInput'][] | null; // [PostWhereInput!]
+    postnumber?: number | null; // Int
+    postnumber_gt?: number | null; // Int
+    postnumber_gte?: number | null; // Int
+    postnumber_in?: number[] | null; // [Int!]
+    postnumber_lt?: number | null; // Int
+    postnumber_lte?: number | null; // Int
+    postnumber_not?: number | null; // Int
+    postnumber_not_in?: number[] | null; // [Int!]
+    thread?: NexusGenInputs['ThreadWhereInput'] | null; // ThreadWhereInput
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
+  }
+  PostWhereUniqueInput: { // input type
+    id?: string | null; // ID
+  }
+  ThreadWhereInput: { // input type
+    AND?: NexusGenInputs['ThreadWhereInput'][] | null; // [ThreadWhereInput!]
+    author?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    NOT?: NexusGenInputs['ThreadWhereInput'][] | null; // [ThreadWhereInput!]
+    OR?: NexusGenInputs['ThreadWhereInput'][] | null; // [ThreadWhereInput!]
+    posts_every?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+    posts_none?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+    posts_some?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+    subForum?: NexusGenInputs['ForumWhereInput'] | null; // ForumWhereInput
+    threadnumber?: number | null; // Int
+    threadnumber_gt?: number | null; // Int
+    threadnumber_gte?: number | null; // Int
+    threadnumber_in?: number[] | null; // [Int!]
+    threadnumber_lt?: number | null; // Int
+    threadnumber_lte?: number | null; // Int
+    threadnumber_not?: number | null; // Int
+    threadnumber_not_in?: number[] | null; // [Int!]
+    title?: string | null; // String
+    title_contains?: string | null; // String
+    title_ends_with?: string | null; // String
+    title_gt?: string | null; // String
+    title_gte?: string | null; // String
+    title_in?: string[] | null; // [String!]
+    title_lt?: string | null; // String
+    title_lte?: string | null; // String
+    title_not?: string | null; // String
+    title_not_contains?: string | null; // String
+    title_not_ends_with?: string | null; // String
+    title_not_in?: string[] | null; // [String!]
+    title_not_starts_with?: string | null; // String
+    title_starts_with?: string | null; // String
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
+  }
+  ThreadWhereUniqueInput: { // input type
+    id?: string | null; // ID
+  }
   UserWhereInput: { // input type
     AND?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
     email?: string | null; // String
@@ -41,20 +208,6 @@ export interface NexusGenInputs {
     id_not_in?: string[] | null; // [ID!]
     id_not_starts_with?: string | null; // ID
     id_starts_with?: string | null; // ID
-    name?: string | null; // String
-    name_contains?: string | null; // String
-    name_ends_with?: string | null; // String
-    name_gt?: string | null; // String
-    name_gte?: string | null; // String
-    name_in?: string[] | null; // [String!]
-    name_lt?: string | null; // String
-    name_lte?: string | null; // String
-    name_not?: string | null; // String
-    name_not_contains?: string | null; // String
-    name_not_ends_with?: string | null; // String
-    name_not_in?: string[] | null; // [String!]
-    name_not_starts_with?: string | null; // String
-    name_starts_with?: string | null; // String
     NOT?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
     OR?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
     password?: string | null; // String
@@ -71,6 +224,26 @@ export interface NexusGenInputs {
     password_not_in?: string[] | null; // [String!]
     password_not_starts_with?: string | null; // String
     password_starts_with?: string | null; // String
+    posts_every?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+    posts_none?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+    posts_some?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+    threads_every?: NexusGenInputs['ThreadWhereInput'] | null; // ThreadWhereInput
+    threads_none?: NexusGenInputs['ThreadWhereInput'] | null; // ThreadWhereInput
+    threads_some?: NexusGenInputs['ThreadWhereInput'] | null; // ThreadWhereInput
+    username?: string | null; // String
+    username_contains?: string | null; // String
+    username_ends_with?: string | null; // String
+    username_gt?: string | null; // String
+    username_gte?: string | null; // String
+    username_in?: string[] | null; // [String!]
+    username_lt?: string | null; // String
+    username_lte?: string | null; // String
+    username_not?: string | null; // String
+    username_not_contains?: string | null; // String
+    username_not_ends_with?: string | null; // String
+    username_not_in?: string[] | null; // [String!]
+    username_not_starts_with?: string | null; // String
+    username_starts_with?: string | null; // String
   }
   UserWhereUniqueInput: { // input type
     email?: string | null; // String
@@ -79,15 +252,39 @@ export interface NexusGenInputs {
 }
 
 export interface NexusGenEnums {
-  UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "password_ASC" | "password_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  ForumOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  PostOrderByInput: "content_ASC" | "content_DESC" | "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "postnumber_ASC" | "postnumber_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  ThreadOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "threadnumber_ASC" | "threadnumber_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "password_ASC" | "password_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "username_ASC" | "username_DESC"
 }
 
 export interface NexusGenRootTypes {
+  AggregateForum: { // root type
+    count: number; // Int!
+  }
+  AggregatePost: { // root type
+    count: number; // Int!
+  }
+  AggregateThread: { // root type
+    count: number; // Int!
+  }
   AggregateUser: { // root type
     count: number; // Int!
   }
   AuthPayload: { // root type
     user: NexusGenRootTypes['User']; // User!
+  }
+  Forum: { // root type
+    id: string; // ID!
+    name: string; // String!
+  }
+  ForumConnection: { // root type
+    edges: NexusGenRootTypes['ForumEdge'][]; // [ForumEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  ForumEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Forum']; // Forum!
   }
   Mutation: {};
   PageInfo: { // root type
@@ -96,12 +293,42 @@ export interface NexusGenRootTypes {
     hasPreviousPage: boolean; // Boolean!
     startCursor?: string | null; // String
   }
+  Post: { // root type
+    content: string; // String!
+    createdAt: any; // DateTime!
+    id: string; // ID!
+    postnumber: number; // Int!
+    updatedAt: any; // DateTime!
+  }
+  PostConnection: { // root type
+    edges: NexusGenRootTypes['PostEdge'][]; // [PostEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  PostEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Post']; // Post!
+  }
   Query: {};
+  Thread: { // root type
+    createdAt: any; // DateTime!
+    id: string; // ID!
+    threadnumber: number; // Int!
+    title: string; // String!
+    updatedAt: any; // DateTime!
+  }
+  ThreadConnection: { // root type
+    edges: NexusGenRootTypes['ThreadEdge'][]; // [ThreadEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  ThreadEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Thread']; // Thread!
+  }
   User: { // root type
     email: string; // String!
     id: string; // ID!
-    name: string; // String!
     password: string; // String!
+    username: string; // String!
   }
   UserConnection: { // root type
     edges: NexusGenRootTypes['UserEdge'][]; // [UserEdge!]!
@@ -116,20 +343,53 @@ export interface NexusGenRootTypes {
   Float: number;
   Boolean: boolean;
   ID: string;
+  DateTime: any;
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
+  ForumWhereInput: NexusGenInputs['ForumWhereInput'];
+  ForumWhereUniqueInput: NexusGenInputs['ForumWhereUniqueInput'];
+  PostWhereInput: NexusGenInputs['PostWhereInput'];
+  PostWhereUniqueInput: NexusGenInputs['PostWhereUniqueInput'];
+  ThreadWhereInput: NexusGenInputs['ThreadWhereInput'];
+  ThreadWhereUniqueInput: NexusGenInputs['ThreadWhereUniqueInput'];
   UserWhereInput: NexusGenInputs['UserWhereInput'];
   UserWhereUniqueInput: NexusGenInputs['UserWhereUniqueInput'];
+  ForumOrderByInput: NexusGenEnums['ForumOrderByInput'];
+  PostOrderByInput: NexusGenEnums['PostOrderByInput'];
+  ThreadOrderByInput: NexusGenEnums['ThreadOrderByInput'];
   UserOrderByInput: NexusGenEnums['UserOrderByInput'];
 }
 
 export interface NexusGenFieldTypes {
+  AggregateForum: { // field return type
+    count: number; // Int!
+  }
+  AggregatePost: { // field return type
+    count: number; // Int!
+  }
+  AggregateThread: { // field return type
+    count: number; // Int!
+  }
   AggregateUser: { // field return type
     count: number; // Int!
   }
   AuthPayload: { // field return type
     user: NexusGenRootTypes['User']; // User!
+  }
+  Forum: { // field return type
+    id: string; // ID!
+    name: string; // String!
+    threads: NexusGenRootTypes['Thread'][] | null; // [Thread!]
+  }
+  ForumConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateForum']; // AggregateForum!
+    edges: NexusGenRootTypes['ForumEdge'][]; // [ForumEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  ForumEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Forum']; // Forum!
   }
   Mutation: { // field return type
     login: NexusGenRootTypes['AuthPayload']; // AuthPayload!
@@ -143,16 +403,62 @@ export interface NexusGenFieldTypes {
     hasPreviousPage: boolean; // Boolean!
     startCursor: string | null; // String
   }
+  Post: { // field return type
+    author: NexusGenRootTypes['User']; // User!
+    content: string; // String!
+    createdAt: any; // DateTime!
+    id: string; // ID!
+    postnumber: number; // Int!
+    thread: NexusGenRootTypes['Thread']; // Thread!
+    updatedAt: any; // DateTime!
+  }
+  PostConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregatePost']; // AggregatePost!
+    edges: NexusGenRootTypes['PostEdge'][]; // [PostEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  PostEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Post']; // Post!
+  }
   Query: { // field return type
+    forum: NexusGenRootTypes['Forum'] | null; // Forum
+    forums: NexusGenRootTypes['Forum'][]; // [Forum!]!
+    forumsConnection: NexusGenRootTypes['ForumConnection']; // ForumConnection!
+    post: NexusGenRootTypes['Post'] | null; // Post
+    posts: NexusGenRootTypes['Post'][]; // [Post!]!
+    postsConnection: NexusGenRootTypes['PostConnection']; // PostConnection!
+    thread: NexusGenRootTypes['Thread'] | null; // Thread
+    threads: NexusGenRootTypes['Thread'][]; // [Thread!]!
+    threadsConnection: NexusGenRootTypes['ThreadConnection']; // ThreadConnection!
     user: NexusGenRootTypes['User'] | null; // User
     users: NexusGenRootTypes['User'][]; // [User!]!
     usersConnection: NexusGenRootTypes['UserConnection']; // UserConnection!
   }
+  Thread: { // field return type
+    author: NexusGenRootTypes['User']; // User!
+    createdAt: any; // DateTime!
+    id: string; // ID!
+    posts: NexusGenRootTypes['Post'][] | null; // [Post!]
+    subForum: NexusGenRootTypes['Forum']; // Forum!
+    threadnumber: number; // Int!
+    title: string; // String!
+    updatedAt: any; // DateTime!
+  }
+  ThreadConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateThread']; // AggregateThread!
+    edges: NexusGenRootTypes['ThreadEdge'][]; // [ThreadEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  ThreadEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Thread']; // Thread!
+  }
   User: { // field return type
     email: string; // String!
     id: string; // ID!
-    name: string; // String!
     password: string; // String!
+    username: string; // String!
   }
   UserConnection: { // field return type
     aggregate: NexusGenRootTypes['AggregateUser']; // AggregateUser!
@@ -166,6 +472,17 @@ export interface NexusGenFieldTypes {
 }
 
 export interface NexusGenArgTypes {
+  Forum: {
+    threads: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ThreadOrderByInput'] | null; // ThreadOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ThreadWhereInput'] | null; // ThreadWhereInput
+    }
+  }
   Mutation: {
     login: { // args
       email?: string | null; // String
@@ -173,15 +490,78 @@ export interface NexusGenArgTypes {
     }
     signup: { // args
       email?: string | null; // String
-      name?: string | null; // String
       password?: string | null; // String
+      username?: string | null; // String
     }
     updateUser: { // args
       id?: string | null; // ID
-      name?: string | null; // String
+      username?: string | null; // String
     }
   }
   Query: {
+    forum: { // args
+      where: NexusGenInputs['ForumWhereUniqueInput']; // ForumWhereUniqueInput!
+    }
+    forums: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ForumOrderByInput'] | null; // ForumOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ForumWhereInput'] | null; // ForumWhereInput
+    }
+    forumsConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ForumOrderByInput'] | null; // ForumOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ForumWhereInput'] | null; // ForumWhereInput
+    }
+    post: { // args
+      where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
+    }
+    posts: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['PostOrderByInput'] | null; // PostOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+    }
+    postsConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['PostOrderByInput'] | null; // PostOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+    }
+    thread: { // args
+      where: NexusGenInputs['ThreadWhereUniqueInput']; // ThreadWhereUniqueInput!
+    }
+    threads: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ThreadOrderByInput'] | null; // ThreadOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ThreadWhereInput'] | null; // ThreadWhereInput
+    }
+    threadsConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ThreadOrderByInput'] | null; // ThreadOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ThreadWhereInput'] | null; // ThreadWhereInput
+    }
     user: { // args
       where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
     }
@@ -204,6 +584,17 @@ export interface NexusGenArgTypes {
       where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
     }
   }
+  Thread: {
+    posts: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['PostOrderByInput'] | null; // PostOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+    }
+  }
 }
 
 export interface NexusGenAbstractResolveReturnTypes {
@@ -211,15 +602,15 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AggregateUser" | "AuthPayload" | "Mutation" | "PageInfo" | "Query" | "User" | "UserConnection" | "UserEdge";
+export type NexusGenObjectNames = "AggregateForum" | "AggregatePost" | "AggregateThread" | "AggregateUser" | "AuthPayload" | "Forum" | "ForumConnection" | "ForumEdge" | "Mutation" | "PageInfo" | "Post" | "PostConnection" | "PostEdge" | "Query" | "Thread" | "ThreadConnection" | "ThreadEdge" | "User" | "UserConnection" | "UserEdge";
 
-export type NexusGenInputNames = "UserWhereInput" | "UserWhereUniqueInput";
+export type NexusGenInputNames = "ForumWhereInput" | "ForumWhereUniqueInput" | "PostWhereInput" | "PostWhereUniqueInput" | "ThreadWhereInput" | "ThreadWhereUniqueInput" | "UserWhereInput" | "UserWhereUniqueInput";
 
-export type NexusGenEnumNames = "UserOrderByInput";
+export type NexusGenEnumNames = "ForumOrderByInput" | "PostOrderByInput" | "ThreadOrderByInput" | "UserOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 
-export type NexusGenScalarNames = "Boolean" | "Float" | "ID" | "Int" | "String";
+export type NexusGenScalarNames = "Boolean" | "DateTime" | "Float" | "ID" | "Int" | "String";
 
 export type NexusGenUnionNames = never;
 

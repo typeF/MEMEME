@@ -6,23 +6,18 @@ const testQuery = gql`
   {
     users {
       id
-      name
+      username
     }
   }
 `;
 
 const testMutation = gql`
-  mutation updateUser($id: ID!, $name: String!) {
-    updateUser(id: $id, name: $name) {
-      name
+  mutation updateUser($id: ID!, $username: String!) {
+    updateUser(id: $id, username: $username) {
+      username
     }
   }
 `;
-
-const checkCookies = () => {
-  const cookies = document.cookie;
-  console.log("Cookies: " + cookies);
-};
 
 const TestGraphQL = () => (
   <Fragment>
@@ -36,7 +31,7 @@ const TestGraphQL = () => (
             GraphQL Users:
             {data.users.map((user: any) => (
               <p key={user.id}>
-                {user.name}
+                {user.username}
               </p>
             ))}
           </div>
@@ -45,10 +40,9 @@ const TestGraphQL = () => (
     </Query>
     <Mutation 
       mutation={ testMutation } 
-      variables={{ id: "cjtjxmolf006m0741g3ezczwe", name: "Ari" }}
+      variables={{ id: "cjub26kjd02q40848q3z95toh", username: "Ari" }}
       onCompleted={() => {
         console.log("Updated user");
-        checkCookies();
       }}
     >
       {(updateUser, { loading, error, data }) => { 

@@ -5,7 +5,7 @@ export const User = prismaObjectType({
   definition(t) {
     t.prismaFields([
       'id',
-      'name',
+      'username',
       'email',
       'password'
     ]);

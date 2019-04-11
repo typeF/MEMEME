@@ -16,42 +16,149 @@ export interface NexusPrismaTypes {
     fields: {
       Query: QueryObject
       User: UserObject
+      Thread: ThreadObject
+      Forum: ForumObject
+      Post: PostObject
       UserConnection: UserConnectionObject
       PageInfo: PageInfoObject
       UserEdge: UserEdgeObject
       AggregateUser: AggregateUserObject
+      ForumConnection: ForumConnectionObject
+      ForumEdge: ForumEdgeObject
+      AggregateForum: AggregateForumObject
+      ThreadConnection: ThreadConnectionObject
+      ThreadEdge: ThreadEdgeObject
+      AggregateThread: AggregateThreadObject
+      PostConnection: PostConnectionObject
+      PostEdge: PostEdgeObject
+      AggregatePost: AggregatePostObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
       UserSubscriptionPayload: UserSubscriptionPayloadObject
       UserPreviousValues: UserPreviousValuesObject
+      ForumSubscriptionPayload: ForumSubscriptionPayloadObject
+      ForumPreviousValues: ForumPreviousValuesObject
+      ThreadSubscriptionPayload: ThreadSubscriptionPayloadObject
+      ThreadPreviousValues: ThreadPreviousValuesObject
+      PostSubscriptionPayload: PostSubscriptionPayloadObject
+      PostPreviousValues: PostPreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
       User: UserFieldDetails
+      Thread: ThreadFieldDetails
+      Forum: ForumFieldDetails
+      Post: PostFieldDetails
       UserConnection: UserConnectionFieldDetails
       PageInfo: PageInfoFieldDetails
       UserEdge: UserEdgeFieldDetails
       AggregateUser: AggregateUserFieldDetails
+      ForumConnection: ForumConnectionFieldDetails
+      ForumEdge: ForumEdgeFieldDetails
+      AggregateForum: AggregateForumFieldDetails
+      ThreadConnection: ThreadConnectionFieldDetails
+      ThreadEdge: ThreadEdgeFieldDetails
+      AggregateThread: AggregateThreadFieldDetails
+      PostConnection: PostConnectionFieldDetails
+      PostEdge: PostEdgeFieldDetails
+      AggregatePost: AggregatePostFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
       UserSubscriptionPayload: UserSubscriptionPayloadFieldDetails
       UserPreviousValues: UserPreviousValuesFieldDetails
+      ForumSubscriptionPayload: ForumSubscriptionPayloadFieldDetails
+      ForumPreviousValues: ForumPreviousValuesFieldDetails
+      ThreadSubscriptionPayload: ThreadSubscriptionPayloadFieldDetails
+      ThreadPreviousValues: ThreadPreviousValuesFieldDetails
+      PostSubscriptionPayload: PostSubscriptionPayloadFieldDetails
+      PostPreviousValues: PostPreviousValuesFieldDetails
     }
   }
   inputTypes: {
     fields: {
       UserWhereUniqueInput: UserWhereUniqueInputInputObject
+      ThreadWhereInput: ThreadWhereInputInputObject
+      ForumWhereInput: ForumWhereInputInputObject
       UserWhereInput: UserWhereInputInputObject
+      PostWhereInput: PostWhereInputInputObject
+      ForumWhereUniqueInput: ForumWhereUniqueInputInputObject
+      ThreadWhereUniqueInput: ThreadWhereUniqueInputInputObject
+      PostWhereUniqueInput: PostWhereUniqueInputInputObject
       UserCreateInput: UserCreateInputInputObject
+      ThreadCreateManyWithoutAuthorInput: ThreadCreateManyWithoutAuthorInputInputObject
+      ThreadCreateWithoutAuthorInput: ThreadCreateWithoutAuthorInputInputObject
+      ForumCreateOneWithoutThreadsInput: ForumCreateOneWithoutThreadsInputInputObject
+      ForumCreateWithoutThreadsInput: ForumCreateWithoutThreadsInputInputObject
+      PostCreateManyWithoutThreadInput: PostCreateManyWithoutThreadInputInputObject
+      PostCreateWithoutThreadInput: PostCreateWithoutThreadInputInputObject
+      UserCreateOneWithoutPostsInput: UserCreateOneWithoutPostsInputInputObject
+      UserCreateWithoutPostsInput: UserCreateWithoutPostsInputInputObject
+      PostCreateManyWithoutAuthorInput: PostCreateManyWithoutAuthorInputInputObject
+      PostCreateWithoutAuthorInput: PostCreateWithoutAuthorInputInputObject
+      ThreadCreateOneWithoutPostsInput: ThreadCreateOneWithoutPostsInputInputObject
+      ThreadCreateWithoutPostsInput: ThreadCreateWithoutPostsInputInputObject
+      UserCreateOneWithoutThreadsInput: UserCreateOneWithoutThreadsInputInputObject
+      UserCreateWithoutThreadsInput: UserCreateWithoutThreadsInputInputObject
       UserUpdateInput: UserUpdateInputInputObject
+      ThreadUpdateManyWithoutAuthorInput: ThreadUpdateManyWithoutAuthorInputInputObject
+      ThreadUpdateWithWhereUniqueWithoutAuthorInput: ThreadUpdateWithWhereUniqueWithoutAuthorInputInputObject
+      ThreadUpdateWithoutAuthorDataInput: ThreadUpdateWithoutAuthorDataInputInputObject
+      ForumUpdateOneRequiredWithoutThreadsInput: ForumUpdateOneRequiredWithoutThreadsInputInputObject
+      ForumUpdateWithoutThreadsDataInput: ForumUpdateWithoutThreadsDataInputInputObject
+      ForumUpsertWithoutThreadsInput: ForumUpsertWithoutThreadsInputInputObject
+      PostUpdateManyWithoutThreadInput: PostUpdateManyWithoutThreadInputInputObject
+      PostUpdateWithWhereUniqueWithoutThreadInput: PostUpdateWithWhereUniqueWithoutThreadInputInputObject
+      PostUpdateWithoutThreadDataInput: PostUpdateWithoutThreadDataInputInputObject
+      UserUpdateOneRequiredWithoutPostsInput: UserUpdateOneRequiredWithoutPostsInputInputObject
+      UserUpdateWithoutPostsDataInput: UserUpdateWithoutPostsDataInputInputObject
+      UserUpsertWithoutPostsInput: UserUpsertWithoutPostsInputInputObject
+      PostUpsertWithWhereUniqueWithoutThreadInput: PostUpsertWithWhereUniqueWithoutThreadInputInputObject
+      PostScalarWhereInput: PostScalarWhereInputInputObject
+      PostUpdateManyWithWhereNestedInput: PostUpdateManyWithWhereNestedInputInputObject
+      PostUpdateManyDataInput: PostUpdateManyDataInputInputObject
+      ThreadUpsertWithWhereUniqueWithoutAuthorInput: ThreadUpsertWithWhereUniqueWithoutAuthorInputInputObject
+      ThreadScalarWhereInput: ThreadScalarWhereInputInputObject
+      ThreadUpdateManyWithWhereNestedInput: ThreadUpdateManyWithWhereNestedInputInputObject
+      ThreadUpdateManyDataInput: ThreadUpdateManyDataInputInputObject
+      PostUpdateManyWithoutAuthorInput: PostUpdateManyWithoutAuthorInputInputObject
+      PostUpdateWithWhereUniqueWithoutAuthorInput: PostUpdateWithWhereUniqueWithoutAuthorInputInputObject
+      PostUpdateWithoutAuthorDataInput: PostUpdateWithoutAuthorDataInputInputObject
+      ThreadUpdateOneRequiredWithoutPostsInput: ThreadUpdateOneRequiredWithoutPostsInputInputObject
+      ThreadUpdateWithoutPostsDataInput: ThreadUpdateWithoutPostsDataInputInputObject
+      UserUpdateOneRequiredWithoutThreadsInput: UserUpdateOneRequiredWithoutThreadsInputInputObject
+      UserUpdateWithoutThreadsDataInput: UserUpdateWithoutThreadsDataInputInputObject
+      UserUpsertWithoutThreadsInput: UserUpsertWithoutThreadsInputInputObject
+      ThreadUpsertWithoutPostsInput: ThreadUpsertWithoutPostsInputInputObject
+      PostUpsertWithWhereUniqueWithoutAuthorInput: PostUpsertWithWhereUniqueWithoutAuthorInputInputObject
       UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
+      ForumCreateInput: ForumCreateInputInputObject
+      ThreadCreateManyWithoutSubForumInput: ThreadCreateManyWithoutSubForumInputInputObject
+      ThreadCreateWithoutSubForumInput: ThreadCreateWithoutSubForumInputInputObject
+      ForumUpdateInput: ForumUpdateInputInputObject
+      ThreadUpdateManyWithoutSubForumInput: ThreadUpdateManyWithoutSubForumInputInputObject
+      ThreadUpdateWithWhereUniqueWithoutSubForumInput: ThreadUpdateWithWhereUniqueWithoutSubForumInputInputObject
+      ThreadUpdateWithoutSubForumDataInput: ThreadUpdateWithoutSubForumDataInputInputObject
+      ThreadUpsertWithWhereUniqueWithoutSubForumInput: ThreadUpsertWithWhereUniqueWithoutSubForumInputInputObject
+      ForumUpdateManyMutationInput: ForumUpdateManyMutationInputInputObject
+      ThreadCreateInput: ThreadCreateInputInputObject
+      ThreadUpdateInput: ThreadUpdateInputInputObject
+      ThreadUpdateManyMutationInput: ThreadUpdateManyMutationInputInputObject
+      PostCreateInput: PostCreateInputInputObject
+      PostUpdateInput: PostUpdateInputInputObject
+      PostUpdateManyMutationInput: PostUpdateManyMutationInputInputObject
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
+      ForumSubscriptionWhereInput: ForumSubscriptionWhereInputInputObject
+      ThreadSubscriptionWhereInput: ThreadSubscriptionWhereInputInputObject
+      PostSubscriptionWhereInput: PostSubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
+    ThreadOrderByInput: ThreadOrderByInputValues,
+    PostOrderByInput: PostOrderByInputValues,
     UserOrderByInput: UserOrderByInputValues,
+    ForumOrderByInput: ForumOrderByInputValues,
     MutationType: MutationTypeValues,
   }
 }
@@ -63,11 +170,29 @@ type QueryObject =
   | { name: 'user', args?: QueryUserArgs[] | false, alias?: string  } 
   | { name: 'users', args?: QueryUsersArgs[] | false, alias?: string  } 
   | { name: 'usersConnection', args?: QueryUsersConnectionArgs[] | false, alias?: string  } 
+  | { name: 'forum', args?: QueryForumArgs[] | false, alias?: string  } 
+  | { name: 'forums', args?: QueryForumsArgs[] | false, alias?: string  } 
+  | { name: 'forumsConnection', args?: QueryForumsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'thread', args?: QueryThreadArgs[] | false, alias?: string  } 
+  | { name: 'threads', args?: QueryThreadsArgs[] | false, alias?: string  } 
+  | { name: 'threadsConnection', args?: QueryThreadsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'post', args?: QueryPostArgs[] | false, alias?: string  } 
+  | { name: 'posts', args?: QueryPostsArgs[] | false, alias?: string  } 
+  | { name: 'postsConnection', args?: QueryPostsConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
   | 'user'
   | 'users'
   | 'usersConnection'
+  | 'forum'
+  | 'forums'
+  | 'forumsConnection'
+  | 'thread'
+  | 'threads'
+  | 'threadsConnection'
+  | 'post'
+  | 'posts'
+  | 'postsConnection'
 
 
 type QueryUserArgs =
@@ -81,6 +206,60 @@ type QueryUsersArgs =
   | 'first'
   | 'last'
 type QueryUsersConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryForumArgs =
+  | 'where'
+type QueryForumsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryForumsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryThreadArgs =
+  | 'where'
+type QueryThreadsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryThreadsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryPostArgs =
+  | 'where'
+type QueryPostsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryPostsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -130,6 +309,123 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.UserConnection> | prisma.UserConnection
   }
+  forum: {
+    type: 'Forum'
+    args: Record<QueryForumArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: ForumWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Forum | null> | prisma.Forum | null
+  }
+  forums: {
+    type: 'Forum'
+    args: Record<QueryForumsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: ForumWhereInput | null, orderBy?: prisma.ForumOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Forum[]> | prisma.Forum[]
+  }
+  forumsConnection: {
+    type: 'ForumConnection'
+    args: Record<QueryForumsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: ForumWhereInput | null, orderBy?: prisma.ForumOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumConnection> | prisma.ForumConnection
+  }
+  thread: {
+    type: 'Thread'
+    args: Record<QueryThreadArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: ThreadWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Thread | null> | prisma.Thread | null
+  }
+  threads: {
+    type: 'Thread'
+    args: Record<QueryThreadsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: ThreadWhereInput | null, orderBy?: prisma.ThreadOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Thread[]> | prisma.Thread[]
+  }
+  threadsConnection: {
+    type: 'ThreadConnection'
+    args: Record<QueryThreadsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: ThreadWhereInput | null, orderBy?: prisma.ThreadOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ThreadConnection> | prisma.ThreadConnection
+  }
+  post: {
+    type: 'Post'
+    args: Record<QueryPostArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: PostWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Post | null> | prisma.Post | null
+  }
+  posts: {
+    type: 'Post'
+    args: Record<QueryPostsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: PostWhereInput | null, orderBy?: prisma.PostOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Post[]> | prisma.Post[]
+  }
+  postsConnection: {
+    type: 'PostConnection'
+    args: Record<QueryPostsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: PostWhereInput | null, orderBy?: prisma.PostOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PostConnection> | prisma.PostConnection
+  }
 }
   
 
@@ -138,18 +434,37 @@ export interface QueryFieldDetails {
 type UserObject =
   | UserFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'username', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
+  | { name: 'threads', args?: UserThreadsArgs[] | false, alias?: string  } 
+  | { name: 'posts', args?: UserPostsArgs[] | false, alias?: string  } 
 
 type UserFields =
   | 'id'
-  | 'name'
+  | 'username'
   | 'email'
   | 'password'
+  | 'threads'
+  | 'posts'
 
 
-
+type UserThreadsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type UserPostsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
   
 
 export interface UserFieldDetails {
@@ -161,7 +476,7 @@ export interface UserFieldDetails {
     nullable: false
     resolve: undefined
   }
-  name: {
+  username: {
     type: 'String'
     args: {}
     description: string
@@ -179,6 +494,301 @@ export interface UserFieldDetails {
   }
   password: {
     type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  threads: {
+    type: 'Thread'
+    args: Record<UserThreadsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"User">,
+      args: { where?: ThreadWhereInput | null, orderBy?: prisma.ThreadOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Thread[]> | prisma.Thread[]
+  }
+  posts: {
+    type: 'Post'
+    args: Record<UserPostsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"User">,
+      args: { where?: PostWhereInput | null, orderBy?: prisma.PostOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Post[]> | prisma.Post[]
+  }
+}
+  
+
+// Types for Thread
+
+type ThreadObject =
+  | ThreadFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'threadnumber', args?: [] | false, alias?: string  } 
+  | { name: 'subForum', args?: [] | false, alias?: string  } 
+  | { name: 'author', args?: [] | false, alias?: string  } 
+  | { name: 'title', args?: [] | false, alias?: string  } 
+  | { name: 'posts', args?: ThreadPostsArgs[] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type ThreadFields =
+  | 'id'
+  | 'threadnumber'
+  | 'subForum'
+  | 'author'
+  | 'title'
+  | 'posts'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+type ThreadPostsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface ThreadFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  threadnumber: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  subForum: {
+    type: 'Forum'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Thread">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Forum> | prisma.Forum
+  }
+  author: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Thread">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User> | prisma.User
+  }
+  title: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  posts: {
+    type: 'Post'
+    args: Record<ThreadPostsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Thread">,
+      args: { where?: PostWhereInput | null, orderBy?: prisma.PostOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Post[]> | prisma.Post[]
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for Forum
+
+type ForumObject =
+  | ForumFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'threads', args?: ForumThreadsArgs[] | false, alias?: string  } 
+
+type ForumFields =
+  | 'id'
+  | 'name'
+  | 'threads'
+
+
+type ForumThreadsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface ForumFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  threads: {
+    type: 'Thread'
+    args: Record<ForumThreadsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Forum">,
+      args: { where?: ThreadWhereInput | null, orderBy?: prisma.ThreadOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Thread[]> | prisma.Thread[]
+  }
+}
+  
+
+// Types for Post
+
+type PostObject =
+  | PostFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'postnumber', args?: [] | false, alias?: string  } 
+  | { name: 'author', args?: [] | false, alias?: string  } 
+  | { name: 'content', args?: [] | false, alias?: string  } 
+  | { name: 'thread', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type PostFields =
+  | 'id'
+  | 'postnumber'
+  | 'author'
+  | 'content'
+  | 'thread'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+
+  
+
+export interface PostFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  postnumber: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  author: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Post">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User> | prisma.User
+  }
+  content: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  thread: {
+    type: 'Thread'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Post">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Thread> | prisma.Thread
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -368,6 +978,381 @@ export interface AggregateUserFieldDetails {
 }
   
 
+// Types for ForumConnection
+
+type ForumConnectionObject =
+  | ForumConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type ForumConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface ForumConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ForumConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'ForumEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ForumConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumEdge[]> | prisma.ForumEdge[]
+  }
+  aggregate: {
+    type: 'AggregateForum'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ForumConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateForum> | prisma.AggregateForum
+  }
+}
+  
+
+// Types for ForumEdge
+
+type ForumEdgeObject =
+  | ForumEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type ForumEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface ForumEdgeFieldDetails {
+  node: {
+    type: 'Forum'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ForumEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Forum> | prisma.Forum
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateForum
+
+type AggregateForumObject =
+  | AggregateForumFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateForumFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateForumFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for ThreadConnection
+
+type ThreadConnectionObject =
+  | ThreadConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type ThreadConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface ThreadConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ThreadConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'ThreadEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ThreadConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ThreadEdge[]> | prisma.ThreadEdge[]
+  }
+  aggregate: {
+    type: 'AggregateThread'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ThreadConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateThread> | prisma.AggregateThread
+  }
+}
+  
+
+// Types for ThreadEdge
+
+type ThreadEdgeObject =
+  | ThreadEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type ThreadEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface ThreadEdgeFieldDetails {
+  node: {
+    type: 'Thread'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ThreadEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Thread> | prisma.Thread
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateThread
+
+type AggregateThreadObject =
+  | AggregateThreadFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateThreadFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateThreadFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for PostConnection
+
+type PostConnectionObject =
+  | PostConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type PostConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface PostConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"PostConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'PostEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"PostConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PostEdge[]> | prisma.PostEdge[]
+  }
+  aggregate: {
+    type: 'AggregatePost'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"PostConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregatePost> | prisma.AggregatePost
+  }
+}
+  
+
+// Types for PostEdge
+
+type PostEdgeObject =
+  | PostEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type PostEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface PostEdgeFieldDetails {
+  node: {
+    type: 'Post'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"PostEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Post> | prisma.Post
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregatePost
+
+type AggregatePostObject =
+  | AggregatePostFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregatePostFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregatePostFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for Mutation
 
 type MutationObject =
@@ -378,6 +1363,24 @@ type MutationObject =
   | { name: 'upsertUser', args?: MutationUpsertUserArgs[] | false, alias?: string  } 
   | { name: 'deleteUser', args?: MutationDeleteUserArgs[] | false, alias?: string  } 
   | { name: 'deleteManyUsers', args?: MutationDeleteManyUsersArgs[] | false, alias?: string  } 
+  | { name: 'createForum', args?: MutationCreateForumArgs[] | false, alias?: string  } 
+  | { name: 'updateForum', args?: MutationUpdateForumArgs[] | false, alias?: string  } 
+  | { name: 'updateManyForums', args?: MutationUpdateManyForumsArgs[] | false, alias?: string  } 
+  | { name: 'upsertForum', args?: MutationUpsertForumArgs[] | false, alias?: string  } 
+  | { name: 'deleteForum', args?: MutationDeleteForumArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyForums', args?: MutationDeleteManyForumsArgs[] | false, alias?: string  } 
+  | { name: 'createThread', args?: MutationCreateThreadArgs[] | false, alias?: string  } 
+  | { name: 'updateThread', args?: MutationUpdateThreadArgs[] | false, alias?: string  } 
+  | { name: 'updateManyThreads', args?: MutationUpdateManyThreadsArgs[] | false, alias?: string  } 
+  | { name: 'upsertThread', args?: MutationUpsertThreadArgs[] | false, alias?: string  } 
+  | { name: 'deleteThread', args?: MutationDeleteThreadArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyThreads', args?: MutationDeleteManyThreadsArgs[] | false, alias?: string  } 
+  | { name: 'createPost', args?: MutationCreatePostArgs[] | false, alias?: string  } 
+  | { name: 'updatePost', args?: MutationUpdatePostArgs[] | false, alias?: string  } 
+  | { name: 'updateManyPosts', args?: MutationUpdateManyPostsArgs[] | false, alias?: string  } 
+  | { name: 'upsertPost', args?: MutationUpsertPostArgs[] | false, alias?: string  } 
+  | { name: 'deletePost', args?: MutationDeletePostArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyPosts', args?: MutationDeleteManyPostsArgs[] | false, alias?: string  } 
 
 type MutationFields =
   | 'createUser'
@@ -386,6 +1389,24 @@ type MutationFields =
   | 'upsertUser'
   | 'deleteUser'
   | 'deleteManyUsers'
+  | 'createForum'
+  | 'updateForum'
+  | 'updateManyForums'
+  | 'upsertForum'
+  | 'deleteForum'
+  | 'deleteManyForums'
+  | 'createThread'
+  | 'updateThread'
+  | 'updateManyThreads'
+  | 'upsertThread'
+  | 'deleteThread'
+  | 'deleteManyThreads'
+  | 'createPost'
+  | 'updatePost'
+  | 'updateManyPosts'
+  | 'upsertPost'
+  | 'deletePost'
+  | 'deleteManyPosts'
 
 
 type MutationCreateUserArgs =
@@ -403,6 +1424,54 @@ type MutationUpsertUserArgs =
 type MutationDeleteUserArgs =
   | 'where'
 type MutationDeleteManyUsersArgs =
+  | 'where'
+type MutationCreateForumArgs =
+  | 'data'
+type MutationUpdateForumArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyForumsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertForumArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteForumArgs =
+  | 'where'
+type MutationDeleteManyForumsArgs =
+  | 'where'
+type MutationCreateThreadArgs =
+  | 'data'
+type MutationUpdateThreadArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyThreadsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertThreadArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteThreadArgs =
+  | 'where'
+type MutationDeleteManyThreadsArgs =
+  | 'where'
+type MutationCreatePostArgs =
+  | 'data'
+type MutationUpdatePostArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyPostsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertPostArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeletePostArgs =
+  | 'where'
+type MutationDeleteManyPostsArgs =
   | 'where'
   
 
@@ -485,6 +1554,240 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
+  createForum: {
+    type: 'Forum'
+    args: Record<MutationCreateForumArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ForumCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Forum> | prisma.Forum
+  }
+  updateForum: {
+    type: 'Forum'
+    args: Record<MutationUpdateForumArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ForumUpdateInput, where: ForumWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Forum | null> | prisma.Forum | null
+  }
+  updateManyForums: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyForumsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ForumUpdateManyMutationInput, where?: ForumWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertForum: {
+    type: 'Forum'
+    args: Record<MutationUpsertForumArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: ForumWhereUniqueInput, create: ForumCreateInput, update: ForumUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Forum> | prisma.Forum
+  }
+  deleteForum: {
+    type: 'Forum'
+    args: Record<MutationDeleteForumArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: ForumWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Forum | null> | prisma.Forum | null
+  }
+  deleteManyForums: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyForumsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: ForumWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createThread: {
+    type: 'Thread'
+    args: Record<MutationCreateThreadArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ThreadCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Thread> | prisma.Thread
+  }
+  updateThread: {
+    type: 'Thread'
+    args: Record<MutationUpdateThreadArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ThreadUpdateInput, where: ThreadWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Thread | null> | prisma.Thread | null
+  }
+  updateManyThreads: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyThreadsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ThreadUpdateManyMutationInput, where?: ThreadWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertThread: {
+    type: 'Thread'
+    args: Record<MutationUpsertThreadArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: ThreadWhereUniqueInput, create: ThreadCreateInput, update: ThreadUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Thread> | prisma.Thread
+  }
+  deleteThread: {
+    type: 'Thread'
+    args: Record<MutationDeleteThreadArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: ThreadWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Thread | null> | prisma.Thread | null
+  }
+  deleteManyThreads: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyThreadsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: ThreadWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createPost: {
+    type: 'Post'
+    args: Record<MutationCreatePostArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: PostCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Post> | prisma.Post
+  }
+  updatePost: {
+    type: 'Post'
+    args: Record<MutationUpdatePostArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: PostUpdateInput, where: PostWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Post | null> | prisma.Post | null
+  }
+  updateManyPosts: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyPostsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: PostUpdateManyMutationInput, where?: PostWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertPost: {
+    type: 'Post'
+    args: Record<MutationUpsertPostArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: PostWhereUniqueInput, create: PostCreateInput, update: PostUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Post> | prisma.Post
+  }
+  deletePost: {
+    type: 'Post'
+    args: Record<MutationDeletePostArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: PostWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Post | null> | prisma.Post | null
+  }
+  deleteManyPosts: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyPostsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: PostWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
 }
   
 
@@ -518,12 +1821,24 @@ export interface BatchPayloadFieldDetails {
 type SubscriptionObject =
   | SubscriptionFields
   | { name: 'user', args?: SubscriptionUserArgs[] | false, alias?: string  } 
+  | { name: 'forum', args?: SubscriptionForumArgs[] | false, alias?: string  } 
+  | { name: 'thread', args?: SubscriptionThreadArgs[] | false, alias?: string  } 
+  | { name: 'post', args?: SubscriptionPostArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'user'
+  | 'forum'
+  | 'thread'
+  | 'post'
 
 
 type SubscriptionUserArgs =
+  | 'where'
+type SubscriptionForumArgs =
+  | 'where'
+type SubscriptionThreadArgs =
+  | 'where'
+type SubscriptionPostArgs =
   | 'where'
   
 
@@ -540,6 +1855,45 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.UserSubscriptionPayload | null> | prisma.UserSubscriptionPayload | null
+  }
+  forum: {
+    type: 'ForumSubscriptionPayload'
+    args: Record<SubscriptionForumArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: ForumSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumSubscriptionPayload | null> | prisma.ForumSubscriptionPayload | null
+  }
+  thread: {
+    type: 'ThreadSubscriptionPayload'
+    args: Record<SubscriptionThreadArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: ThreadSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ThreadSubscriptionPayload | null> | prisma.ThreadSubscriptionPayload | null
+  }
+  post: {
+    type: 'PostSubscriptionPayload'
+    args: Record<SubscriptionPostArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: PostSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PostSubscriptionPayload | null> | prisma.PostSubscriptionPayload | null
   }
 }
   
@@ -619,13 +1973,13 @@ export interface UserSubscriptionPayloadFieldDetails {
 type UserPreviousValuesObject =
   | UserPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'username', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
 
 type UserPreviousValuesFields =
   | 'id'
-  | 'name'
+  | 'username'
   | 'email'
   | 'password'
 
@@ -642,7 +1996,7 @@ export interface UserPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  name: {
+  username: {
     type: 'String'
     args: {}
     description: string
@@ -669,6 +2023,381 @@ export interface UserPreviousValuesFieldDetails {
 }
   
 
+// Types for ForumSubscriptionPayload
+
+type ForumSubscriptionPayloadObject =
+  | ForumSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type ForumSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface ForumSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ForumSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Forum'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"ForumSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Forum | null> | prisma.Forum | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'ForumPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"ForumSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPreviousValues | null> | prisma.ForumPreviousValues | null
+  }
+}
+  
+
+// Types for ForumPreviousValues
+
+type ForumPreviousValuesObject =
+  | ForumPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+
+type ForumPreviousValuesFields =
+  | 'id'
+  | 'name'
+
+
+
+  
+
+export interface ForumPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for ThreadSubscriptionPayload
+
+type ThreadSubscriptionPayloadObject =
+  | ThreadSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type ThreadSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface ThreadSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ThreadSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Thread'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"ThreadSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Thread | null> | prisma.Thread | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'ThreadPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"ThreadSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ThreadPreviousValues | null> | prisma.ThreadPreviousValues | null
+  }
+}
+  
+
+// Types for ThreadPreviousValues
+
+type ThreadPreviousValuesObject =
+  | ThreadPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'threadnumber', args?: [] | false, alias?: string  } 
+  | { name: 'title', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type ThreadPreviousValuesFields =
+  | 'id'
+  | 'threadnumber'
+  | 'title'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+
+  
+
+export interface ThreadPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  threadnumber: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  title: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for PostSubscriptionPayload
+
+type PostSubscriptionPayloadObject =
+  | PostSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type PostSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface PostSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"PostSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Post'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"PostSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Post | null> | prisma.Post | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'PostPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"PostSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PostPreviousValues | null> | prisma.PostPreviousValues | null
+  }
+}
+  
+
+// Types for PostPreviousValues
+
+type PostPreviousValuesObject =
+  | PostPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'postnumber', args?: [] | false, alias?: string  } 
+  | { name: 'content', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type PostPreviousValuesFields =
+  | 'id'
+  | 'postnumber'
+  | 'content'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+
+  
+
+export interface PostPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  postnumber: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  content: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 
 export interface UserWhereUniqueInput {
   id?: string | null
@@ -679,7 +2408,132 @@ export type UserWhereUniqueInputInputObject =
   | { name: 'id', alias?: string  } 
   | { name: 'email', alias?: string  } 
   
-export interface UserWhereInput {
+export interface ThreadWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  threadnumber?: number | null
+  threadnumber_not?: number | null
+  threadnumber_in?: number[]
+  threadnumber_not_in?: number[]
+  threadnumber_lt?: number | null
+  threadnumber_lte?: number | null
+  threadnumber_gt?: number | null
+  threadnumber_gte?: number | null
+  subForum?: ForumWhereInput | null
+  author?: UserWhereInput | null
+  title?: string | null
+  title_not?: string | null
+  title_in?: string[]
+  title_not_in?: string[]
+  title_lt?: string | null
+  title_lte?: string | null
+  title_gt?: string | null
+  title_gte?: string | null
+  title_contains?: string | null
+  title_not_contains?: string | null
+  title_starts_with?: string | null
+  title_not_starts_with?: string | null
+  title_ends_with?: string | null
+  title_not_ends_with?: string | null
+  posts_every?: PostWhereInput | null
+  posts_some?: PostWhereInput | null
+  posts_none?: PostWhereInput | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: ThreadWhereInput[]
+  OR?: ThreadWhereInput[]
+  NOT?: ThreadWhereInput[]
+}
+export type ThreadWhereInputInputObject =
+  | Extract<keyof ThreadWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'threadnumber', alias?: string  } 
+  | { name: 'threadnumber_not', alias?: string  } 
+  | { name: 'threadnumber_in', alias?: string  } 
+  | { name: 'threadnumber_not_in', alias?: string  } 
+  | { name: 'threadnumber_lt', alias?: string  } 
+  | { name: 'threadnumber_lte', alias?: string  } 
+  | { name: 'threadnumber_gt', alias?: string  } 
+  | { name: 'threadnumber_gte', alias?: string  } 
+  | { name: 'subForum', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'title_not', alias?: string  } 
+  | { name: 'title_in', alias?: string  } 
+  | { name: 'title_not_in', alias?: string  } 
+  | { name: 'title_lt', alias?: string  } 
+  | { name: 'title_lte', alias?: string  } 
+  | { name: 'title_gt', alias?: string  } 
+  | { name: 'title_gte', alias?: string  } 
+  | { name: 'title_contains', alias?: string  } 
+  | { name: 'title_not_contains', alias?: string  } 
+  | { name: 'title_starts_with', alias?: string  } 
+  | { name: 'title_not_starts_with', alias?: string  } 
+  | { name: 'title_ends_with', alias?: string  } 
+  | { name: 'title_not_ends_with', alias?: string  } 
+  | { name: 'posts_every', alias?: string  } 
+  | { name: 'posts_some', alias?: string  } 
+  | { name: 'posts_none', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ForumWhereInput {
   id?: string | null
   id_not?: string | null
   id_in?: string[]
@@ -708,40 +2562,15 @@ export interface UserWhereInput {
   name_not_starts_with?: string | null
   name_ends_with?: string | null
   name_not_ends_with?: string | null
-  email?: string | null
-  email_not?: string | null
-  email_in?: string[]
-  email_not_in?: string[]
-  email_lt?: string | null
-  email_lte?: string | null
-  email_gt?: string | null
-  email_gte?: string | null
-  email_contains?: string | null
-  email_not_contains?: string | null
-  email_starts_with?: string | null
-  email_not_starts_with?: string | null
-  email_ends_with?: string | null
-  email_not_ends_with?: string | null
-  password?: string | null
-  password_not?: string | null
-  password_in?: string[]
-  password_not_in?: string[]
-  password_lt?: string | null
-  password_lte?: string | null
-  password_gt?: string | null
-  password_gte?: string | null
-  password_contains?: string | null
-  password_not_contains?: string | null
-  password_starts_with?: string | null
-  password_not_starts_with?: string | null
-  password_ends_with?: string | null
-  password_not_ends_with?: string | null
-  AND?: UserWhereInput[]
-  OR?: UserWhereInput[]
-  NOT?: UserWhereInput[]
+  threads_every?: ThreadWhereInput | null
+  threads_some?: ThreadWhereInput | null
+  threads_none?: ThreadWhereInput | null
+  AND?: ForumWhereInput[]
+  OR?: ForumWhereInput[]
+  NOT?: ForumWhereInput[]
 }
-export type UserWhereInputInputObject =
-  | Extract<keyof UserWhereInput, string>
+export type ForumWhereInputInputObject =
+  | Extract<keyof ForumWhereInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'id_not', alias?: string  } 
   | { name: 'id_in', alias?: string  } 
@@ -770,6 +2599,110 @@ export type UserWhereInputInputObject =
   | { name: 'name_not_starts_with', alias?: string  } 
   | { name: 'name_ends_with', alias?: string  } 
   | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'threads_every', alias?: string  } 
+  | { name: 'threads_some', alias?: string  } 
+  | { name: 'threads_none', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface UserWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  username?: string | null
+  username_not?: string | null
+  username_in?: string[]
+  username_not_in?: string[]
+  username_lt?: string | null
+  username_lte?: string | null
+  username_gt?: string | null
+  username_gte?: string | null
+  username_contains?: string | null
+  username_not_contains?: string | null
+  username_starts_with?: string | null
+  username_not_starts_with?: string | null
+  username_ends_with?: string | null
+  username_not_ends_with?: string | null
+  email?: string | null
+  email_not?: string | null
+  email_in?: string[]
+  email_not_in?: string[]
+  email_lt?: string | null
+  email_lte?: string | null
+  email_gt?: string | null
+  email_gte?: string | null
+  email_contains?: string | null
+  email_not_contains?: string | null
+  email_starts_with?: string | null
+  email_not_starts_with?: string | null
+  email_ends_with?: string | null
+  email_not_ends_with?: string | null
+  password?: string | null
+  password_not?: string | null
+  password_in?: string[]
+  password_not_in?: string[]
+  password_lt?: string | null
+  password_lte?: string | null
+  password_gt?: string | null
+  password_gte?: string | null
+  password_contains?: string | null
+  password_not_contains?: string | null
+  password_starts_with?: string | null
+  password_not_starts_with?: string | null
+  password_ends_with?: string | null
+  password_not_ends_with?: string | null
+  threads_every?: ThreadWhereInput | null
+  threads_some?: ThreadWhereInput | null
+  threads_none?: ThreadWhereInput | null
+  posts_every?: PostWhereInput | null
+  posts_some?: PostWhereInput | null
+  posts_none?: PostWhereInput | null
+  AND?: UserWhereInput[]
+  OR?: UserWhereInput[]
+  NOT?: UserWhereInput[]
+}
+export type UserWhereInputInputObject =
+  | Extract<keyof UserWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'username_not', alias?: string  } 
+  | { name: 'username_in', alias?: string  } 
+  | { name: 'username_not_in', alias?: string  } 
+  | { name: 'username_lt', alias?: string  } 
+  | { name: 'username_lte', alias?: string  } 
+  | { name: 'username_gt', alias?: string  } 
+  | { name: 'username_gte', alias?: string  } 
+  | { name: 'username_contains', alias?: string  } 
+  | { name: 'username_not_contains', alias?: string  } 
+  | { name: 'username_starts_with', alias?: string  } 
+  | { name: 'username_not_starts_with', alias?: string  } 
+  | { name: 'username_ends_with', alias?: string  } 
+  | { name: 'username_not_ends_with', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'email_not', alias?: string  } 
   | { name: 'email_in', alias?: string  } 
@@ -798,42 +2731,1083 @@ export type UserWhereInputInputObject =
   | { name: 'password_not_starts_with', alias?: string  } 
   | { name: 'password_ends_with', alias?: string  } 
   | { name: 'password_not_ends_with', alias?: string  } 
+  | { name: 'threads_every', alias?: string  } 
+  | { name: 'threads_some', alias?: string  } 
+  | { name: 'threads_none', alias?: string  } 
+  | { name: 'posts_every', alias?: string  } 
+  | { name: 'posts_some', alias?: string  } 
+  | { name: 'posts_none', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface PostWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  postnumber?: number | null
+  postnumber_not?: number | null
+  postnumber_in?: number[]
+  postnumber_not_in?: number[]
+  postnumber_lt?: number | null
+  postnumber_lte?: number | null
+  postnumber_gt?: number | null
+  postnumber_gte?: number | null
+  author?: UserWhereInput | null
+  content?: string | null
+  content_not?: string | null
+  content_in?: string[]
+  content_not_in?: string[]
+  content_lt?: string | null
+  content_lte?: string | null
+  content_gt?: string | null
+  content_gte?: string | null
+  content_contains?: string | null
+  content_not_contains?: string | null
+  content_starts_with?: string | null
+  content_not_starts_with?: string | null
+  content_ends_with?: string | null
+  content_not_ends_with?: string | null
+  thread?: ThreadWhereInput | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: PostWhereInput[]
+  OR?: PostWhereInput[]
+  NOT?: PostWhereInput[]
+}
+export type PostWhereInputInputObject =
+  | Extract<keyof PostWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'postnumber', alias?: string  } 
+  | { name: 'postnumber_not', alias?: string  } 
+  | { name: 'postnumber_in', alias?: string  } 
+  | { name: 'postnumber_not_in', alias?: string  } 
+  | { name: 'postnumber_lt', alias?: string  } 
+  | { name: 'postnumber_lte', alias?: string  } 
+  | { name: 'postnumber_gt', alias?: string  } 
+  | { name: 'postnumber_gte', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  | { name: 'content_not', alias?: string  } 
+  | { name: 'content_in', alias?: string  } 
+  | { name: 'content_not_in', alias?: string  } 
+  | { name: 'content_lt', alias?: string  } 
+  | { name: 'content_lte', alias?: string  } 
+  | { name: 'content_gt', alias?: string  } 
+  | { name: 'content_gte', alias?: string  } 
+  | { name: 'content_contains', alias?: string  } 
+  | { name: 'content_not_contains', alias?: string  } 
+  | { name: 'content_starts_with', alias?: string  } 
+  | { name: 'content_not_starts_with', alias?: string  } 
+  | { name: 'content_ends_with', alias?: string  } 
+  | { name: 'content_not_ends_with', alias?: string  } 
+  | { name: 'thread', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ForumWhereUniqueInput {
+  id?: string | null
+  name?: string | null
+}
+export type ForumWhereUniqueInputInputObject =
+  | Extract<keyof ForumWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  
+export interface ThreadWhereUniqueInput {
+  id?: string | null
+}
+export type ThreadWhereUniqueInputInputObject =
+  | Extract<keyof ThreadWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface PostWhereUniqueInput {
+  id?: string | null
+}
+export type PostWhereUniqueInputInputObject =
+  | Extract<keyof PostWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
 export interface UserCreateInput {
-  name?: string
+  username?: string
   email?: string
   password?: string
+  threads?: ThreadCreateManyWithoutAuthorInput | null
+  posts?: PostCreateManyWithoutAuthorInput | null
 }
 export type UserCreateInputInputObject =
   | Extract<keyof UserCreateInput, string>
-  | { name: 'name', alias?: string  } 
+  | { name: 'username', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'password', alias?: string  } 
+  | { name: 'threads', alias?: string  } 
+  | { name: 'posts', alias?: string  } 
+  
+export interface ThreadCreateManyWithoutAuthorInput {
+  create?: ThreadCreateWithoutAuthorInput[]
+  connect?: ThreadWhereUniqueInput[]
+}
+export type ThreadCreateManyWithoutAuthorInputInputObject =
+  | Extract<keyof ThreadCreateManyWithoutAuthorInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ThreadCreateWithoutAuthorInput {
+  threadnumber?: number
+  subForum?: ForumCreateOneWithoutThreadsInput
+  title?: string
+  posts?: PostCreateManyWithoutThreadInput | null
+}
+export type ThreadCreateWithoutAuthorInputInputObject =
+  | Extract<keyof ThreadCreateWithoutAuthorInput, string>
+  | { name: 'threadnumber', alias?: string  } 
+  | { name: 'subForum', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'posts', alias?: string  } 
+  
+export interface ForumCreateOneWithoutThreadsInput {
+  create?: ForumCreateWithoutThreadsInput | null
+  connect?: ForumWhereUniqueInput | null
+}
+export type ForumCreateOneWithoutThreadsInputInputObject =
+  | Extract<keyof ForumCreateOneWithoutThreadsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ForumCreateWithoutThreadsInput {
+  name?: string
+}
+export type ForumCreateWithoutThreadsInputInputObject =
+  | Extract<keyof ForumCreateWithoutThreadsInput, string>
+  | { name: 'name', alias?: string  } 
+  
+export interface PostCreateManyWithoutThreadInput {
+  create?: PostCreateWithoutThreadInput[]
+  connect?: PostWhereUniqueInput[]
+}
+export type PostCreateManyWithoutThreadInputInputObject =
+  | Extract<keyof PostCreateManyWithoutThreadInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface PostCreateWithoutThreadInput {
+  postnumber?: number
+  author?: UserCreateOneWithoutPostsInput
+  content?: string
+}
+export type PostCreateWithoutThreadInputInputObject =
+  | Extract<keyof PostCreateWithoutThreadInput, string>
+  | { name: 'postnumber', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  
+export interface UserCreateOneWithoutPostsInput {
+  create?: UserCreateWithoutPostsInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserCreateOneWithoutPostsInputInputObject =
+  | Extract<keyof UserCreateOneWithoutPostsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserCreateWithoutPostsInput {
+  username?: string
+  email?: string
+  password?: string
+  threads?: ThreadCreateManyWithoutAuthorInput | null
+}
+export type UserCreateWithoutPostsInputInputObject =
+  | Extract<keyof UserCreateWithoutPostsInput, string>
+  | { name: 'username', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'threads', alias?: string  } 
+  
+export interface PostCreateManyWithoutAuthorInput {
+  create?: PostCreateWithoutAuthorInput[]
+  connect?: PostWhereUniqueInput[]
+}
+export type PostCreateManyWithoutAuthorInputInputObject =
+  | Extract<keyof PostCreateManyWithoutAuthorInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface PostCreateWithoutAuthorInput {
+  postnumber?: number
+  content?: string
+  thread?: ThreadCreateOneWithoutPostsInput
+}
+export type PostCreateWithoutAuthorInputInputObject =
+  | Extract<keyof PostCreateWithoutAuthorInput, string>
+  | { name: 'postnumber', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  | { name: 'thread', alias?: string  } 
+  
+export interface ThreadCreateOneWithoutPostsInput {
+  create?: ThreadCreateWithoutPostsInput | null
+  connect?: ThreadWhereUniqueInput | null
+}
+export type ThreadCreateOneWithoutPostsInputInputObject =
+  | Extract<keyof ThreadCreateOneWithoutPostsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ThreadCreateWithoutPostsInput {
+  threadnumber?: number
+  subForum?: ForumCreateOneWithoutThreadsInput
+  author?: UserCreateOneWithoutThreadsInput
+  title?: string
+}
+export type ThreadCreateWithoutPostsInputInputObject =
+  | Extract<keyof ThreadCreateWithoutPostsInput, string>
+  | { name: 'threadnumber', alias?: string  } 
+  | { name: 'subForum', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  
+export interface UserCreateOneWithoutThreadsInput {
+  create?: UserCreateWithoutThreadsInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserCreateOneWithoutThreadsInputInputObject =
+  | Extract<keyof UserCreateOneWithoutThreadsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserCreateWithoutThreadsInput {
+  username?: string
+  email?: string
+  password?: string
+  posts?: PostCreateManyWithoutAuthorInput | null
+}
+export type UserCreateWithoutThreadsInputInputObject =
+  | Extract<keyof UserCreateWithoutThreadsInput, string>
+  | { name: 'username', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'posts', alias?: string  } 
   
 export interface UserUpdateInput {
-  name?: string | null
+  username?: string | null
   email?: string | null
   password?: string | null
+  threads?: ThreadUpdateManyWithoutAuthorInput | null
+  posts?: PostUpdateManyWithoutAuthorInput | null
 }
 export type UserUpdateInputInputObject =
   | Extract<keyof UserUpdateInput, string>
-  | { name: 'name', alias?: string  } 
+  | { name: 'username', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'password', alias?: string  } 
+  | { name: 'threads', alias?: string  } 
+  | { name: 'posts', alias?: string  } 
+  
+export interface ThreadUpdateManyWithoutAuthorInput {
+  create?: ThreadCreateWithoutAuthorInput[]
+  delete?: ThreadWhereUniqueInput[]
+  connect?: ThreadWhereUniqueInput[]
+  set?: ThreadWhereUniqueInput[]
+  disconnect?: ThreadWhereUniqueInput[]
+  update?: ThreadUpdateWithWhereUniqueWithoutAuthorInput[]
+  upsert?: ThreadUpsertWithWhereUniqueWithoutAuthorInput[]
+  deleteMany?: ThreadScalarWhereInput[]
+  updateMany?: ThreadUpdateManyWithWhereNestedInput[]
+}
+export type ThreadUpdateManyWithoutAuthorInputInputObject =
+  | Extract<keyof ThreadUpdateManyWithoutAuthorInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ThreadUpdateWithWhereUniqueWithoutAuthorInput {
+  where?: ThreadWhereUniqueInput
+  data?: ThreadUpdateWithoutAuthorDataInput
+}
+export type ThreadUpdateWithWhereUniqueWithoutAuthorInputInputObject =
+  | Extract<keyof ThreadUpdateWithWhereUniqueWithoutAuthorInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ThreadUpdateWithoutAuthorDataInput {
+  threadnumber?: number | null
+  subForum?: ForumUpdateOneRequiredWithoutThreadsInput | null
+  title?: string | null
+  posts?: PostUpdateManyWithoutThreadInput | null
+}
+export type ThreadUpdateWithoutAuthorDataInputInputObject =
+  | Extract<keyof ThreadUpdateWithoutAuthorDataInput, string>
+  | { name: 'threadnumber', alias?: string  } 
+  | { name: 'subForum', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'posts', alias?: string  } 
+  
+export interface ForumUpdateOneRequiredWithoutThreadsInput {
+  create?: ForumCreateWithoutThreadsInput | null
+  update?: ForumUpdateWithoutThreadsDataInput | null
+  upsert?: ForumUpsertWithoutThreadsInput | null
+  connect?: ForumWhereUniqueInput | null
+}
+export type ForumUpdateOneRequiredWithoutThreadsInputInputObject =
+  | Extract<keyof ForumUpdateOneRequiredWithoutThreadsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ForumUpdateWithoutThreadsDataInput {
+  name?: string | null
+}
+export type ForumUpdateWithoutThreadsDataInputInputObject =
+  | Extract<keyof ForumUpdateWithoutThreadsDataInput, string>
+  | { name: 'name', alias?: string  } 
+  
+export interface ForumUpsertWithoutThreadsInput {
+  update?: ForumUpdateWithoutThreadsDataInput
+  create?: ForumCreateWithoutThreadsInput
+}
+export type ForumUpsertWithoutThreadsInputInputObject =
+  | Extract<keyof ForumUpsertWithoutThreadsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface PostUpdateManyWithoutThreadInput {
+  create?: PostCreateWithoutThreadInput[]
+  delete?: PostWhereUniqueInput[]
+  connect?: PostWhereUniqueInput[]
+  set?: PostWhereUniqueInput[]
+  disconnect?: PostWhereUniqueInput[]
+  update?: PostUpdateWithWhereUniqueWithoutThreadInput[]
+  upsert?: PostUpsertWithWhereUniqueWithoutThreadInput[]
+  deleteMany?: PostScalarWhereInput[]
+  updateMany?: PostUpdateManyWithWhereNestedInput[]
+}
+export type PostUpdateManyWithoutThreadInputInputObject =
+  | Extract<keyof PostUpdateManyWithoutThreadInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface PostUpdateWithWhereUniqueWithoutThreadInput {
+  where?: PostWhereUniqueInput
+  data?: PostUpdateWithoutThreadDataInput
+}
+export type PostUpdateWithWhereUniqueWithoutThreadInputInputObject =
+  | Extract<keyof PostUpdateWithWhereUniqueWithoutThreadInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface PostUpdateWithoutThreadDataInput {
+  postnumber?: number | null
+  author?: UserUpdateOneRequiredWithoutPostsInput | null
+  content?: string | null
+}
+export type PostUpdateWithoutThreadDataInputInputObject =
+  | Extract<keyof PostUpdateWithoutThreadDataInput, string>
+  | { name: 'postnumber', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  
+export interface UserUpdateOneRequiredWithoutPostsInput {
+  create?: UserCreateWithoutPostsInput | null
+  update?: UserUpdateWithoutPostsDataInput | null
+  upsert?: UserUpsertWithoutPostsInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserUpdateOneRequiredWithoutPostsInputInputObject =
+  | Extract<keyof UserUpdateOneRequiredWithoutPostsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserUpdateWithoutPostsDataInput {
+  username?: string | null
+  email?: string | null
+  password?: string | null
+  threads?: ThreadUpdateManyWithoutAuthorInput | null
+}
+export type UserUpdateWithoutPostsDataInputInputObject =
+  | Extract<keyof UserUpdateWithoutPostsDataInput, string>
+  | { name: 'username', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'threads', alias?: string  } 
+  
+export interface UserUpsertWithoutPostsInput {
+  update?: UserUpdateWithoutPostsDataInput
+  create?: UserCreateWithoutPostsInput
+}
+export type UserUpsertWithoutPostsInputInputObject =
+  | Extract<keyof UserUpsertWithoutPostsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface PostUpsertWithWhereUniqueWithoutThreadInput {
+  where?: PostWhereUniqueInput
+  update?: PostUpdateWithoutThreadDataInput
+  create?: PostCreateWithoutThreadInput
+}
+export type PostUpsertWithWhereUniqueWithoutThreadInputInputObject =
+  | Extract<keyof PostUpsertWithWhereUniqueWithoutThreadInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface PostScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  postnumber?: number | null
+  postnumber_not?: number | null
+  postnumber_in?: number[]
+  postnumber_not_in?: number[]
+  postnumber_lt?: number | null
+  postnumber_lte?: number | null
+  postnumber_gt?: number | null
+  postnumber_gte?: number | null
+  content?: string | null
+  content_not?: string | null
+  content_in?: string[]
+  content_not_in?: string[]
+  content_lt?: string | null
+  content_lte?: string | null
+  content_gt?: string | null
+  content_gte?: string | null
+  content_contains?: string | null
+  content_not_contains?: string | null
+  content_starts_with?: string | null
+  content_not_starts_with?: string | null
+  content_ends_with?: string | null
+  content_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: PostScalarWhereInput[]
+  OR?: PostScalarWhereInput[]
+  NOT?: PostScalarWhereInput[]
+}
+export type PostScalarWhereInputInputObject =
+  | Extract<keyof PostScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'postnumber', alias?: string  } 
+  | { name: 'postnumber_not', alias?: string  } 
+  | { name: 'postnumber_in', alias?: string  } 
+  | { name: 'postnumber_not_in', alias?: string  } 
+  | { name: 'postnumber_lt', alias?: string  } 
+  | { name: 'postnumber_lte', alias?: string  } 
+  | { name: 'postnumber_gt', alias?: string  } 
+  | { name: 'postnumber_gte', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  | { name: 'content_not', alias?: string  } 
+  | { name: 'content_in', alias?: string  } 
+  | { name: 'content_not_in', alias?: string  } 
+  | { name: 'content_lt', alias?: string  } 
+  | { name: 'content_lte', alias?: string  } 
+  | { name: 'content_gt', alias?: string  } 
+  | { name: 'content_gte', alias?: string  } 
+  | { name: 'content_contains', alias?: string  } 
+  | { name: 'content_not_contains', alias?: string  } 
+  | { name: 'content_starts_with', alias?: string  } 
+  | { name: 'content_not_starts_with', alias?: string  } 
+  | { name: 'content_ends_with', alias?: string  } 
+  | { name: 'content_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface PostUpdateManyWithWhereNestedInput {
+  where?: PostScalarWhereInput
+  data?: PostUpdateManyDataInput
+}
+export type PostUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof PostUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface PostUpdateManyDataInput {
+  postnumber?: number | null
+  content?: string | null
+}
+export type PostUpdateManyDataInputInputObject =
+  | Extract<keyof PostUpdateManyDataInput, string>
+  | { name: 'postnumber', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  
+export interface ThreadUpsertWithWhereUniqueWithoutAuthorInput {
+  where?: ThreadWhereUniqueInput
+  update?: ThreadUpdateWithoutAuthorDataInput
+  create?: ThreadCreateWithoutAuthorInput
+}
+export type ThreadUpsertWithWhereUniqueWithoutAuthorInputInputObject =
+  | Extract<keyof ThreadUpsertWithWhereUniqueWithoutAuthorInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ThreadScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  threadnumber?: number | null
+  threadnumber_not?: number | null
+  threadnumber_in?: number[]
+  threadnumber_not_in?: number[]
+  threadnumber_lt?: number | null
+  threadnumber_lte?: number | null
+  threadnumber_gt?: number | null
+  threadnumber_gte?: number | null
+  title?: string | null
+  title_not?: string | null
+  title_in?: string[]
+  title_not_in?: string[]
+  title_lt?: string | null
+  title_lte?: string | null
+  title_gt?: string | null
+  title_gte?: string | null
+  title_contains?: string | null
+  title_not_contains?: string | null
+  title_starts_with?: string | null
+  title_not_starts_with?: string | null
+  title_ends_with?: string | null
+  title_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: ThreadScalarWhereInput[]
+  OR?: ThreadScalarWhereInput[]
+  NOT?: ThreadScalarWhereInput[]
+}
+export type ThreadScalarWhereInputInputObject =
+  | Extract<keyof ThreadScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'threadnumber', alias?: string  } 
+  | { name: 'threadnumber_not', alias?: string  } 
+  | { name: 'threadnumber_in', alias?: string  } 
+  | { name: 'threadnumber_not_in', alias?: string  } 
+  | { name: 'threadnumber_lt', alias?: string  } 
+  | { name: 'threadnumber_lte', alias?: string  } 
+  | { name: 'threadnumber_gt', alias?: string  } 
+  | { name: 'threadnumber_gte', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'title_not', alias?: string  } 
+  | { name: 'title_in', alias?: string  } 
+  | { name: 'title_not_in', alias?: string  } 
+  | { name: 'title_lt', alias?: string  } 
+  | { name: 'title_lte', alias?: string  } 
+  | { name: 'title_gt', alias?: string  } 
+  | { name: 'title_gte', alias?: string  } 
+  | { name: 'title_contains', alias?: string  } 
+  | { name: 'title_not_contains', alias?: string  } 
+  | { name: 'title_starts_with', alias?: string  } 
+  | { name: 'title_not_starts_with', alias?: string  } 
+  | { name: 'title_ends_with', alias?: string  } 
+  | { name: 'title_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ThreadUpdateManyWithWhereNestedInput {
+  where?: ThreadScalarWhereInput
+  data?: ThreadUpdateManyDataInput
+}
+export type ThreadUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof ThreadUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ThreadUpdateManyDataInput {
+  threadnumber?: number | null
+  title?: string | null
+}
+export type ThreadUpdateManyDataInputInputObject =
+  | Extract<keyof ThreadUpdateManyDataInput, string>
+  | { name: 'threadnumber', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  
+export interface PostUpdateManyWithoutAuthorInput {
+  create?: PostCreateWithoutAuthorInput[]
+  delete?: PostWhereUniqueInput[]
+  connect?: PostWhereUniqueInput[]
+  set?: PostWhereUniqueInput[]
+  disconnect?: PostWhereUniqueInput[]
+  update?: PostUpdateWithWhereUniqueWithoutAuthorInput[]
+  upsert?: PostUpsertWithWhereUniqueWithoutAuthorInput[]
+  deleteMany?: PostScalarWhereInput[]
+  updateMany?: PostUpdateManyWithWhereNestedInput[]
+}
+export type PostUpdateManyWithoutAuthorInputInputObject =
+  | Extract<keyof PostUpdateManyWithoutAuthorInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface PostUpdateWithWhereUniqueWithoutAuthorInput {
+  where?: PostWhereUniqueInput
+  data?: PostUpdateWithoutAuthorDataInput
+}
+export type PostUpdateWithWhereUniqueWithoutAuthorInputInputObject =
+  | Extract<keyof PostUpdateWithWhereUniqueWithoutAuthorInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface PostUpdateWithoutAuthorDataInput {
+  postnumber?: number | null
+  content?: string | null
+  thread?: ThreadUpdateOneRequiredWithoutPostsInput | null
+}
+export type PostUpdateWithoutAuthorDataInputInputObject =
+  | Extract<keyof PostUpdateWithoutAuthorDataInput, string>
+  | { name: 'postnumber', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  | { name: 'thread', alias?: string  } 
+  
+export interface ThreadUpdateOneRequiredWithoutPostsInput {
+  create?: ThreadCreateWithoutPostsInput | null
+  update?: ThreadUpdateWithoutPostsDataInput | null
+  upsert?: ThreadUpsertWithoutPostsInput | null
+  connect?: ThreadWhereUniqueInput | null
+}
+export type ThreadUpdateOneRequiredWithoutPostsInputInputObject =
+  | Extract<keyof ThreadUpdateOneRequiredWithoutPostsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ThreadUpdateWithoutPostsDataInput {
+  threadnumber?: number | null
+  subForum?: ForumUpdateOneRequiredWithoutThreadsInput | null
+  author?: UserUpdateOneRequiredWithoutThreadsInput | null
+  title?: string | null
+}
+export type ThreadUpdateWithoutPostsDataInputInputObject =
+  | Extract<keyof ThreadUpdateWithoutPostsDataInput, string>
+  | { name: 'threadnumber', alias?: string  } 
+  | { name: 'subForum', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  
+export interface UserUpdateOneRequiredWithoutThreadsInput {
+  create?: UserCreateWithoutThreadsInput | null
+  update?: UserUpdateWithoutThreadsDataInput | null
+  upsert?: UserUpsertWithoutThreadsInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserUpdateOneRequiredWithoutThreadsInputInputObject =
+  | Extract<keyof UserUpdateOneRequiredWithoutThreadsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserUpdateWithoutThreadsDataInput {
+  username?: string | null
+  email?: string | null
+  password?: string | null
+  posts?: PostUpdateManyWithoutAuthorInput | null
+}
+export type UserUpdateWithoutThreadsDataInputInputObject =
+  | Extract<keyof UserUpdateWithoutThreadsDataInput, string>
+  | { name: 'username', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'posts', alias?: string  } 
+  
+export interface UserUpsertWithoutThreadsInput {
+  update?: UserUpdateWithoutThreadsDataInput
+  create?: UserCreateWithoutThreadsInput
+}
+export type UserUpsertWithoutThreadsInputInputObject =
+  | Extract<keyof UserUpsertWithoutThreadsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ThreadUpsertWithoutPostsInput {
+  update?: ThreadUpdateWithoutPostsDataInput
+  create?: ThreadCreateWithoutPostsInput
+}
+export type ThreadUpsertWithoutPostsInputInputObject =
+  | Extract<keyof ThreadUpsertWithoutPostsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface PostUpsertWithWhereUniqueWithoutAuthorInput {
+  where?: PostWhereUniqueInput
+  update?: PostUpdateWithoutAuthorDataInput
+  create?: PostCreateWithoutAuthorInput
+}
+export type PostUpsertWithWhereUniqueWithoutAuthorInputInputObject =
+  | Extract<keyof PostUpsertWithWhereUniqueWithoutAuthorInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
   
 export interface UserUpdateManyMutationInput {
-  name?: string | null
+  username?: string | null
   email?: string | null
   password?: string | null
 }
 export type UserUpdateManyMutationInputInputObject =
   | Extract<keyof UserUpdateManyMutationInput, string>
-  | { name: 'name', alias?: string  } 
+  | { name: 'username', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'password', alias?: string  } 
+  
+export interface ForumCreateInput {
+  name?: string
+  threads?: ThreadCreateManyWithoutSubForumInput | null
+}
+export type ForumCreateInputInputObject =
+  | Extract<keyof ForumCreateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'threads', alias?: string  } 
+  
+export interface ThreadCreateManyWithoutSubForumInput {
+  create?: ThreadCreateWithoutSubForumInput[]
+  connect?: ThreadWhereUniqueInput[]
+}
+export type ThreadCreateManyWithoutSubForumInputInputObject =
+  | Extract<keyof ThreadCreateManyWithoutSubForumInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ThreadCreateWithoutSubForumInput {
+  threadnumber?: number
+  author?: UserCreateOneWithoutThreadsInput
+  title?: string
+  posts?: PostCreateManyWithoutThreadInput | null
+}
+export type ThreadCreateWithoutSubForumInputInputObject =
+  | Extract<keyof ThreadCreateWithoutSubForumInput, string>
+  | { name: 'threadnumber', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'posts', alias?: string  } 
+  
+export interface ForumUpdateInput {
+  name?: string | null
+  threads?: ThreadUpdateManyWithoutSubForumInput | null
+}
+export type ForumUpdateInputInputObject =
+  | Extract<keyof ForumUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'threads', alias?: string  } 
+  
+export interface ThreadUpdateManyWithoutSubForumInput {
+  create?: ThreadCreateWithoutSubForumInput[]
+  delete?: ThreadWhereUniqueInput[]
+  connect?: ThreadWhereUniqueInput[]
+  set?: ThreadWhereUniqueInput[]
+  disconnect?: ThreadWhereUniqueInput[]
+  update?: ThreadUpdateWithWhereUniqueWithoutSubForumInput[]
+  upsert?: ThreadUpsertWithWhereUniqueWithoutSubForumInput[]
+  deleteMany?: ThreadScalarWhereInput[]
+  updateMany?: ThreadUpdateManyWithWhereNestedInput[]
+}
+export type ThreadUpdateManyWithoutSubForumInputInputObject =
+  | Extract<keyof ThreadUpdateManyWithoutSubForumInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ThreadUpdateWithWhereUniqueWithoutSubForumInput {
+  where?: ThreadWhereUniqueInput
+  data?: ThreadUpdateWithoutSubForumDataInput
+}
+export type ThreadUpdateWithWhereUniqueWithoutSubForumInputInputObject =
+  | Extract<keyof ThreadUpdateWithWhereUniqueWithoutSubForumInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ThreadUpdateWithoutSubForumDataInput {
+  threadnumber?: number | null
+  author?: UserUpdateOneRequiredWithoutThreadsInput | null
+  title?: string | null
+  posts?: PostUpdateManyWithoutThreadInput | null
+}
+export type ThreadUpdateWithoutSubForumDataInputInputObject =
+  | Extract<keyof ThreadUpdateWithoutSubForumDataInput, string>
+  | { name: 'threadnumber', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'posts', alias?: string  } 
+  
+export interface ThreadUpsertWithWhereUniqueWithoutSubForumInput {
+  where?: ThreadWhereUniqueInput
+  update?: ThreadUpdateWithoutSubForumDataInput
+  create?: ThreadCreateWithoutSubForumInput
+}
+export type ThreadUpsertWithWhereUniqueWithoutSubForumInputInputObject =
+  | Extract<keyof ThreadUpsertWithWhereUniqueWithoutSubForumInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ForumUpdateManyMutationInput {
+  name?: string | null
+}
+export type ForumUpdateManyMutationInputInputObject =
+  | Extract<keyof ForumUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  
+export interface ThreadCreateInput {
+  threadnumber?: number
+  subForum?: ForumCreateOneWithoutThreadsInput
+  author?: UserCreateOneWithoutThreadsInput
+  title?: string
+  posts?: PostCreateManyWithoutThreadInput | null
+}
+export type ThreadCreateInputInputObject =
+  | Extract<keyof ThreadCreateInput, string>
+  | { name: 'threadnumber', alias?: string  } 
+  | { name: 'subForum', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'posts', alias?: string  } 
+  
+export interface ThreadUpdateInput {
+  threadnumber?: number | null
+  subForum?: ForumUpdateOneRequiredWithoutThreadsInput | null
+  author?: UserUpdateOneRequiredWithoutThreadsInput | null
+  title?: string | null
+  posts?: PostUpdateManyWithoutThreadInput | null
+}
+export type ThreadUpdateInputInputObject =
+  | Extract<keyof ThreadUpdateInput, string>
+  | { name: 'threadnumber', alias?: string  } 
+  | { name: 'subForum', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'posts', alias?: string  } 
+  
+export interface ThreadUpdateManyMutationInput {
+  threadnumber?: number | null
+  title?: string | null
+}
+export type ThreadUpdateManyMutationInputInputObject =
+  | Extract<keyof ThreadUpdateManyMutationInput, string>
+  | { name: 'threadnumber', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  
+export interface PostCreateInput {
+  postnumber?: number
+  author?: UserCreateOneWithoutPostsInput
+  content?: string
+  thread?: ThreadCreateOneWithoutPostsInput
+}
+export type PostCreateInputInputObject =
+  | Extract<keyof PostCreateInput, string>
+  | { name: 'postnumber', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  | { name: 'thread', alias?: string  } 
+  
+export interface PostUpdateInput {
+  postnumber?: number | null
+  author?: UserUpdateOneRequiredWithoutPostsInput | null
+  content?: string | null
+  thread?: ThreadUpdateOneRequiredWithoutPostsInput | null
+}
+export type PostUpdateInputInputObject =
+  | Extract<keyof PostUpdateInput, string>
+  | { name: 'postnumber', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  | { name: 'thread', alias?: string  } 
+  
+export interface PostUpdateManyMutationInput {
+  postnumber?: number | null
+  content?: string | null
+}
+export type PostUpdateManyMutationInputInputObject =
+  | Extract<keyof PostUpdateManyMutationInput, string>
+  | { name: 'postnumber', alias?: string  } 
+  | { name: 'content', alias?: string  } 
   
 export interface UserSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
@@ -856,16 +3830,113 @@ export type UserSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface ForumSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: ForumWhereInput | null
+  AND?: ForumSubscriptionWhereInput[]
+  OR?: ForumSubscriptionWhereInput[]
+  NOT?: ForumSubscriptionWhereInput[]
+}
+export type ForumSubscriptionWhereInputInputObject =
+  | Extract<keyof ForumSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ThreadSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: ThreadWhereInput | null
+  AND?: ThreadSubscriptionWhereInput[]
+  OR?: ThreadSubscriptionWhereInput[]
+  NOT?: ThreadSubscriptionWhereInput[]
+}
+export type ThreadSubscriptionWhereInputInputObject =
+  | Extract<keyof ThreadSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface PostSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: PostWhereInput | null
+  AND?: PostSubscriptionWhereInput[]
+  OR?: PostSubscriptionWhereInput[]
+  NOT?: PostSubscriptionWhereInput[]
+}
+export type PostSubscriptionWhereInputInputObject =
+  | Extract<keyof PostSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 
+export type ThreadOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'threadnumber_ASC'
+  | 'threadnumber_DESC'
+  | 'title_ASC'
+  | 'title_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type PostOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'postnumber_ASC'
+  | 'postnumber_DESC'
+  | 'content_ASC'
+  | 'content_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
 export type UserOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'name_ASC'
-  | 'name_DESC'
+  | 'username_ASC'
+  | 'username_DESC'
   | 'email_ASC'
   | 'email_DESC'
   | 'password_ASC'
   | 'password_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type ForumOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

@@ -7,18 +7,21 @@ type User {
   posts: [Post!]!
 }
 
-type SubForum {
+type Forum {
   id: ID! @unique
-  name: String!
+  name: String! @unique
   threads: [Thread!]!
 }
 
 type Thread {
   id: ID! @unique
   threadnumber: Int!
+  subForum: Forum!
   author: User!
   title: String!
   posts: [Post!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type Post {
@@ -27,4 +30,6 @@ type Post {
   author: User!
   content: String!
   thread: Thread!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }

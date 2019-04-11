@@ -32,7 +32,7 @@ const LogoutButton = () => {
               return (
                 <StyledButton 
                   className='button is-danger is-outlined' 
-                  onClick={ () => logout() }>
+                  onClick={() => logout()}>
                   LOGOUT
                 </StyledButton>
               )

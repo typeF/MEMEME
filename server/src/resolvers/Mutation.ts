@@ -8,14 +8,14 @@ export const Mutation = mutationType({
     t.field('signup', {
       type: 'AuthPayload',
       args: {
-        name: stringArg(),
+        username: stringArg(),
         email: stringArg(),
         password: stringArg()
       },
-      resolve: async (parent, { name, email, password }, context) => {
+      resolve: async (parent, { username, email, password }, context) => {
         const hashedPassword = await hash(password, 10)
         const user = await context.prisma.createUser({
-          name,
+          username,
           email,
           password: hashedPassword
         });
@@ -47,7 +47,7 @@ export const Mutation = mutationType({
         const token = sign({ userId: user.id }, PRIVATE_KEY);
         context.request.session.jwt = token;
 
-        console.log(`${user.name} logged in`);
+        console.log(`${user.username} logged in`);
 
         return {
           user
@@ -71,12 +71,12 @@ export const Mutation = mutationType({
       nullable: true,
       args: { 
         id: idArg(),
-        name: stringArg()
+        username: stringArg()
       },
-      resolve: async (parent, { id, name }, context) => {
+      resolve: async (parent, { id, username }, context) => {
         return context.prisma.updateUser({ 
           where: { id },
-          data: { name }
+          data: { username }
         });
       }
     });
