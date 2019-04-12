@@ -36,11 +36,11 @@ async function main() {
         {
           author: { connect: { id: user1.id }},
           postnumber: 1,
-          content: 'firstPost.gif'
+          content: 'Advice1FirstPost.gif'
         }, {
           author: { connect: { id: user2.id }},
           postnumber: 2,
-          content: 'secondPost.gif'
+          content: 'Advice1SecondPost.gif'
         }
       ]
     }
@@ -57,15 +57,15 @@ async function main() {
         {
           author: { connect: { id: user2.id }},
           postnumber: 1,
-          content: 'firstPost.gif'
+          content: 'Advice2FirstPost.gif'
         }, {
           author: { connect: { id: user1.id }},
           postnumber: 2,
-          content: 'secondPost.gif'
+          content: 'Advice2SecondPost.gif'
         }, {
           author: { connect: { id: user2.id }},
           postnumber: 3,
-          content: 'thirdPost.gif'
+          content: 'Advice2ThirdPost.gif'
         }
       ]
     }
@@ -82,15 +82,15 @@ async function main() {
         {
           author: { connect: { id: user1.id }},
           postnumber: 1,
-          content: 'firstPost.gif'
+          content: 'General1FirstPost.gif'
         }, {
           author: { connect: { id: user2.id }},
           postnumber: 2,
-          content: 'secondPost.gif'
+          content: 'General1SecondPost.gif'
         }, {
           author: { connect: { id: user2.id }},
           postnumber: 3,
-          content: 'thirdPost.gif'
+          content: 'General1ThirdPost.gif'
         }
       ]
     }

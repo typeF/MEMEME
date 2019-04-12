@@ -1,12 +1,9 @@
 import React from 'react';
-import { Button, ButtonWithFunctionProp } from "../../components/Button/";
+import Forums from './Forums';
 
 const Home = () => {
   return (
-    <ButtonWithFunctionProp 
-      clickFunction={() => console.log('allo')} 
-      text={'Hello'} 
-    />
+    <Forums/>
   )
 }
 
