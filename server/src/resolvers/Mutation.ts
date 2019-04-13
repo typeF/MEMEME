@@ -95,6 +95,11 @@ export const Mutation = mutationType({
 
         const author = getUserId(context);
         const mostRecentThread = await context.prisma.threads({
+          where: {
+           forum: {
+             name: forum
+           }
+          },
           orderBy: "threadnumber_DESC",
           first: 1
         });
@@ -114,6 +119,43 @@ export const Mutation = mutationType({
             }]
           }
         });
+      }
+    });
+
+    t.field('createPost', {
+      type: 'Post',
+      nullable: true,
+      args: { 
+        thread: stringArg(),
+        content: stringArg()
+      },
+      resolve: async (parent, { thread, content }, context) => {
+
+        console.log("Creating new post...");
+
+        const author = getUserId(context);
+        const mostRecentPost = await context.prisma.posts({
+          where: {
+           thread: {
+             id: thread
+           }
+          },
+          orderBy: "postnumber_DESC",
+          first: 1
+        });
+
+        const lastPostNumber = mostRecentPost[0].postnumber;
+
+        console.log("lastpostnumber" + mostRecentPost);
+
+        const post = context.prisma.createPost({ 
+          thread: { connect: { id: thread }},
+          author: { connect: { id: author }},
+          postnumber: lastPostNumber + 1,
+          content
+        });
+
+        return post;
       }
     });
   },

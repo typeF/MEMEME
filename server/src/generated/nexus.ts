@@ -392,6 +392,7 @@ export interface NexusGenFieldTypes {
     node: NexusGenRootTypes['Forum']; // Forum!
   }
   Mutation: { // field return type
+    createPost: NexusGenRootTypes['Post'] | null; // Post
     createThread: NexusGenRootTypes['Thread'] | null; // Thread
     login: NexusGenRootTypes['AuthPayload']; // AuthPayload!
     logout: NexusGenRootTypes['User'] | null; // User
@@ -485,6 +486,10 @@ export interface NexusGenArgTypes {
     }
   }
   Mutation: {
+    createPost: { // args
+      content?: string | null; // String
+      thread?: string | null; // String
+    }
     createThread: { // args
       content?: string | null; // String
       forum?: string | null; // String

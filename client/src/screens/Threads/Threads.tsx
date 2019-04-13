@@ -1,38 +1,18 @@
 import React, { Fragment } from 'react';
+import GetThreads from './ThreadsGetQuery';
 import { Query } from "react-apollo";
-import gql from "graphql-tag";
 import { Link } from 'react-router-dom';
 import LoginStatusQuery from '../../graphQL/LoginStatusQuery';
 import CreateThread from './CreateThread';
 import './Threads.scss';
 
-const getThreads = gql`
-  query Threads($forum: String!){
-    threads(where: { forum: { name: $forum }}) {
-      id
-      title
-      author {
-        username
-      }
-      posts {
-        author {
-          username
-        }
-        id
-        content
-        createdAt
-      }
-    }
-  }
-`;
-
 const Threads = ({ match } : { match: any }) => (
-    <Query query={ getThreads } variables={{ forum: match.url.split("/")[2] }}>
-    {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>
-      if (error) return `${error}`;
+    <Query query={ GetThreads } variables={{ forum: match.url.split("/")[2] }}>
+      {({ loading, error, data }) => {
+        if (loading) return <p>Loading...</p>
+        if (error) return `${error}`;
 
-      return (
+        return (
           <Fragment>
             <div className="threads">
               Threads
@@ -54,7 +34,7 @@ const Threads = ({ match } : { match: any }) => (
               {({ data }) => (data.isLoggedIn && <CreateThread forum={ match.url.split("/")[2]}/>)} 
             </Query>
           </Fragment>
-      )
+        )
       }}
     </Query>
 );

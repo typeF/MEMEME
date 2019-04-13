@@ -95,6 +95,7 @@ input ForumWhereUniqueInput {
 }
 
 type Mutation {
+  createPost(content: String, thread: String): Post
   createThread(content: String, forum: String, title: String): Thread
   login(email: String, password: String): AuthPayload!
   logout: User
