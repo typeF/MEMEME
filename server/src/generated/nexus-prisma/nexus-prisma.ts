@@ -134,13 +134,13 @@ export interface NexusPrismaTypes {
       PostUpsertWithWhereUniqueWithoutAuthorInput: PostUpsertWithWhereUniqueWithoutAuthorInputInputObject
       UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
       ForumCreateInput: ForumCreateInputInputObject
-      ThreadCreateManyWithoutSubForumInput: ThreadCreateManyWithoutSubForumInputInputObject
-      ThreadCreateWithoutSubForumInput: ThreadCreateWithoutSubForumInputInputObject
+      ThreadCreateManyWithoutForumInput: ThreadCreateManyWithoutForumInputInputObject
+      ThreadCreateWithoutForumInput: ThreadCreateWithoutForumInputInputObject
       ForumUpdateInput: ForumUpdateInputInputObject
-      ThreadUpdateManyWithoutSubForumInput: ThreadUpdateManyWithoutSubForumInputInputObject
-      ThreadUpdateWithWhereUniqueWithoutSubForumInput: ThreadUpdateWithWhereUniqueWithoutSubForumInputInputObject
-      ThreadUpdateWithoutSubForumDataInput: ThreadUpdateWithoutSubForumDataInputInputObject
-      ThreadUpsertWithWhereUniqueWithoutSubForumInput: ThreadUpsertWithWhereUniqueWithoutSubForumInputInputObject
+      ThreadUpdateManyWithoutForumInput: ThreadUpdateManyWithoutForumInputInputObject
+      ThreadUpdateWithWhereUniqueWithoutForumInput: ThreadUpdateWithWhereUniqueWithoutForumInputInputObject
+      ThreadUpdateWithoutForumDataInput: ThreadUpdateWithoutForumDataInputInputObject
+      ThreadUpsertWithWhereUniqueWithoutForumInput: ThreadUpsertWithWhereUniqueWithoutForumInputInputObject
       ForumUpdateManyMutationInput: ForumUpdateManyMutationInputInputObject
       ThreadCreateInput: ThreadCreateInputInputObject
       ThreadUpdateInput: ThreadUpdateInputInputObject
@@ -535,7 +535,7 @@ type ThreadObject =
   | ThreadFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'threadnumber', args?: [] | false, alias?: string  } 
-  | { name: 'subForum', args?: [] | false, alias?: string  } 
+  | { name: 'forum', args?: [] | false, alias?: string  } 
   | { name: 'author', args?: [] | false, alias?: string  } 
   | { name: 'title', args?: [] | false, alias?: string  } 
   | { name: 'posts', args?: ThreadPostsArgs[] | false, alias?: string  } 
@@ -545,7 +545,7 @@ type ThreadObject =
 type ThreadFields =
   | 'id'
   | 'threadnumber'
-  | 'subForum'
+  | 'forum'
   | 'author'
   | 'title'
   | 'posts'
@@ -580,7 +580,7 @@ export interface ThreadFieldDetails {
     nullable: false
     resolve: undefined
   }
-  subForum: {
+  forum: {
     type: 'Forum'
     args: {}
     description: string
@@ -2431,7 +2431,7 @@ export interface ThreadWhereInput {
   threadnumber_lte?: number | null
   threadnumber_gt?: number | null
   threadnumber_gte?: number | null
-  subForum?: ForumWhereInput | null
+  forum?: ForumWhereInput | null
   author?: UserWhereInput | null
   title?: string | null
   title_not?: string | null
@@ -2494,7 +2494,7 @@ export type ThreadWhereInputInputObject =
   | { name: 'threadnumber_lte', alias?: string  } 
   | { name: 'threadnumber_gt', alias?: string  } 
   | { name: 'threadnumber_gte', alias?: string  } 
-  | { name: 'subForum', alias?: string  } 
+  | { name: 'forum', alias?: string  } 
   | { name: 'author', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'title_not', alias?: string  } 
@@ -2909,14 +2909,14 @@ export type ThreadCreateManyWithoutAuthorInputInputObject =
   
 export interface ThreadCreateWithoutAuthorInput {
   threadnumber?: number
-  subForum?: ForumCreateOneWithoutThreadsInput
+  forum?: ForumCreateOneWithoutThreadsInput
   title?: string
   posts?: PostCreateManyWithoutThreadInput | null
 }
 export type ThreadCreateWithoutAuthorInputInputObject =
   | Extract<keyof ThreadCreateWithoutAuthorInput, string>
   | { name: 'threadnumber', alias?: string  } 
-  | { name: 'subForum', alias?: string  } 
+  | { name: 'forum', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'posts', alias?: string  } 
   
@@ -3009,14 +3009,14 @@ export type ThreadCreateOneWithoutPostsInputInputObject =
   
 export interface ThreadCreateWithoutPostsInput {
   threadnumber?: number
-  subForum?: ForumCreateOneWithoutThreadsInput
+  forum?: ForumCreateOneWithoutThreadsInput
   author?: UserCreateOneWithoutThreadsInput
   title?: string
 }
 export type ThreadCreateWithoutPostsInputInputObject =
   | Extract<keyof ThreadCreateWithoutPostsInput, string>
   | { name: 'threadnumber', alias?: string  } 
-  | { name: 'subForum', alias?: string  } 
+  | { name: 'forum', alias?: string  } 
   | { name: 'author', alias?: string  } 
   | { name: 'title', alias?: string  } 
   
@@ -3091,14 +3091,14 @@ export type ThreadUpdateWithWhereUniqueWithoutAuthorInputInputObject =
   
 export interface ThreadUpdateWithoutAuthorDataInput {
   threadnumber?: number | null
-  subForum?: ForumUpdateOneRequiredWithoutThreadsInput | null
+  forum?: ForumUpdateOneRequiredWithoutThreadsInput | null
   title?: string | null
   posts?: PostUpdateManyWithoutThreadInput | null
 }
 export type ThreadUpdateWithoutAuthorDataInputInputObject =
   | Extract<keyof ThreadUpdateWithoutAuthorDataInput, string>
   | { name: 'threadnumber', alias?: string  } 
-  | { name: 'subForum', alias?: string  } 
+  | { name: 'forum', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'posts', alias?: string  } 
   
@@ -3555,14 +3555,14 @@ export type ThreadUpdateOneRequiredWithoutPostsInputInputObject =
   
 export interface ThreadUpdateWithoutPostsDataInput {
   threadnumber?: number | null
-  subForum?: ForumUpdateOneRequiredWithoutThreadsInput | null
+  forum?: ForumUpdateOneRequiredWithoutThreadsInput | null
   author?: UserUpdateOneRequiredWithoutThreadsInput | null
   title?: string | null
 }
 export type ThreadUpdateWithoutPostsDataInputInputObject =
   | Extract<keyof ThreadUpdateWithoutPostsDataInput, string>
   | { name: 'threadnumber', alias?: string  } 
-  | { name: 'subForum', alias?: string  } 
+  | { name: 'forum', alias?: string  } 
   | { name: 'author', alias?: string  } 
   | { name: 'title', alias?: string  } 
   
@@ -3634,30 +3634,30 @@ export type UserUpdateManyMutationInputInputObject =
   
 export interface ForumCreateInput {
   name?: string
-  threads?: ThreadCreateManyWithoutSubForumInput | null
+  threads?: ThreadCreateManyWithoutForumInput | null
 }
 export type ForumCreateInputInputObject =
   | Extract<keyof ForumCreateInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'threads', alias?: string  } 
   
-export interface ThreadCreateManyWithoutSubForumInput {
-  create?: ThreadCreateWithoutSubForumInput[]
+export interface ThreadCreateManyWithoutForumInput {
+  create?: ThreadCreateWithoutForumInput[]
   connect?: ThreadWhereUniqueInput[]
 }
-export type ThreadCreateManyWithoutSubForumInputInputObject =
-  | Extract<keyof ThreadCreateManyWithoutSubForumInput, string>
+export type ThreadCreateManyWithoutForumInputInputObject =
+  | Extract<keyof ThreadCreateManyWithoutForumInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface ThreadCreateWithoutSubForumInput {
+export interface ThreadCreateWithoutForumInput {
   threadnumber?: number
   author?: UserCreateOneWithoutThreadsInput
   title?: string
   posts?: PostCreateManyWithoutThreadInput | null
 }
-export type ThreadCreateWithoutSubForumInputInputObject =
-  | Extract<keyof ThreadCreateWithoutSubForumInput, string>
+export type ThreadCreateWithoutForumInputInputObject =
+  | Extract<keyof ThreadCreateWithoutForumInput, string>
   | { name: 'threadnumber', alias?: string  } 
   | { name: 'author', alias?: string  } 
   | { name: 'title', alias?: string  } 
@@ -3665,26 +3665,26 @@ export type ThreadCreateWithoutSubForumInputInputObject =
   
 export interface ForumUpdateInput {
   name?: string | null
-  threads?: ThreadUpdateManyWithoutSubForumInput | null
+  threads?: ThreadUpdateManyWithoutForumInput | null
 }
 export type ForumUpdateInputInputObject =
   | Extract<keyof ForumUpdateInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'threads', alias?: string  } 
   
-export interface ThreadUpdateManyWithoutSubForumInput {
-  create?: ThreadCreateWithoutSubForumInput[]
+export interface ThreadUpdateManyWithoutForumInput {
+  create?: ThreadCreateWithoutForumInput[]
   delete?: ThreadWhereUniqueInput[]
   connect?: ThreadWhereUniqueInput[]
   set?: ThreadWhereUniqueInput[]
   disconnect?: ThreadWhereUniqueInput[]
-  update?: ThreadUpdateWithWhereUniqueWithoutSubForumInput[]
-  upsert?: ThreadUpsertWithWhereUniqueWithoutSubForumInput[]
+  update?: ThreadUpdateWithWhereUniqueWithoutForumInput[]
+  upsert?: ThreadUpsertWithWhereUniqueWithoutForumInput[]
   deleteMany?: ThreadScalarWhereInput[]
   updateMany?: ThreadUpdateManyWithWhereNestedInput[]
 }
-export type ThreadUpdateManyWithoutSubForumInputInputObject =
-  | Extract<keyof ThreadUpdateManyWithoutSubForumInput, string>
+export type ThreadUpdateManyWithoutForumInputInputObject =
+  | Extract<keyof ThreadUpdateManyWithoutForumInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'delete', alias?: string  } 
   | { name: 'connect', alias?: string  } 
@@ -3695,35 +3695,35 @@ export type ThreadUpdateManyWithoutSubForumInputInputObject =
   | { name: 'deleteMany', alias?: string  } 
   | { name: 'updateMany', alias?: string  } 
   
-export interface ThreadUpdateWithWhereUniqueWithoutSubForumInput {
+export interface ThreadUpdateWithWhereUniqueWithoutForumInput {
   where?: ThreadWhereUniqueInput
-  data?: ThreadUpdateWithoutSubForumDataInput
+  data?: ThreadUpdateWithoutForumDataInput
 }
-export type ThreadUpdateWithWhereUniqueWithoutSubForumInputInputObject =
-  | Extract<keyof ThreadUpdateWithWhereUniqueWithoutSubForumInput, string>
+export type ThreadUpdateWithWhereUniqueWithoutForumInputInputObject =
+  | Extract<keyof ThreadUpdateWithWhereUniqueWithoutForumInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'data', alias?: string  } 
   
-export interface ThreadUpdateWithoutSubForumDataInput {
+export interface ThreadUpdateWithoutForumDataInput {
   threadnumber?: number | null
   author?: UserUpdateOneRequiredWithoutThreadsInput | null
   title?: string | null
   posts?: PostUpdateManyWithoutThreadInput | null
 }
-export type ThreadUpdateWithoutSubForumDataInputInputObject =
-  | Extract<keyof ThreadUpdateWithoutSubForumDataInput, string>
+export type ThreadUpdateWithoutForumDataInputInputObject =
+  | Extract<keyof ThreadUpdateWithoutForumDataInput, string>
   | { name: 'threadnumber', alias?: string  } 
   | { name: 'author', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'posts', alias?: string  } 
   
-export interface ThreadUpsertWithWhereUniqueWithoutSubForumInput {
+export interface ThreadUpsertWithWhereUniqueWithoutForumInput {
   where?: ThreadWhereUniqueInput
-  update?: ThreadUpdateWithoutSubForumDataInput
-  create?: ThreadCreateWithoutSubForumInput
+  update?: ThreadUpdateWithoutForumDataInput
+  create?: ThreadCreateWithoutForumInput
 }
-export type ThreadUpsertWithWhereUniqueWithoutSubForumInputInputObject =
-  | Extract<keyof ThreadUpsertWithWhereUniqueWithoutSubForumInput, string>
+export type ThreadUpsertWithWhereUniqueWithoutForumInputInputObject =
+  | Extract<keyof ThreadUpsertWithWhereUniqueWithoutForumInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
@@ -3737,7 +3737,7 @@ export type ForumUpdateManyMutationInputInputObject =
   
 export interface ThreadCreateInput {
   threadnumber?: number
-  subForum?: ForumCreateOneWithoutThreadsInput
+  forum?: ForumCreateOneWithoutThreadsInput
   author?: UserCreateOneWithoutThreadsInput
   title?: string
   posts?: PostCreateManyWithoutThreadInput | null
@@ -3745,14 +3745,14 @@ export interface ThreadCreateInput {
 export type ThreadCreateInputInputObject =
   | Extract<keyof ThreadCreateInput, string>
   | { name: 'threadnumber', alias?: string  } 
-  | { name: 'subForum', alias?: string  } 
+  | { name: 'forum', alias?: string  } 
   | { name: 'author', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'posts', alias?: string  } 
   
 export interface ThreadUpdateInput {
   threadnumber?: number | null
-  subForum?: ForumUpdateOneRequiredWithoutThreadsInput | null
+  forum?: ForumUpdateOneRequiredWithoutThreadsInput | null
   author?: UserUpdateOneRequiredWithoutThreadsInput | null
   title?: string | null
   posts?: PostUpdateManyWithoutThreadInput | null
@@ -3760,7 +3760,7 @@ export interface ThreadUpdateInput {
 export type ThreadUpdateInputInputObject =
   | Extract<keyof ThreadUpdateInput, string>
   | { name: 'threadnumber', alias?: string  } 
-  | { name: 'subForum', alias?: string  } 
+  | { name: 'forum', alias?: string  } 
   | { name: 'author', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'posts', alias?: string  } 

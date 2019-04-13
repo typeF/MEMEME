@@ -1449,7 +1449,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "subForum",
+            "name": "forum",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -3875,7 +3875,7 @@ export default {
             "deprecationReason": null
           },
           {
-            "name": "subForum",
+            "name": "forum",
             "description": null,
             "args": [],
             "type": {
@@ -6286,7 +6286,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "subForum",
+            "name": "forum",
             "description": null,
             "type": {
               "kind": "NON_NULL",
@@ -6730,7 +6730,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "subForum",
+            "name": "forum",
             "description": null,
             "type": {
               "kind": "NON_NULL",
@@ -7160,7 +7160,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "subForum",
+            "name": "forum",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -9596,7 +9596,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "subForum",
+            "name": "forum",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -9966,7 +9966,7 @@ export default {
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "ThreadCreateManyWithoutSubForumInput",
+              "name": "ThreadCreateManyWithoutForumInput",
               "ofType": null
             },
             "defaultValue": null
@@ -9978,7 +9978,7 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "ThreadCreateManyWithoutSubForumInput",
+        "name": "ThreadCreateManyWithoutForumInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -9993,7 +9993,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "ThreadCreateWithoutSubForumInput",
+                  "name": "ThreadCreateWithoutForumInput",
                   "ofType": null
                 }
               }
@@ -10025,7 +10025,7 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "ThreadCreateWithoutSubForumInput",
+        "name": "ThreadCreateWithoutForumInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -10107,7 +10107,7 @@ export default {
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "ThreadUpdateManyWithoutSubForumInput",
+              "name": "ThreadUpdateManyWithoutForumInput",
               "ofType": null
             },
             "defaultValue": null
@@ -10119,7 +10119,7 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "ThreadUpdateManyWithoutSubForumInput",
+        "name": "ThreadUpdateManyWithoutForumInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -10134,7 +10134,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "ThreadCreateWithoutSubForumInput",
+                  "name": "ThreadCreateWithoutForumInput",
                   "ofType": null
                 }
               }
@@ -10224,7 +10224,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "ThreadUpdateWithWhereUniqueWithoutSubForumInput",
+                  "name": "ThreadUpdateWithWhereUniqueWithoutForumInput",
                   "ofType": null
                 }
               }
@@ -10242,7 +10242,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "ThreadUpsertWithWhereUniqueWithoutSubForumInput",
+                  "name": "ThreadUpsertWithWhereUniqueWithoutForumInput",
                   "ofType": null
                 }
               }
@@ -10292,7 +10292,7 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "ThreadUpdateWithWhereUniqueWithoutSubForumInput",
+        "name": "ThreadUpdateWithWhereUniqueWithoutForumInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -10318,7 +10318,7 @@ export default {
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "ThreadUpdateWithoutSubForumDataInput",
+                "name": "ThreadUpdateWithoutForumDataInput",
                 "ofType": null
               }
             },
@@ -10331,7 +10331,7 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "ThreadUpdateWithoutSubForumDataInput",
+        "name": "ThreadUpdateWithoutForumDataInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -10382,7 +10382,7 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "ThreadUpsertWithWhereUniqueWithoutSubForumInput",
+        "name": "ThreadUpsertWithWhereUniqueWithoutForumInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -10408,7 +10408,7 @@ export default {
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "ThreadUpdateWithoutSubForumDataInput",
+                "name": "ThreadUpdateWithoutForumDataInput",
                 "ofType": null
               }
             },
@@ -10422,7 +10422,7 @@ export default {
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "ThreadCreateWithoutSubForumInput",
+                "name": "ThreadCreateWithoutForumInput",
                 "ofType": null
               }
             },
@@ -10475,7 +10475,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "subForum",
+            "name": "forum",
             "description": null,
             "type": {
               "kind": "NON_NULL",
@@ -10548,7 +10548,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "subForum",
+            "name": "forum",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",

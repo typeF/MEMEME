@@ -310,7 +310,7 @@ export interface ThreadWhereInput {
   threadnumber_lte?: Int;
   threadnumber_gt?: Int;
   threadnumber_gte?: Int;
-  subForum?: ForumWhereInput;
+  forum?: ForumWhereInput;
   author?: UserWhereInput;
   title?: String;
   title_not?: String;
@@ -530,17 +530,15 @@ export type UserWhereUniqueInput = AtLeastOne<{
 
 export interface ForumCreateInput {
   name: String;
-  threads?: ThreadCreateManyWithoutSubForumInput;
+  threads?: ThreadCreateManyWithoutForumInput;
 }
 
-export interface ThreadCreateManyWithoutSubForumInput {
-  create?:
-    | ThreadCreateWithoutSubForumInput[]
-    | ThreadCreateWithoutSubForumInput;
+export interface ThreadCreateManyWithoutForumInput {
+  create?: ThreadCreateWithoutForumInput[] | ThreadCreateWithoutForumInput;
   connect?: ThreadWhereUniqueInput[] | ThreadWhereUniqueInput;
 }
 
-export interface ThreadCreateWithoutSubForumInput {
+export interface ThreadCreateWithoutForumInput {
   threadnumber: Int;
   author: UserCreateOneWithoutThreadsInput;
   title: String;
@@ -577,7 +575,7 @@ export interface ThreadCreateOneWithoutPostsInput {
 
 export interface ThreadCreateWithoutPostsInput {
   threadnumber: Int;
-  subForum: ForumCreateOneWithoutThreadsInput;
+  forum: ForumCreateOneWithoutThreadsInput;
   author: UserCreateOneWithoutThreadsInput;
   title: String;
 }
@@ -621,42 +619,40 @@ export interface ThreadCreateManyWithoutAuthorInput {
 
 export interface ThreadCreateWithoutAuthorInput {
   threadnumber: Int;
-  subForum: ForumCreateOneWithoutThreadsInput;
+  forum: ForumCreateOneWithoutThreadsInput;
   title: String;
   posts?: PostCreateManyWithoutThreadInput;
 }
 
 export interface ForumUpdateInput {
   name?: String;
-  threads?: ThreadUpdateManyWithoutSubForumInput;
+  threads?: ThreadUpdateManyWithoutForumInput;
 }
 
-export interface ThreadUpdateManyWithoutSubForumInput {
-  create?:
-    | ThreadCreateWithoutSubForumInput[]
-    | ThreadCreateWithoutSubForumInput;
+export interface ThreadUpdateManyWithoutForumInput {
+  create?: ThreadCreateWithoutForumInput[] | ThreadCreateWithoutForumInput;
   delete?: ThreadWhereUniqueInput[] | ThreadWhereUniqueInput;
   connect?: ThreadWhereUniqueInput[] | ThreadWhereUniqueInput;
   set?: ThreadWhereUniqueInput[] | ThreadWhereUniqueInput;
   disconnect?: ThreadWhereUniqueInput[] | ThreadWhereUniqueInput;
   update?:
-    | ThreadUpdateWithWhereUniqueWithoutSubForumInput[]
-    | ThreadUpdateWithWhereUniqueWithoutSubForumInput;
+    | ThreadUpdateWithWhereUniqueWithoutForumInput[]
+    | ThreadUpdateWithWhereUniqueWithoutForumInput;
   upsert?:
-    | ThreadUpsertWithWhereUniqueWithoutSubForumInput[]
-    | ThreadUpsertWithWhereUniqueWithoutSubForumInput;
+    | ThreadUpsertWithWhereUniqueWithoutForumInput[]
+    | ThreadUpsertWithWhereUniqueWithoutForumInput;
   deleteMany?: ThreadScalarWhereInput[] | ThreadScalarWhereInput;
   updateMany?:
     | ThreadUpdateManyWithWhereNestedInput[]
     | ThreadUpdateManyWithWhereNestedInput;
 }
 
-export interface ThreadUpdateWithWhereUniqueWithoutSubForumInput {
+export interface ThreadUpdateWithWhereUniqueWithoutForumInput {
   where: ThreadWhereUniqueInput;
-  data: ThreadUpdateWithoutSubForumDataInput;
+  data: ThreadUpdateWithoutForumDataInput;
 }
 
-export interface ThreadUpdateWithoutSubForumDataInput {
+export interface ThreadUpdateWithoutForumDataInput {
   threadnumber?: Int;
   author?: UserUpdateOneRequiredWithoutThreadsInput;
   title?: String;
@@ -715,7 +711,7 @@ export interface ThreadUpdateOneRequiredWithoutPostsInput {
 
 export interface ThreadUpdateWithoutPostsDataInput {
   threadnumber?: Int;
-  subForum?: ForumUpdateOneRequiredWithoutThreadsInput;
+  forum?: ForumUpdateOneRequiredWithoutThreadsInput;
   author?: UserUpdateOneRequiredWithoutThreadsInput;
   title?: String;
 }
@@ -888,7 +884,7 @@ export interface ThreadUpdateWithWhereUniqueWithoutAuthorInput {
 
 export interface ThreadUpdateWithoutAuthorDataInput {
   threadnumber?: Int;
-  subForum?: ForumUpdateOneRequiredWithoutThreadsInput;
+  forum?: ForumUpdateOneRequiredWithoutThreadsInput;
   title?: String;
   posts?: PostUpdateManyWithoutThreadInput;
 }
@@ -978,10 +974,10 @@ export interface PostUpsertWithWhereUniqueWithoutThreadInput {
   create: PostCreateWithoutThreadInput;
 }
 
-export interface ThreadUpsertWithWhereUniqueWithoutSubForumInput {
+export interface ThreadUpsertWithWhereUniqueWithoutForumInput {
   where: ThreadWhereUniqueInput;
-  update: ThreadUpdateWithoutSubForumDataInput;
-  create: ThreadCreateWithoutSubForumInput;
+  update: ThreadUpdateWithoutForumDataInput;
+  create: ThreadCreateWithoutForumInput;
 }
 
 export interface ForumUpdateManyMutationInput {
@@ -1009,7 +1005,7 @@ export interface PostUpdateManyMutationInput {
 
 export interface ThreadCreateInput {
   threadnumber: Int;
-  subForum: ForumCreateOneWithoutThreadsInput;
+  forum: ForumCreateOneWithoutThreadsInput;
   author: UserCreateOneWithoutThreadsInput;
   title: String;
   posts?: PostCreateManyWithoutThreadInput;
@@ -1017,7 +1013,7 @@ export interface ThreadCreateInput {
 
 export interface ThreadUpdateInput {
   threadnumber?: Int;
-  subForum?: ForumUpdateOneRequiredWithoutThreadsInput;
+  forum?: ForumUpdateOneRequiredWithoutThreadsInput;
   author?: UserUpdateOneRequiredWithoutThreadsInput;
   title?: String;
   posts?: PostUpdateManyWithoutThreadInput;
@@ -1148,7 +1144,7 @@ export interface Thread {
 export interface ThreadPromise extends Promise<Thread>, Fragmentable {
   id: () => Promise<ID_Output>;
   threadnumber: () => Promise<Int>;
-  subForum: <T = ForumPromise>() => T;
+  forum: <T = ForumPromise>() => T;
   author: <T = UserPromise>() => T;
   title: () => Promise<String>;
   posts: <T = FragmentableArray<Post>>(
@@ -1171,7 +1167,7 @@ export interface ThreadSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   threadnumber: () => Promise<AsyncIterator<Int>>;
-  subForum: <T = ForumSubscription>() => T;
+  forum: <T = ForumSubscription>() => T;
   author: <T = UserSubscription>() => T;
   title: () => Promise<AsyncIterator<String>>;
   posts: <T = Promise<AsyncIterator<PostSubscription>>>(

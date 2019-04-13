@@ -1,33 +1,12 @@
 import React, { Fragment } from 'react';
-import { Query, Mutation } from "react-apollo";
-import TestGraphQL from '../../../components/TestGraphQL';
-import gql from "graphql-tag";
-import { Route, Link, Switch } from 'react-router-dom';
+import { Query } from "react-apollo";
+import getForumsQuery from './ForumsQuery';
+import { Link } from 'react-router-dom';
 import './Forums.scss';
-
-const getForums = gql`
-  {
-    forums {
-      id
-      name
-      threads(first: 1) {
-        threadnumber
-        title
-        posts(first: 1) {
-          createdAt
-          author {
-            username
-          }
-          content
-        }
-      }
-    }
-  }
-`;
 
 const Forums = () => (
   <Fragment>
-    <Query query={ getForums }>
+    <Query query={ getForumsQuery }>
     {({ loading, error, data }) => {
       if (loading) return <p>Loading...</p>
       if (error) return `${error}`;

@@ -124,6 +124,7 @@ export interface NexusGenInputs {
     createdAt_lte?: any | null; // DateTime
     createdAt_not?: any | null; // DateTime
     createdAt_not_in?: any[] | null; // [DateTime!]
+    forum?: NexusGenInputs['ForumWhereInput'] | null; // ForumWhereInput
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -143,7 +144,6 @@ export interface NexusGenInputs {
     posts_every?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
     posts_none?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
     posts_some?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
-    subForum?: NexusGenInputs['ForumWhereInput'] | null; // ForumWhereInput
     threadnumber?: number | null; // Int
     threadnumber_gt?: number | null; // Int
     threadnumber_gte?: number | null; // Int
@@ -392,6 +392,7 @@ export interface NexusGenFieldTypes {
     node: NexusGenRootTypes['Forum']; // Forum!
   }
   Mutation: { // field return type
+    createThread: NexusGenRootTypes['Thread'] | null; // Thread
     login: NexusGenRootTypes['AuthPayload']; // AuthPayload!
     logout: NexusGenRootTypes['User'] | null; // User
     signup: NexusGenRootTypes['AuthPayload']; // AuthPayload!
@@ -438,9 +439,9 @@ export interface NexusGenFieldTypes {
   Thread: { // field return type
     author: NexusGenRootTypes['User']; // User!
     createdAt: any; // DateTime!
+    forum: NexusGenRootTypes['Forum']; // Forum!
     id: string; // ID!
     posts: NexusGenRootTypes['Post'][] | null; // [Post!]
-    subForum: NexusGenRootTypes['Forum']; // Forum!
     threadnumber: number; // Int!
     title: string; // String!
     updatedAt: any; // DateTime!
@@ -484,6 +485,11 @@ export interface NexusGenArgTypes {
     }
   }
   Mutation: {
+    createThread: { // args
+      content?: string | null; // String
+      forum?: string | null; // String
+      title?: string | null; // String
+    }
     login: { // args
       email?: string | null; // String
       password?: string | null; // String

@@ -38,7 +38,7 @@ type ForumConnection {
 
 input ForumCreateInput {
   name: String!
-  threads: ThreadCreateManyWithoutSubForumInput
+  threads: ThreadCreateManyWithoutForumInput
 }
 
 input ForumCreateOneWithoutThreadsInput {
@@ -91,7 +91,7 @@ input ForumSubscriptionWhereInput {
 
 input ForumUpdateInput {
   name: String
-  threads: ThreadUpdateManyWithoutSubForumInput
+  threads: ThreadUpdateManyWithoutForumInput
 }
 
 input ForumUpdateManyMutationInput {
@@ -519,7 +519,7 @@ type Subscription {
 type Thread {
   id: ID!
   threadnumber: Int!
-  subForum: Forum!
+  forum: Forum!
   author: User!
   title: String!
   posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
@@ -535,7 +535,7 @@ type ThreadConnection {
 
 input ThreadCreateInput {
   threadnumber: Int!
-  subForum: ForumCreateOneWithoutThreadsInput!
+  forum: ForumCreateOneWithoutThreadsInput!
   author: UserCreateOneWithoutThreadsInput!
   title: String!
   posts: PostCreateManyWithoutThreadInput
@@ -546,8 +546,8 @@ input ThreadCreateManyWithoutAuthorInput {
   connect: [ThreadWhereUniqueInput!]
 }
 
-input ThreadCreateManyWithoutSubForumInput {
-  create: [ThreadCreateWithoutSubForumInput!]
+input ThreadCreateManyWithoutForumInput {
+  create: [ThreadCreateWithoutForumInput!]
   connect: [ThreadWhereUniqueInput!]
 }
 
@@ -558,23 +558,23 @@ input ThreadCreateOneWithoutPostsInput {
 
 input ThreadCreateWithoutAuthorInput {
   threadnumber: Int!
-  subForum: ForumCreateOneWithoutThreadsInput!
+  forum: ForumCreateOneWithoutThreadsInput!
+  title: String!
+  posts: PostCreateManyWithoutThreadInput
+}
+
+input ThreadCreateWithoutForumInput {
+  threadnumber: Int!
+  author: UserCreateOneWithoutThreadsInput!
   title: String!
   posts: PostCreateManyWithoutThreadInput
 }
 
 input ThreadCreateWithoutPostsInput {
   threadnumber: Int!
-  subForum: ForumCreateOneWithoutThreadsInput!
+  forum: ForumCreateOneWithoutThreadsInput!
   author: UserCreateOneWithoutThreadsInput!
   title: String!
-}
-
-input ThreadCreateWithoutSubForumInput {
-  threadnumber: Int!
-  author: UserCreateOneWithoutThreadsInput!
-  title: String!
-  posts: PostCreateManyWithoutThreadInput
 }
 
 type ThreadEdge {
@@ -681,7 +681,7 @@ input ThreadSubscriptionWhereInput {
 
 input ThreadUpdateInput {
   threadnumber: Int
-  subForum: ForumUpdateOneRequiredWithoutThreadsInput
+  forum: ForumUpdateOneRequiredWithoutThreadsInput
   author: UserUpdateOneRequiredWithoutThreadsInput
   title: String
   posts: PostUpdateManyWithoutThreadInput
@@ -709,14 +709,14 @@ input ThreadUpdateManyWithoutAuthorInput {
   updateMany: [ThreadUpdateManyWithWhereNestedInput!]
 }
 
-input ThreadUpdateManyWithoutSubForumInput {
-  create: [ThreadCreateWithoutSubForumInput!]
+input ThreadUpdateManyWithoutForumInput {
+  create: [ThreadCreateWithoutForumInput!]
   delete: [ThreadWhereUniqueInput!]
   connect: [ThreadWhereUniqueInput!]
   set: [ThreadWhereUniqueInput!]
   disconnect: [ThreadWhereUniqueInput!]
-  update: [ThreadUpdateWithWhereUniqueWithoutSubForumInput!]
-  upsert: [ThreadUpsertWithWhereUniqueWithoutSubForumInput!]
+  update: [ThreadUpdateWithWhereUniqueWithoutForumInput!]
+  upsert: [ThreadUpsertWithWhereUniqueWithoutForumInput!]
   deleteMany: [ThreadScalarWhereInput!]
   updateMany: [ThreadUpdateManyWithWhereNestedInput!]
 }
@@ -735,23 +735,23 @@ input ThreadUpdateOneRequiredWithoutPostsInput {
 
 input ThreadUpdateWithoutAuthorDataInput {
   threadnumber: Int
-  subForum: ForumUpdateOneRequiredWithoutThreadsInput
+  forum: ForumUpdateOneRequiredWithoutThreadsInput
+  title: String
+  posts: PostUpdateManyWithoutThreadInput
+}
+
+input ThreadUpdateWithoutForumDataInput {
+  threadnumber: Int
+  author: UserUpdateOneRequiredWithoutThreadsInput
   title: String
   posts: PostUpdateManyWithoutThreadInput
 }
 
 input ThreadUpdateWithoutPostsDataInput {
   threadnumber: Int
-  subForum: ForumUpdateOneRequiredWithoutThreadsInput
+  forum: ForumUpdateOneRequiredWithoutThreadsInput
   author: UserUpdateOneRequiredWithoutThreadsInput
   title: String
-}
-
-input ThreadUpdateWithoutSubForumDataInput {
-  threadnumber: Int
-  author: UserUpdateOneRequiredWithoutThreadsInput
-  title: String
-  posts: PostUpdateManyWithoutThreadInput
 }
 
 input ThreadUpdateWithWhereUniqueWithoutAuthorInput {
@@ -759,9 +759,9 @@ input ThreadUpdateWithWhereUniqueWithoutAuthorInput {
   data: ThreadUpdateWithoutAuthorDataInput!
 }
 
-input ThreadUpdateWithWhereUniqueWithoutSubForumInput {
+input ThreadUpdateWithWhereUniqueWithoutForumInput {
   where: ThreadWhereUniqueInput!
-  data: ThreadUpdateWithoutSubForumDataInput!
+  data: ThreadUpdateWithoutForumDataInput!
 }
 
 input ThreadUpsertWithoutPostsInput {
@@ -775,10 +775,10 @@ input ThreadUpsertWithWhereUniqueWithoutAuthorInput {
   create: ThreadCreateWithoutAuthorInput!
 }
 
-input ThreadUpsertWithWhereUniqueWithoutSubForumInput {
+input ThreadUpsertWithWhereUniqueWithoutForumInput {
   where: ThreadWhereUniqueInput!
-  update: ThreadUpdateWithoutSubForumDataInput!
-  create: ThreadCreateWithoutSubForumInput!
+  update: ThreadUpdateWithoutForumDataInput!
+  create: ThreadCreateWithoutForumInput!
 }
 
 input ThreadWhereInput {
@@ -804,7 +804,7 @@ input ThreadWhereInput {
   threadnumber_lte: Int
   threadnumber_gt: Int
   threadnumber_gte: Int
-  subForum: ForumWhereInput
+  forum: ForumWhereInput
   author: UserWhereInput
   title: String
   title_not: String

@@ -80,5 +80,41 @@ export const Mutation = mutationType({
         });
       }
     });
+
+    t.field('createThread', {
+      type: 'Thread',
+      nullable: true,
+      args: { 
+        forum: stringArg(),
+        title: stringArg(),
+        content: stringArg()
+      },
+      resolve: async (parent, { forum, title, content }, context) => {
+
+        console.log("Creating thread...");
+
+        const author = getUserId(context);
+        const mostRecentThread = await context.prisma.threads({
+          orderBy: "threadnumber_DESC",
+          first: 1
+        });
+
+        const lastThreadNumber = mostRecentThread[0].threadnumber;
+
+        return context.prisma.createThread({ 
+          forum: { connect: { name: forum }},
+          author: { connect: { id: author }},
+          threadnumber: lastThreadNumber + 1,
+          title,
+          posts: {
+            create: [{
+              author: { connect: { id: author }},
+              postnumber: 1,
+              content,
+            }]
+          }
+        });
+      }
+    });
   },
 });

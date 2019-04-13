@@ -16,7 +16,7 @@ type Forum {
 type Thread {
   id: ID! @unique
   threadnumber: Int!
-  subForum: Forum!
+  forum: Forum!
   author: User!
   title: String!
   posts: [Post!]!

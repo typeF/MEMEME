@@ -10,6 +10,7 @@ const rules = {
 
 export const permissions = shield({
   Mutation: {
-    updateUser: rules.isAuthenticatedUser
+    updateUser: rules.isAuthenticatedUser,
+    createThread: rules.isAuthenticatedUser
   }
 });

@@ -27,7 +27,7 @@ async function main() {
   console.log(`Created new user: ${user2.username} (ID: ${user2.id})`);
 
   const thread1 = await prisma.createThread({
-    subForum: { connect: { id: forum1.id } },
+    forum: { connect: { id: forum1.id } },
     author: { connect: { id: user1.id }},
     threadnumber: 1,
     title: "Advice Thread 1",
@@ -48,7 +48,7 @@ async function main() {
   console.log(`Created new thread: ${thread1.title} (ID: ${thread1.id})`);
 
   const thread2 = await prisma.createThread({
-    subForum: { connect: { id: forum1.id } },
+    forum: { connect: { id: forum1.id } },
     author: { connect: { id: user2.id }},
     threadnumber: 2,
     title: "Advice Thread 2",
@@ -73,7 +73,7 @@ async function main() {
   console.log(`Created new thread: ${thread2.title} (ID: ${thread2.id})`);
 
   const thread3 = await prisma.createThread({
-    subForum: { connect: { id: forum2.id } },
+    forum: { connect: { id: forum2.id } },
     author: { connect: { id: user1.id }},
     threadnumber: 1,
     title: "General Thread 1",
@@ -98,11 +98,11 @@ async function main() {
   console.log(`Created new thread: ${thread3.title} (ID: ${thread3.id})`);
 
   const allUsers = await prisma.users();
-  const allSubForums = await prisma.forums();
+  const allForums = await prisma.forums();
   const allThreads = await prisma.threads();
   const allPosts = await prisma.posts();
   console.log(allUsers);
-  console.log(allSubForums);
+  console.log(allForums);
   console.log(allThreads);
   console.log(allPosts);
 }
