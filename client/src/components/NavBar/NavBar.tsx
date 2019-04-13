@@ -20,6 +20,7 @@ const NavBar = () => {
         <Link to="/1" className="navbar-item">
           GraphQL
         </Link>
+        <Login/>
         <a role="button" className={ bugerActive ? "navbar-burger burger is-active" : "navbar-burger burger"} aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={() => setBurgerActive(!bugerActive)}>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>

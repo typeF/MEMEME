@@ -146,8 +146,6 @@ export const Mutation = mutationType({
 
         const lastPostNumber = mostRecentPost[0].postnumber;
 
-        console.log("lastpostnumber" + mostRecentPost);
-
         const post = context.prisma.createPost({ 
           thread: { connect: { id: thread }},
           author: { connect: { id: author }},

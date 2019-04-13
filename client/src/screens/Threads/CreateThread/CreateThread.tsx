@@ -20,4 +20,3 @@ const CreateThread = ({ forum } : { forum: String }) => {
 }
 
 export default CreateThread;
-
