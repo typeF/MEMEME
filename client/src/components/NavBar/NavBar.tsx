@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import NavBarLogo from './NavBarLogo';
-import './NavBar.scss';
 import { Link } from 'react-router-dom';
+import NavBarLogo from './NavBarLogo';
 import Login from '../Login';
+import './NavBar.scss';
 
 const NavBar = () => {
-
   const [bugerActive, setBurgerActive] = useState(false);
 
   return (
@@ -16,9 +15,6 @@ const NavBar = () => {
         </a>
         <Link to="/" className="navbar-item">
           Home
-        </Link>
-        <Link to="/1" className="navbar-item">
-          GraphQL
         </Link>
         <Login/>
         <a role="button" className={ bugerActive ? "navbar-burger burger is-active" : "navbar-burger burger"} aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={() => setBurgerActive(!bugerActive)}>
@@ -33,9 +29,6 @@ const NavBar = () => {
           <div className="navbar-item has-dropdown is-hoverable">
             <Link to="/" className="navbar-item">
               Home
-            </Link>
-            <Link to="/1" className="navbar-item">
-              GraphQL
             </Link>
             <a className="navbar-link">
               More

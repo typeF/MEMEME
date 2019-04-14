@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import waait from 'waait';
 import { MockedProvider } from 'react-apollo/test-utils';
+import waait from 'waait';
+import LoginStatusQuery from '../../graphQL/LoginStatusQuery';
 import Thread from './Thread';
 import GetThread from './ThreadGetQuery';
-import LoginStatusQuery from '../../../graphQL/LoginStatusQuery';
 
 const mocks = [
   {

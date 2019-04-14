@@ -6,7 +6,7 @@ const StyledButton = styled.button`
 
 const NewPostButton = ({ newPost } : { newPost: any }) => {
   return (
-    <StyledButton onClick={e => {e.preventDefault(); newPost() }}>
+    <StyledButton onClick={() => newPost()}>
       Reply
     </StyledButton>
   )
