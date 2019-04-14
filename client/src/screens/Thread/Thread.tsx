@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Query } from 'react-apollo';
 import GetThread from './ThreadGetQuery';
 import LoginStatusQuery from '../../graphQL/LoginStatusQuery';
+import { Button } from '../../components/Button';
 import NewPost from './NewPost';
 import { Link } from 'react-router-dom';
 import './Thread.scss';
@@ -11,7 +12,8 @@ const Thread = ({ match } : { match: any }) => (
     <Query query={ GetThread } variables={{ threadId: match.url.split("/")[3] }}>
       {({ loading, error, data }) => {
         if (loading) return <p>Loading...</p>
-        if (error) return `${error}`;
+        if (error) return <p>error...</p>
+        // if (error) return `${error}`;
 
         return (
           <Fragment>
@@ -28,8 +30,13 @@ const Thread = ({ match } : { match: any }) => (
       }}
     </Query>
     <Query query={ LoginStatusQuery }>
-      {({ data }) =>
-        (data.isLoggedIn && <NewPost thread={ match.url.split("/")[3] }/>)} 
+      {({ data }) => {
+        return (
+          <Fragment>
+            {data.isLoggedIn && <NewPost thread={ match.url.split("/")[3] }/>}
+          </Fragment>
+        )
+      }}
     </Query>
   </Fragment>
 );

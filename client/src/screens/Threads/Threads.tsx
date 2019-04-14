@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import GetThreads from './ThreadsGetQuery';
 import { Query } from "react-apollo";
 import { Link } from 'react-router-dom';
-import LoginStatusQuery from '../../graphQL/LoginStatusQuery';
-import CreateThread from './CreateThread';
 import './Threads.scss';
+import LoginStatusQuery from '../../graphQL/LoginStatusQuery';
+import NewThread from './NewThread/NewThread';
 
 const Threads = ({ match } : { match: any }) => (
     <Query query={ GetThreads } variables={{ forum: match.url.split("/")[2] }}>
@@ -31,7 +31,13 @@ const Threads = ({ match } : { match: any }) => (
               ))}
             </div>
             <Query query={ LoginStatusQuery }>
-              {({ data }) => (data.isLoggedIn && <CreateThread forum={ match.url.split("/")[2]}/>)} 
+              {({ data }) => {
+                return (
+                  <Fragment>
+                    {data.isLoggedIn && <NewThread forum={ match.url.split("/")[2]}/>}
+                  </Fragment>
+                )
+              }}
             </Query>
           </Fragment>
         )

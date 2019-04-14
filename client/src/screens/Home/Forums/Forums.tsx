@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react';
 import { Query } from "react-apollo";
-import getForumsQuery from './ForumsQuery';
+import getForumsQuery from './ForumsGetQuery';
 import { Link } from 'react-router-dom';
 import './Forums.scss';
 
 const Forums = () => (
   <Fragment>
     <Query query={ getForumsQuery }>
-    {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>
-      if (error) return `${error}`;
+      {({ loading, error, data }) => {
+        if (loading) return <p>Loading...</p>
+        if (error) return `${error}`;
 
-      return (
+        return (
           <div className="forums">
             Forums
             {data.forums.map((forum: any) => (
@@ -24,9 +24,8 @@ const Forums = () => (
                   &nbsp;- Last post by {forum.threads[0].posts[0].author.username} @ {forum.threads[0].posts[0].createdAt}
               </Link>
             ))}
-
           </div>
-      )
+        )
       }}
     </Query>
   </Fragment>

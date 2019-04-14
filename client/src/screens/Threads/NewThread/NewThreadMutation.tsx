@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-const CreateThreadMutation = gql`
+const NewThreadMutation = gql`
   mutation createThread($forum: String!, $title: String!, $content: String!) {
     createThread(forum: $forum, title: $title, content: $content) {
       title
@@ -8,4 +8,4 @@ const CreateThreadMutation = gql`
   }
 `;
 
-export default CreateThreadMutation;
+export default NewThreadMutation;
