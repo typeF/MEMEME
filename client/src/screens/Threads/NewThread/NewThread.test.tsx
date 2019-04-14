@@ -2,35 +2,36 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import waait from 'waait';
 import { MockedProvider } from 'react-apollo/test-utils';
-import NewPost from './NewPost';
-import NewPostMutation from './NewPostMutation';
+import NewThread from './NewThread';
+import NewThreadMutation from './NewThreadMutation';
 
-const threadId = "12345";
+const forum = "General";
 
 const mocks = [
   {
     request: {
-      query: NewPostMutation,
+      query: NewThreadMutation,
       variables: {
-        thread: threadId,
-        content: "PewPewPew!"
+        forum,
+        title: "Thread 3",
+        content: "Post ZZZ"
       }
     },
     result: {
       data: {
-        createPost: {
-          postnumber: 777,
-          content: "PowWow"
+        createThread: {
+          title: "Thread 3",
+          threadnumber: 888
         }
       }
     }
   }
 ];
 
-it('should render loading state', () => {
+it('should render NewThread loading state', () => {
   const component = renderer.create(
     <MockedProvider mocks={ mocks } addTypename={ false }>
-      <NewPost thread={ threadId }/>
+      <NewThread forum={ forum }/>
     </MockedProvider>);
 
     const button = component.root.findByType('button');
@@ -40,10 +41,10 @@ it('should render loading state', () => {
     expect(tree && tree.children).toContain('Loading...');
 });
 
-it('should make a new post and give visual feedback', async () => {
+it('should make a new thread and give visual feedback', async () => {
   const component = renderer.create(
     <MockedProvider mocks={ mocks } addTypename={ false }>
-      <NewPost thread={ threadId }/>
+      <NewThread forum={ forum }/>
     </MockedProvider>);
 
     const button = component.root.findByType('button');
@@ -52,5 +53,5 @@ it('should make a new post and give visual feedback', async () => {
     await waait(100);
 
     const tree = component.toJSON();
-    expect(tree && tree.children).toContain('Posted!');
+    expect(tree && tree.children).toContain('Created thread!');
 });

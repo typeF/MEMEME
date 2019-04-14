@@ -6,7 +6,7 @@ const StyledButton = styled.button`
 
 const NewThreadButton = ({ newThread } : { newThread : any }) => {
   return (
-    <StyledButton onClick={e => {e.preventDefault(); newThread() }}>
+    <StyledButton onClick={() => newThread()}>
       New Thread
     </StyledButton>
   )

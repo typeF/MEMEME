@@ -4,7 +4,7 @@ import { Query } from "react-apollo";
 import { Link } from 'react-router-dom';
 import './Threads.scss';
 import LoginStatusQuery from '../../graphQL/LoginStatusQuery';
-import NewThread from './NewThread/NewThread';
+import NewThread from './NewThread';
 
 const Threads = ({ match } : { match: any }) => (
     <Query query={ GetThreads } variables={{ forum: match.url.split("/")[2] }}>

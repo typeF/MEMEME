@@ -12,9 +12,14 @@ const NewThread = ({ forum } : { forum: String }) => {
         console.log("Created thread");
       }}
     >
-      {(newThread, {}) => ( 
-        <NewThreadButton newThread={ newThread }/>
-      )}
+      {(newThread, { loading, error, data }) => { 
+        if (loading) return <p>Loading...</p>
+        if (data) return <p>Created thread!</p>
+
+        return (
+          <NewThreadButton newThread={ newThread }/>
+        )
+  }}
     </Mutation>
   )
 }

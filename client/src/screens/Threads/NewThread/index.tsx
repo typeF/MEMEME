@@ -1,3 +1,3 @@
-import NewThreadContainer from './NewThreadContainer';
+import NewThread from './NewThread';
 
-export default NewThreadContainer;
+export default NewThread;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
-import NewPostMutation from './NewPostMutation';
 import NewPostButton from './NewPostButton';
+import NewPostMutation from './NewPostMutation';
 
 const NewPost = ({ thread } : { thread: String }) => {
   return (
