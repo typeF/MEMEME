@@ -10,7 +10,7 @@ const title = "Test title"
 const content = "Post 1 Content"
 
 const match = {
-  url: "/localhost:3000/thread/A"
+  url: "/localhost:3000/General/ABC123"
 };
 
 const threadId = match.url.split("/")[3]
@@ -84,7 +84,7 @@ it('should render Thread', async () => {
 // As of Apollo Client 2.5.1, MockedProvider does not provide @client queries
 // properly so this test will not work yet
 
-// it('should render New Thread button if logged in', async () => {
+// it('should render reply button if logged in', async () => {
 //   const component = renderer.create(
 //     <MockedProvider mocks={ mocks } addTypename={ false }>
 //       <Thread match={ match }/>
@@ -93,5 +93,5 @@ it('should render Thread', async () => {
 //     await waait(0);
 
 //     const button = component.root.findByType('button');
-//     expect(button.children).toContain('New Thread');
+//     expect(button.children).toContain('Reply');
 // });
