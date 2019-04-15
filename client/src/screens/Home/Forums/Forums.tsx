@@ -20,6 +20,7 @@ const Forums = () => (
                 to={`/forums/${forum.name}`}
               >
                 {forum.name} 
+                  &nbsp;- {forum.threads[0].title}
                   &nbsp;- {forum.threads[0].posts[0].content}
                   &nbsp;- Last post by {forum.threads[0].posts[0].author.username} @ {forum.threads[0].posts[0].createdAt}
               </Link>

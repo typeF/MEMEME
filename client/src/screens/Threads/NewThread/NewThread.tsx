@@ -9,7 +9,7 @@ const NewThread = ({ forum } : { forum: String }) => {
       mutation={ NewThreadMutation } 
       variables={{ title: "Thread 3", forum, content: "Post ZZZ" }}
       onCompleted={() => {
-        console.log("Created thread");
+        // console.log("Created thread");
       }}
     >
       {(newThread, { loading, error, data }) => { 

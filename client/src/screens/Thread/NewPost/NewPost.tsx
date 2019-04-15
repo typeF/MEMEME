@@ -9,7 +9,7 @@ const NewPost = ({ thread } : { thread: String }) => {
       mutation={ NewPostMutation } 
       variables={{ thread, content: "PewPewPew!"}}
       onCompleted={() => {
-        console.log("Created post");
+        // console.log("Created post");
       }}
     >
       {(newPost, { loading, error, data }) => { 

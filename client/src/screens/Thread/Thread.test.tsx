@@ -2,22 +2,31 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockedProvider } from 'react-apollo/test-utils';
 import waait from 'waait';
-import LoginStatusQuery from '../../graphQL/LoginStatusQuery';
 import Thread from './Thread';
 import GetThread from './ThreadGetQuery';
+import LoginStatusQuery from '../../graphQL/LoginStatusQuery';
+
+const title = "Test title"
+const content = "Post 1 Content"
+
+const match = {
+  url: "/localhost:3000/thread/A"
+};
+
+const threadId = match.url.split("/")[3]
 
 const mocks = [
   {
     request: {
       query: GetThread,
       variables: {
-        threadId: "A"
+        threadId,
       }
     },
     result: {
       data: {
         thread: {
-          title: "Test thread",
+          title,
           author: {
             username: "Bob"
           },
@@ -28,7 +37,7 @@ const mocks = [
               author: {
                 username: "A"
               },
-              content: "Post1 Content",
+              content,
               createdAt: "2019-01-01 00:00:00"
             }, 
           ]
@@ -46,13 +55,6 @@ const mocks = [
     }
   }
 ];
-
-const match = {
-  url: "/localhost:3000/thread/A"
-};
-
-
-// As of Apollo-Client 2.5.1 MockedProvider's ability to provide
 
 it('should render Thread loading component initially', () => {
   const component = renderer.create(
@@ -74,12 +76,22 @@ it('should render Thread', async () => {
 
     const div = component.root.findByType('div');
     const li = component.root.findByType('li');
-    expect(div.children).toContain('Test thread');
-    expect(li.children).toContain('Post1 Content');
+    expect(div.children).toContain(title);
+    expect(li.children).toContain(content);
+
+});
 
 // As of Apollo Client 2.5.1, MockedProvider does not provide @client queries
 // properly so this test will not work yet
 
+// it('should render New Thread button if logged in', async () => {
+//   const component = renderer.create(
+//     <MockedProvider mocks={ mocks } addTypename={ false }>
+//       <Thread match={ match }/>
+//     </MockedProvider>);
+
+//     await waait(0);
+
 //     const button = component.root.findByType('button');
 //     expect(button.children).toContain('New Thread');
-});
+// });
