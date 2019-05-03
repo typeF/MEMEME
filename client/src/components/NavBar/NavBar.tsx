@@ -1,61 +1,47 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import NavBarLogo from './NavBarLogo';
-import Login from '../Login';
-import './NavBar.scss';
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+import { Query } from "react-apollo";
+import LoginStatusQuery from "../../graphQL/LoginStatusQuery";
+import NavBarLogo from "./NavBarLogo";
+import NavBarMenuButton from "./NavBarMenuButton";
+import Login from "../Login";
+import LoginMenu from "./LoginMenu";
+import LogoutMenu from "./LogoutMenu";
+import "./NavBar.scss";
 
 const NavBar = () => {
-  const [bugerActive, setBurgerActive] = useState(false);
-
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
-      <div className="navbar-brand">
-        <a className="navbar-item" href="https://bulma.io">
-          <NavBarLogo/>
-        </a>
+    <nav id="navbar" role="navigation" aria-label="main navigation">
+      <div id="navbar-left">
         <Link to="/" className="navbar-item">
-          Home
+          MEMEME
         </Link>
-        <Login/>
-        <a role="button" className={ bugerActive ? "navbar-burger burger is-active" : "navbar-burger burger"} aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={() => setBurgerActive(!bugerActive)}>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
       </div>
-
-      <div id="navbarBasicExample" className={ bugerActive ? "navbar-menu is-active" : "navbar-menu" }>
-        <div className="navbar-start">
-          <div className="navbar-item has-dropdown is-hoverable">
-            <Link to="/" className="navbar-item">
-              Home
-            </Link>
-            <a className="navbar-link">
-              More
-            </a>
-
-            <div className="navbar-dropdown">
-              <a className="navbar-item">
-                More 1
-              </a>
-              <hr className="navbar-divider" />
-              <a className="navbar-item">
-                Report an issue
-              </a>
-            </div>
+      <div id="navbar-right">
+        <Login />
+        <div className="dropdown is-hoverable">
+          <div className="dropdown-trigger">
+            <NavBarMenuButton/>
           </div>
-        </div>
-
-        <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="buttons">
-              <Login/>
+          <div className="dropdown-menu" role="menu">
+            <div className="dropdown-content">
+              <Query query={LoginStatusQuery}>
+                {({ data }) => {
+                  return (
+                    <Fragment>
+                      {data.isLoggedIn ? <LogoutMenu/> : <LoginMenu/>}
+                    </Fragment>
+                  );
+                }}
+              </Query>
+              <hr className="dropdown-divider"/>
+              <span className="dropdown-item">THEME</span>
             </div>
           </div>
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
 export default NavBar;
