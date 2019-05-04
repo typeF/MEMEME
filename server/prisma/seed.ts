@@ -13,18 +13,39 @@ async function main() {
   console.log(`Created new subForum: ${forum2.name} (ID: ${forum2.id})`);
 
   const user1 = await prisma.createUser({
-    username: 'Alice',
-    email: 'a@a.com',
-    password: '$2b$10$/vo3mAlTzCkQP87VDAvIG.uyoXOqKjaL4aFsWtir3G/.7LjXAsaNu' // 1
+    username: '100yr Old Grandma',
+    email: '100yrgrandma@mememe.com',
+    password: '$2b$10$fAucUtyfJIsoCw26McaLvOTZYptPZ8imix/nlAK/JaBMdWuXfmxb2' // 2
   });
   console.log(`Created new user: ${user1.username} (ID: ${user1.id})`);
 
   const user2 = await prisma.createUser({
-    username: 'Bob',
-    email: 'b@b.com',
-    password: '$2b$10$fAucUtyfJIsoCw26McaLvOTZYptPZ8imix/nlAK/JaBMdWuXfmxb2' // 2
+    username: 'Alice',
+    email: 'alice@mememe.com',
+    password: '$2b$10$/vo3mAlTzCkQP87VDAvIG.uyoXOqKjaL4aFsWtir3G/.7LjXAsaNu' // 1
   });
   console.log(`Created new user: ${user2.username} (ID: ${user2.id})`);
+
+  const user3 = await prisma.createUser({
+    username: 'Bob',
+    email: 'bob@mememe.com',
+    password: '$2b$10$fAucUtyfJIsoCw26McaLvOTZYptPZ8imix/nlAK/JaBMdWuXfmxb2' // 2
+  });
+  console.log(`Created new user: ${user3.username} (ID: ${user3.id})`);
+
+  const user4 = await prisma.createUser({
+    username: 'Chicken',
+    email: 'chicken@mememe.com',
+    password: '$2b$10$fAucUtyfJIsoCw26McaLvOTZYptPZ8imix/nlAK/JaBMdWuXfmxb2' // 2
+  });
+  console.log(`Created new user: ${user4.username} (ID: ${user4.id})`);
+
+  const user5 = await prisma.createUser({
+    username: 'Dinosaur',
+    email: 'dinosaur@mememe.com',
+    password: '$2b$10$fAucUtyfJIsoCw26McaLvOTZYptPZ8imix/nlAK/JaBMdWuXfmxb2' // 2
+  });
+  console.log(`Created new user: ${user5.username} (ID: ${user5.id})`);
 
   const thread1 = await prisma.createThread({
     forum: { connect: { id: forum1.id } },

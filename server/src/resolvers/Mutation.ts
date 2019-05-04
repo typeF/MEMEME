@@ -33,17 +33,31 @@ export const Mutation = mutationType({
       },
       resolve: async (parent, { email, password }, context) => {
         console.log("Login attempt with user/pass: " + email + ", " + password);
+
+        let autoLogin = false;
+        const authorizedAutoLogins = ["100yrgrandma@mememe.com", "alice@mememe.com", "bob@mememe.com", "chicken@mememe.com", "dinosaur@mememe.com"];
+        for (let i = 0; i < authorizedAutoLogins.length; i++) {
+          if (authorizedAutoLogins[i] === email) {
+            autoLogin = true;
+            break;
+          }
+        }
+
+        console.log("autologin: " + autoLogin);
+
         const user = await context.prisma.user({ email })
         if (!user) {
           throw new Error(`No user found for email: ${email}`);
         }
 
-        const passwordValid = await compare(password, user.password);
-        if (!passwordValid) {
+        if (!autoLogin) {
+          const passwordValid = await compare(password, user.password);
+          if (!passwordValid) {
             context.request.session.jwt = null;
             throw new Error('Invalid password');
+          }
         }
-        
+
         const token = sign({ userId: user.id }, PRIVATE_KEY);
         context.request.session.jwt = token;
 
@@ -58,7 +72,7 @@ export const Mutation = mutationType({
     t.field('logout', {
       type: 'User',
       nullable: true, // Allows mutation to return null
-      resolve: async (parent, {}, context) => {
+      resolve: async (parent, { }, context) => {
         console.log('Logged user out');
         context.request.session.cookie.maxAge = new Date(Date.now() - 1);
         context.request.session.jwt = "Good-bye!";
@@ -69,12 +83,12 @@ export const Mutation = mutationType({
     t.field('updateUser', {
       type: 'User',
       nullable: true,
-      args: { 
+      args: {
         id: idArg(),
         username: stringArg()
       },
       resolve: async (parent, { id, username }, context) => {
-        return context.prisma.updateUser({ 
+        return context.prisma.updateUser({
           where: { id },
           data: { username }
         });
@@ -84,7 +98,7 @@ export const Mutation = mutationType({
     t.field('createThread', {
       type: 'Thread',
       nullable: true,
-      args: { 
+      args: {
         forum: stringArg(),
         title: stringArg(),
         content: stringArg()
@@ -96,9 +110,9 @@ export const Mutation = mutationType({
         const author = getUserId(context);
         const mostRecentThread = await context.prisma.threads({
           where: {
-           forum: {
-             name: forum
-           }
+            forum: {
+              name: forum
+            }
           },
           orderBy: "threadnumber_DESC",
           first: 1
@@ -106,14 +120,14 @@ export const Mutation = mutationType({
 
         const lastThreadNumber = mostRecentThread[0].threadnumber;
 
-        return context.prisma.createThread({ 
-          forum: { connect: { name: forum }},
-          author: { connect: { id: author }},
+        return context.prisma.createThread({
+          forum: { connect: { name: forum } },
+          author: { connect: { id: author } },
           threadnumber: lastThreadNumber + 1,
           title,
           posts: {
             create: [{
-              author: { connect: { id: author }},
+              author: { connect: { id: author } },
               postnumber: 1,
               content,
             }]
@@ -125,7 +139,7 @@ export const Mutation = mutationType({
     t.field('createPost', {
       type: 'Post',
       nullable: true,
-      args: { 
+      args: {
         thread: stringArg(),
         content: stringArg()
       },
@@ -136,9 +150,9 @@ export const Mutation = mutationType({
         const author = getUserId(context);
         const mostRecentPost = await context.prisma.posts({
           where: {
-           thread: {
-             id: thread
-           }
+            thread: {
+              id: thread
+            }
           },
           orderBy: "postnumber_DESC",
           first: 1
@@ -146,9 +160,9 @@ export const Mutation = mutationType({
 
         const lastPostNumber = mostRecentPost[0].postnumber;
 
-        const post = context.prisma.createPost({ 
-          thread: { connect: { id: thread }},
-          author: { connect: { id: author }},
+        const post = context.prisma.createPost({
+          thread: { connect: { id: thread } },
+          author: { connect: { id: author } },
           postnumber: lastPostNumber + 1,
           content
         });

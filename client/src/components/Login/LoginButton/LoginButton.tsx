@@ -17,13 +17,15 @@ const LoginMutation = gql`
   }
 `;
 
-const LoginButton = () => {
+const LoginButton = ({ loginInfo } : { loginInfo: any}) => {
+
+  const { username, email, password } = loginInfo;
+
   return (
     <ApolloConsumer>
       {client => (
         <Mutation 
           mutation={ LoginMutation } 
-          variables={{email: 'alice@mememe.com', password: '1'}}
           onCompleted={data => { 
             if (data) {
               client.writeData({ data: { isLoggedIn: true }});
@@ -35,11 +37,13 @@ const LoginButton = () => {
               // if (error) return `${error}`;
 
               return (
-                <StyledButton 
-                  className='button is-success is-outlined' 
-                  onClick={() => login()}>
-                  LOGIN
-                </StyledButton>
+                <a 
+                  // className='button is-success is-outlined' 
+                  className='dropdown-item' 
+                  // onClick={() => login({ variables: { email: 'alice@mememe.com', password: '1' }})}>
+                  onClick={() => login({ variables: { email, password }})}>
+                  {username}
+                </a>
               )
           }}
         </Mutation>
