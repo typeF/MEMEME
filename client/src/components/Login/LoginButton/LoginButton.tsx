@@ -23,7 +23,7 @@ const LoginButton = () => {
       {client => (
         <Mutation 
           mutation={ LoginMutation } 
-          variables={{email: 'a@a.com', password: '1'}}
+          variables={{email: 'alice@mememe.com', password: '1'}}
           onCompleted={data => { 
             if (data) {
               client.writeData({ data: { isLoggedIn: true }});

@@ -30,11 +30,12 @@ const LogoutButton = () => {
               // if (error) return `${error}`;
 
               return (
-                <StyledButton 
-                  className='button is-danger is-outlined' 
+                <a 
+                  // className='button is-danger is-outlined' 
+                  className='dropdown-item' 
                   onClick={() => logout()}>
-                  LOGOUT
-                </StyledButton>
+                  Logout
+                </a>
               )
           }}
         </Mutation>

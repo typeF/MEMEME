@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
+import LogoutButton from '../../../components/Login/LogoutButton';
 
 const LogoutMenu = () => {
   return (
     <Fragment>
-      <span className="dropdown-item">Logout</span>
+      <LogoutButton />
     </Fragment>
   )
 }
