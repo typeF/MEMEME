@@ -77,7 +77,7 @@ async function main() {
         {
           author: { connect: { id: user1.id } },
           postnumber: 1,
-          content: 'Advice1FirstPost.gif'
+          content: 'https://media.giphy.com/media/5nPodXMLXXd1m/giphy.gif'
         }, {
           author: { connect: { id: user2.id } },
           postnumber: 2,
@@ -123,7 +123,7 @@ async function main() {
         {
           author: { connect: { id: user1.id } },
           postnumber: 1,
-          content: 'General1FirstPost.gif'
+          content: 'https://media.giphy.com/media/6xtsQKAsYh25a/giphy.gif'
         }, {
           author: { connect: { id: user2.id } },
           postnumber: 2,

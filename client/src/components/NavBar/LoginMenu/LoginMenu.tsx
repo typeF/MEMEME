@@ -8,12 +8,14 @@ const LoginMenu = () => {
   ['Chicken', 'chicken@mememe.com'],
   ['Dinosaur', 'dinosaur@mememe.com']];
 
+  let key = 0;
+
   return (
     <Fragment>
       <span className="dropdown-item">Select a user</span>
       <hr className="dropdown-divider" />
       {userLogins.map(userLogin => (
-        <LoginButton loginInfo={{ username: userLogin[0], email: userLogin[1], password: '1' }} />
+        <LoginButton key={key++} loginInfo={{ username: userLogin[0], email: userLogin[1], password: '1' }} />
       ))}
     </Fragment>
   );

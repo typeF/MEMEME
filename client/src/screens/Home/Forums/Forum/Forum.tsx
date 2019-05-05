@@ -4,19 +4,38 @@ import styled from 'styled-components';
 import './Forum.scss';
 
 const MainContainer = styled.div`
+  display: grid;
+  grid-template-rows: 1fr 7fr;
+  min-height: 0;
+  min-width: 0;
 `;
 
 const StyledContainer = styled.div`
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.75);
+  height: 100%;
   margin-bottom: 3px;
   margin-top: 5px;
   padding: 10px;
-  padding-bottom: 2px;
+  min-height: 0;
+  min-width: 0;
+`;
+
+const StyledLink = styled(Link)`
+  display: grid;
+  grid-template-rows: 7fr 1fr;
+  min-height: 0;
+  min-width: 0;
 `;
 
 const StyledImg = styled.img`
   border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  min-height: 0;
+  min-width: 0;
 `;
 
 const StyledSpan = styled.span`
@@ -30,7 +49,6 @@ const Forum = ({ forum }: { forum: any }) => {
   const { name } = forum;
   const thread = forum.threads[0];
   const { author, content, createdAt } = thread.posts[0];
-  const testSrc = "https://images.unsplash.com/photo-1556647034-7aa9a4ea7437?ixlib=rb-1.2.1&auto=format&fit=crop&w=2700&q=80"
 
   return (
     <Fragment>
@@ -41,16 +59,16 @@ const Forum = ({ forum }: { forum: any }) => {
         >
           {name}
         </Link>
-        <Link
+        <StyledLink
           to={`/forums/${name}/${thread.id}`}
         >
           <StyledContainer>
             <StyledImg 
               className="forum-image" 
-              src={testSrc}/>
+              src={content}/>
           </StyledContainer>
           <StyledSpan className="forum-footer forum-footer-description">[{author.username}]&nbsp;{thread.title}</StyledSpan>
-        </Link>
+        </StyledLink>
       </MainContainer>
     </Fragment>
   )
