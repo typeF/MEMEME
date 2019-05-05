@@ -18,10 +18,10 @@ const NavBar = () => {
         </Link>
       </div>
       <div id="navbar-right">
-        <Login />
+        {/* <Login /> */}
         <div className="dropdown is-hoverable">
           <div className="dropdown-trigger">
-            <NavBarMenuButton/>
+            <NavBarMenuButton />
           </div>
           <div className="dropdown-menu" role="menu">
             <div className="dropdown-content">
@@ -29,12 +29,12 @@ const NavBar = () => {
                 {({ data }) => {
                   return (
                     <Fragment>
-                      {data.isLoggedIn ? <LogoutMenu/> : <LoginMenu/>}
+                      {data.isLoggedIn ? <LogoutMenu /> : <LoginMenu />}
                     </Fragment>
                   );
                 }}
               </Query>
-              <hr className="dropdown-divider"/>
+              <hr className="dropdown-divider" />
               <span className="dropdown-item">THEME</span>
             </div>
           </div>
