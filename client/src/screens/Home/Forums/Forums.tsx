@@ -14,7 +14,6 @@ const Forums = () => (
 
         return (
           <div className="forums">
-            Forums
             {data.forums.map((forum: any) => (
               <Forum key={forum.id} forum={forum} />
             ))}

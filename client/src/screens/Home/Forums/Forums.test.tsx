@@ -92,5 +92,4 @@ it("should render all Forums", async () => {
   const div = component.root.findAllByType("a");
   expect(div[0].children).toContain(forums[0].name);
   expect(div[2].children).toContain(forums[1].name);
-  // expect(div[1].children).toContain(adviceTitle);
 });

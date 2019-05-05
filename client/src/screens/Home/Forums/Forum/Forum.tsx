@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import './Forum.scss';
 
 const MainContainer = styled.div`
-  width:25vw;
 `;
 
 const StyledContainer = styled.div`
@@ -12,9 +11,8 @@ const StyledContainer = styled.div`
   border: 2px solid rgba(255, 255, 255, 0.75);
   margin-bottom: 3px;
   margin-top: 5px;
-  padding-bottom: 4px;
   padding: 10px;
-  width: 25vw;
+  padding-bottom: 2px;
 `;
 
 const StyledImg = styled.img`

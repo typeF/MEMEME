@@ -16,6 +16,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: linear-gradient(to bottom right, #335ca1, #ec51c085);
   height: 100vh;
+
+}
+
+#root {
+  display: grid;
+  grid-template-columns: 1fr 18fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "side-left navbar side-right"
+    "side-left content side-right"
+    "side-left footer side-rght";
 }
 
 code {

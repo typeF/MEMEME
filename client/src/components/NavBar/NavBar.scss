@@ -1,4 +1,5 @@
 #navbar {
+  grid-area: navbar;
   background: rgba(255, 255, 255, 0);
   font-family: "Righteous", sans-serif;
   display: flex;
@@ -6,9 +7,8 @@
   align-items: center;
 }
 
-#navbar-left,
-#navbar-right {
-  margin: 15px;
+#navbar-left .navbar-item {
+  padding: 0;
 }
 
 #navbar-right .dropdown {

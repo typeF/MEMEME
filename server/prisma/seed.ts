@@ -12,6 +12,26 @@ async function main() {
   });
   console.log(`Created new subForum: ${forum2.name} (ID: ${forum2.id})`);
 
+  // const forum3 = await prisma.createForum({
+  //   name: 'Meetup'
+  // });
+  // console.log(`Created new subForum: ${forum3.name} (ID: ${forum3.id})`);
+
+  // const forum4 = await prisma.createForum({
+  //   name: 'Buy & Sell'
+  // });
+  // console.log(`Created new subForum: ${forum4.name} (ID: ${forum4.id})`);
+
+  // const forum5 = await prisma.createForum({
+  //   name: 'Serious'
+  // });
+  // console.log(`Created new subForum: ${forum5.name} (ID: ${forum5.id})`);
+
+  // const forum6 = await prisma.createForum({
+  //   name: '???'
+  // });
+  // console.log(`Created new subForum: ${forum6.name} (ID: ${forum6.id})`);
+
   const user1 = await prisma.createUser({
     username: '100yr Old Grandma',
     email: '100yrgrandma@mememe.com',
