@@ -2,11 +2,12 @@ import React, { Fragment } from 'react';
 import { Query } from "react-apollo";
 import getForumsQuery from './ForumsGetQuery';
 import { Link } from 'react-router-dom';
+import Forum from './Forum';
 import './Forums.scss';
 
 const Forums = () => (
   <Fragment>
-    <Query query={ getForumsQuery }>
+    <Query query={getForumsQuery}>
       {({ loading, error, data }) => {
         if (loading) return <p>Loading...</p>
         if (error) return `${error}`;
@@ -15,15 +16,7 @@ const Forums = () => (
           <div className="forums">
             Forums
             {data.forums.map((forum: any) => (
-              <Link 
-                key={forum.id}
-                to={`/forums/${forum.name}`}
-              >
-                {forum.name} 
-                  &nbsp;- {forum.threads[0].title}
-                  &nbsp;- {forum.threads[0].posts[0].content}
-                  &nbsp;- Last post by {forum.threads[0].posts[0].author.username} @ {forum.threads[0].posts[0].createdAt}
-              </Link>
+              <Forum key={forum.id} forum={forum} />
             ))}
           </div>
         )

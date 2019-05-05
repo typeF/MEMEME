@@ -49,17 +49,17 @@ async function main() {
 
   const thread1 = await prisma.createThread({
     forum: { connect: { id: forum1.id } },
-    author: { connect: { id: user1.id }},
+    author: { connect: { id: user1.id } },
     threadnumber: 1,
     title: "Advice Thread 1",
     posts: {
       create: [
         {
-          author: { connect: { id: user1.id }},
+          author: { connect: { id: user1.id } },
           postnumber: 1,
           content: 'Advice1FirstPost.gif'
         }, {
-          author: { connect: { id: user2.id }},
+          author: { connect: { id: user2.id } },
           postnumber: 2,
           content: 'Advice1SecondPost.gif'
         }
@@ -70,21 +70,21 @@ async function main() {
 
   const thread2 = await prisma.createThread({
     forum: { connect: { id: forum1.id } },
-    author: { connect: { id: user2.id }},
+    author: { connect: { id: user2.id } },
     threadnumber: 2,
     title: "Advice Thread 2",
     posts: {
       create: [
         {
-          author: { connect: { id: user2.id }},
+          author: { connect: { id: user2.id } },
           postnumber: 1,
           content: 'Advice2FirstPost.gif'
         }, {
-          author: { connect: { id: user1.id }},
+          author: { connect: { id: user1.id } },
           postnumber: 2,
           content: 'Advice2SecondPost.gif'
         }, {
-          author: { connect: { id: user2.id }},
+          author: { connect: { id: user2.id } },
           postnumber: 3,
           content: 'Advice2ThirdPost.gif'
         }
@@ -95,21 +95,21 @@ async function main() {
 
   const thread3 = await prisma.createThread({
     forum: { connect: { id: forum2.id } },
-    author: { connect: { id: user1.id }},
+    author: { connect: { id: user1.id } },
     threadnumber: 1,
     title: "General Thread 1",
     posts: {
       create: [
         {
-          author: { connect: { id: user1.id }},
+          author: { connect: { id: user1.id } },
           postnumber: 1,
           content: 'General1FirstPost.gif'
         }, {
-          author: { connect: { id: user2.id }},
+          author: { connect: { id: user2.id } },
           postnumber: 2,
           content: 'General1SecondPost.gif'
         }, {
-          author: { connect: { id: user2.id }},
+          author: { connect: { id: user2.id } },
           postnumber: 3,
           content: 'General1ThirdPost.gif'
         }

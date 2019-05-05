@@ -22,6 +22,7 @@ const mocks = [
             name: "General",
             threads: [
               {
+                id: 123,
                 threadnumber: 1,
                 title: generalTitle,
                 posts: [
@@ -41,6 +42,7 @@ const mocks = [
             name: "Advice",
             threads: [
               {
+                id: 456,
                 threadnumber: 1,
                 title: adviceTitle,
                 posts: [
@@ -85,7 +87,10 @@ it("should render all Forums", async () => {
 
   await waait(1000);
 
+  const forums = mocks[0].result.data.forums;
+
   const div = component.root.findAllByType("a");
-  expect(div[0].children).toContain(generalTitle);
-  expect(div[1].children).toContain(adviceTitle);
+  expect(div[0].children).toContain(forums[0].name);
+  expect(div[2].children).toContain(forums[1].name);
+  // expect(div[1].children).toContain(adviceTitle);
 });

@@ -43,8 +43,6 @@ export const Mutation = mutationType({
           }
         }
 
-        console.log("autologin: " + autoLogin);
-
         const user = await context.prisma.user({ email })
         if (!user) {
           throw new Error(`No user found for email: ${email}`);

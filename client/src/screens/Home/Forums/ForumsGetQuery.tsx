@@ -6,6 +6,7 @@ const getForumsQuery = gql`
       id
       name
       threads(first: 1) {
+        id
         threadnumber
         title
         posts(first: 1) {
