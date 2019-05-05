@@ -1,40 +1,54 @@
 import React, { Fragment } from 'react';
-import GetThreads from './ThreadsGetQuery';
 import { Query } from "react-apollo";
-import { Link } from 'react-router-dom';
-import './Threads.scss';
+import GetThreads from './ThreadsGetQuery';
 import LoginStatusQuery from '../../graphQL/LoginStatusQuery';
+import styled from 'styled-components';
+import ThreadComponent from './ThreadComponent';
 import NewThread from './NewThread';
+
+const ThreadsContainer = styled.div`
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 3rem;
+  font-family: "Righteous", sans-serif;
+`;
+
+const ThreadsLine = styled.hr`
+  display: block;
+  border: 0;
+  height: 1px;
+  margin: 0;
+  background: rgba(255, 255, 255, 0);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+`;
 
 const Threads = ({ match } : { match: any }) => (
     <Query query={ GetThreads } variables={{ forum: match.url.split("/")[2] }}>
       {({ loading, error, data }) => {
-        if (loading) return <p>Loading...</p>
+        const forum = match.url.split("/")[2];
+        if (loading) return <p>Loading...</p>;
         if (error) return `${error}`;
 
         return (
           <Fragment>
-            <div className="threads">
-              Threads
+            <ThreadsContainer>
+              {forum.toUpperCase()}
+              <ThreadsLine/>
               {data.threads.map((thread: any) => (
-                <Fragment key={thread.id}>
-                  <Link 
-                    key={thread.id}
-                    to={`${ match.url }/${ thread.id }`}
-                  >
-                    {thread.title} 
-                  </Link>
-                  {thread.posts.map((post: any) => (
-                    <li key={post.id}>{post.author.username}&nbsp;-&nbsp;{post.content}&nbsp;@{post.createdAt}</li>
-                  ))}
-                </Fragment>
+                <ThreadComponent
+                  key={thread.id}
+                  thread={thread}
+                  link={`${ match.url }/${ thread.id }`}
+                />
               ))}
-            </div>
+            </ThreadsContainer>
             <Query query={ LoginStatusQuery }>
               {({ data }) => {
                 return (
                   <Fragment>
-                    {data.isLoggedIn && <NewThread forum={ match.url.split("/")[2]}/>}
+                    {data.isLoggedIn && <NewThread forum={forum}/>}
                   </Fragment>
                 )
               }}

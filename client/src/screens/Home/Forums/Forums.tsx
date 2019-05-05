@@ -1,9 +1,19 @@
 import React, { Fragment } from 'react';
 import { Query } from "react-apollo";
 import getForumsQuery from './ForumsGetQuery';
-import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import Forum from './Forum';
 import './Forums.scss';
+
+const ForumsContainer = styled.div`
+  grid-area: content;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  min-height: 0;
+  min-width: 0;
+`;
 
 const Forums = () => (
   <Fragment>
@@ -13,11 +23,11 @@ const Forums = () => (
         if (error) return `${error}`;
 
         return (
-          <div className="forums">
+          <ForumsContainer>
             {data.forums.map((forum: any) => (
               <Forum key={forum.id} forum={forum} />
             ))}
-          </div>
+          </ForumsContainer>
         )
       }}
     </Query>
