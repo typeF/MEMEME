@@ -4,6 +4,7 @@ import GetThreads from './ThreadsGetQuery';
 import LoginStatusQuery from '../../graphQL/LoginStatusQuery';
 import styled from 'styled-components';
 import ThreadComponent from './ThreadComponent';
+import FadingLine from '../../components/FadingLine';
 import NewThread from './NewThread';
 
 const ThreadsContainer = styled.div`
@@ -13,15 +14,6 @@ const ThreadsContainer = styled.div`
   color: white;
   font-size: 3rem;
   font-family: "Righteous", sans-serif;
-`;
-
-const ThreadsLine = styled.hr`
-  display: block;
-  border: 0;
-  height: 1px;
-  margin: 0;
-  background: rgba(255, 255, 255, 0);
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 `;
 
 const Threads = ({ match } : { match: any }) => (
@@ -35,7 +27,7 @@ const Threads = ({ match } : { match: any }) => (
           <Fragment>
             <ThreadsContainer>
               {forum.toUpperCase()}
-              <ThreadsLine/>
+              <FadingLine/>
               {data.threads.map((thread: any) => (
                 <ThreadComponent
                   key={thread.id}
