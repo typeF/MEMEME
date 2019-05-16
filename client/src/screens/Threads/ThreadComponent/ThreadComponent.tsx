@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import MemeCard from '../../../components/MemeCard';
+import MemeCardSquare from '../../../components/MemeCardSquare';
 
 const Thread = styled.div`
   margin-bottom: 50px;
@@ -17,24 +18,34 @@ const ThreadContainer = styled.div`
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(5, 1fr);
-  height: 250px;
+  // height: 250px;
+  &:before {
+    content: '';
+    width: 0;
+    padding-bottom: 100%;
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+  }
+  & > *:first-child {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+  }
 `;
 
-const ThreadComponent = ({ thread, link } : { thread: any, link: any}) => {
+const ThreadComponent = ({ thread, link }: { thread: any, link: any }) => {
   return (
     <Thread>
-      <ThreadLink 
+      <ThreadLink
         to={link}
       >
-        {thread.title} 
+        {thread.title}
       </ThreadLink>
       <ThreadContainer>
         {thread.posts.map((post: any) => (
-          <MemeCard 
+          <MemeCardSquare
             key={post.id}
             counter=""
             img={post.content} 
-            footer={`[${post.author.username}] @${post.createdAt}`}
           />
         ))}
       </ThreadContainer>
@@ -43,4 +54,3 @@ const ThreadComponent = ({ thread, link } : { thread: any, link: any}) => {
 };
 
 export default ThreadComponent;
-
