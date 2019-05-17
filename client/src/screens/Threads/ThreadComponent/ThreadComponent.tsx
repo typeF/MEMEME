@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import MemeCard from '../../../components/MemeCard';
 import MemeCardSquare from '../../../components/MemeCardSquare';
 
 const Thread = styled.div`
@@ -18,7 +17,6 @@ const ThreadContainer = styled.div`
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(5, 1fr);
-  // height: 250px;
   &:before {
     content: '';
     width: 0;
