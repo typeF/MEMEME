@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import SearchResults from './SearchResults';
+import SearchSelect from './SearchSelect';
 
 const SearchContainer = styled.div`
   display: grid;
   grid-gap: 20px;
   grid-area: content;
   grid-template-areas:
-    "selected-meme"
+    "search-select"
     "search-bar"
     "search-results";
   grid-template-rows: 4fr 1fr;
@@ -32,6 +33,7 @@ const SearchInput = styled.input`
 
 const Search = () => {
   const [searchTerms, setSearchTerms] = useState("");
+  const [searchSelect, setSearchSelect] = useState("");
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<string[]>([]);
 
@@ -66,8 +68,14 @@ const Search = () => {
     if (key === 'Enter') getGifs();
   }
 
+  const handleSelect = (src: string) => {
+    console.log("src is: " + src);
+    setSearchSelect(src);
+  }
+
   return (
     <SearchContainer>
+      <SearchSelect src={searchSelect}/>
       <SearchInput
         className="input"
         type="text"
@@ -75,7 +83,7 @@ const Search = () => {
         onKeyPress={e => handleKeyPress(e.key)}
         onChange={e => { setSearchTerms(e.target.value); }}
       />
-      <SearchResults results={results}/>
+      <SearchResults handleSelect={handleSelect} results={results}/>
     </SearchContainer>
   )
 };

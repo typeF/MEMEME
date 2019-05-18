@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import MemeCardImg from '../MemeCard/MemeCardImg';
 
 const MemeCardSquareAspectRatio = styled.div`
   position: relative;
@@ -19,34 +20,27 @@ const MemeCardSquareContainer = styled.div`
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.75);
   padding: 10px;
-
+  cursor: pointer;
+  &:hover {
+    border: 4px dotted rgba(0, 0, 0, 1);
+  }
   position: absolute;
   top: 0;
   bottom: 0;
   width: 100%;
 `;
 
-const MemeCardSquareImg = styled.img`
-  border-radius: 10px;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-  min-height: 0;
-  min-width: 0;
-`;
-
-const MemeCardSquare = ({ img, counter } : { img: any, counter: any }) => {
+const MemeCardSquare = ({ img, counter, clickHandler } : { img: string, counter: any, clickHandler: any }) => {
   return (
-    <Fragment>
       <MemeCardSquareAspectRatio>
-        <MemeCardSquareContainer>
-          <MemeCardSquareImg
-            src={img}
+        <MemeCardSquareContainer
+          onClick={() => clickHandler(img)}
+        >
+          <MemeCardImg
+            img={img}
           />
         </MemeCardSquareContainer>
       </MemeCardSquareAspectRatio>
-    </Fragment>
   )
 }
 

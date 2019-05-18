@@ -44,6 +44,7 @@ const ThreadComponent = ({ thread, link }: { thread: any, link: any }) => {
             key={post.id}
             counter=""
             img={post.content} 
+            clickHandler=""
           />
         ))}
       </ThreadContainer>

@@ -13,7 +13,9 @@ const Img = styled.img`
 
 const MemeCardImg = ({ img } : { img: any}) => {
   return (
-    <Img src={img}/>
+    <Img 
+      src={img}
+    />
   )
 }
 

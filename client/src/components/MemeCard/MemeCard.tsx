@@ -22,7 +22,7 @@ const MemeCardImgContainer = styled.div`
   min-width: 0;
 `;
 
-const MemeCard = ({ img, counter,  footer } : { img: any, counter: any, footer: any}) => {
+const MemeCard = ({ img, counter, footer } : { img: any, counter: any, footer: any}) => {
   return (
     <Fragment>
       <MemeCardContainer>
