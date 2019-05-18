@@ -5,21 +5,29 @@ import SearchResults from './SearchResults';
 
 const SearchContainer = styled.div`
   display: grid;
+  grid-gap: 20px;
   grid-area: content;
   grid-template-areas:
     "selected-meme"
     "search-bar"
     "search-results";
-  grid-template-rows: 4fr 1fr 4fr;
+  grid-template-rows: 4fr 1fr;
 `;
 
 const SearchInput = styled.input`
   grid-area: search-bar;
-`;
-
-const SearchSubmit = styled.button`
-  grid-area: search-results;
-  margin-top: 30px;
+  height: 100%;
+  &::placeholder {
+    color: white;
+  } 
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: unset;
+  border-color: rgba(0, 0, 0, 0.0);
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Righteous", sans-serif;
+  color: white;
+  font-size: 1.5em;
 `;
 
 const Search = () => {
@@ -54,22 +62,20 @@ const Search = () => {
     }); 
   }
 
+  const handleKeyPress = (key: String) => {
+    if (key === 'Enter') getGifs();
+  }
+
   return (
     <SearchContainer>
       <SearchInput
         className="input"
         type="text"
         placeholder="GIPHY Search"
+        onKeyPress={e => handleKeyPress(e.key)}
         onChange={e => { setSearchTerms(e.target.value); }}
       />
-      <SearchSubmit
-        className="button"
-        onClick={() => getGifs()}
-      >
-        Submit
-      </SearchSubmit>
-      {/* <SearchResults results={searchResults}/> */}
-
+      <SearchResults results={results}/>
     </SearchContainer>
   )
 };
