@@ -5,7 +5,7 @@ import MemeCardSquare from '../../../components/MemeCardSquare';
 const SearchResultsContainer = styled.div`
   grid-area: search-results;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
 `;
 

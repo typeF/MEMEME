@@ -3,16 +3,20 @@ import styled from 'styled-components';
 import axios from 'axios';
 import SearchResults from './SearchResults';
 import SearchSelect from './SearchSelect';
+import SearchTitle from './SearchTitle';
+import SearchSubmit from './SearchSubmit';
 
 const SearchContainer = styled.div`
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 50px;
   grid-area: content;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-areas:
-    "search-select"
-    "search-bar"
-    "search-results";
-  grid-template-rows: 4fr 1fr;
+    "search-title search-title"
+    "search-results search-select"
+    "search-bar search-bar"
+    "search-submit search-submit";
 `;
 
 const SearchInput = styled.input`
@@ -46,7 +50,7 @@ const Search = () => {
       params: {
         api_key: "RsdXP2ToCVtMi8vC5bq7SkVg8q8NxKli",
         q: searchTerms,
-        limit: 10,
+        limit: 9,
       }
     })
     .then(results => {
@@ -69,12 +73,12 @@ const Search = () => {
   }
 
   const handleSelect = (src: string) => {
-    console.log("src is: " + src);
     setSearchSelect(src);
   }
 
   return (
     <SearchContainer>
+      <SearchTitle title="Search Title"/>
       <SearchSelect src={searchSelect}/>
       <SearchInput
         className="input"
@@ -84,6 +88,7 @@ const Search = () => {
         onChange={e => { setSearchTerms(e.target.value); }}
       />
       <SearchResults handleSelect={handleSelect} results={results}/>
+      <SearchSubmit mutation=""/>
     </SearchContainer>
   )
 };
