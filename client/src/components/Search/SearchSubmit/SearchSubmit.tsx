@@ -28,13 +28,13 @@ const SearchCancelButton = styled(SearchSubmitButton)`
   grid-column: 4;
 `;
 
-const SearchSubmit = ({ mutation } : { mutation: any }) => {
+const SearchSubmit = ({ clickHandler } : { clickHandler: any}) => {
   return (
     <SearchSubmitContainer>
       <SearchCancelButton>
         CANCEL
       </SearchCancelButton>
-      <SearchSubmitButton onClick={() => mutation}>
+      <SearchSubmitButton onClick={() => clickHandler()}>
         SUBMIT
       </SearchSubmitButton>
     </SearchSubmitContainer>

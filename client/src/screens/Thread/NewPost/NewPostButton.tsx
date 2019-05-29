@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
+import Button from '../../../components/Button';
+import SearchModal from '../../../components/SearchModal';
 import styled from 'styled-components';
 
-const StyledButton = styled.button`
-`;
+const NewPostButton = ({ newPost, thread } : { newPost: any, thread: String }) => {
+  const [activeModal, setActiveModal] = useState(false);
 
-const NewPostButton = ({ newPost } : { newPost: any }) => {
+  const openModal = () => {
+    setActiveModal(true);
+  }
+
+  const closeModal = () => {
+    setActiveModal(false);
+  }
+
   return (
-    <StyledButton onClick={() => newPost()}>
-      Reply
-    </StyledButton>
+    <Fragment>
+      <SearchModal 
+        closeModal={closeModal} 
+        active={activeModal}
+        thread={thread}
+        newPost={newPost}
+      />
+      <Button 
+        clickHandler={openModal}
+        text="REPLY"
+      />
+    </Fragment>
   )
 }
 

@@ -7,9 +7,14 @@ import SearchTitle from './SearchTitle';
 import SearchSubmit from './SearchSubmit';
 
 const SearchContainer = styled.div`
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 35px;
+  height: 100%;
+  background-image: linear-gradient(to bottom right, #335ca1, #ec51c085);
   display: grid;
-  grid-gap: 50px;
-  grid-area: content;
+  grid-gap: 35px;
+  // grid-area: content;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
@@ -35,7 +40,7 @@ const SearchInput = styled.input`
   font-size: 1.5em;
 `;
 
-const Search = () => {
+const Search = ({ postId, mutation } : { postId: String, mutation: any }) => {
   const [searchTerms, setSearchTerms] = useState("");
   const [searchSelect, setSearchSelect] = useState("");
   const [loading, setLoading] = useState(false);
@@ -76,6 +81,14 @@ const Search = () => {
     setSearchSelect(src);
   }
 
+  const submitPost = () => {
+    mutation({ variables: {
+        thread: postId,
+        content: searchSelect
+      }
+    });
+  }
+
   return (
     <SearchContainer>
       <SearchTitle title="Search Title"/>
@@ -88,7 +101,7 @@ const Search = () => {
         onChange={e => { setSearchTerms(e.target.value); }}
       />
       <SearchResults handleSelect={handleSelect} results={results}/>
-      <SearchSubmit mutation=""/>
+      <SearchSubmit clickHandler={submitPost}/>
     </SearchContainer>
   )
 };

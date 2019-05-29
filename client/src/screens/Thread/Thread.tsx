@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Query } from "react-apollo";
 import GetThread from "./ThreadGetQuery";
 import LoginStatusQuery from "../../graphQL/LoginStatusQuery";
@@ -10,6 +10,10 @@ import NewPost from "./NewPost";
 import "./Thread.scss";
 
 const ThreadContainer = styled.div`
+  grid-area: content;
+`;
+
+const ThreadTitle = styled.span`
   grid-area: content;
   color: white;
   font-size: 3rem;
@@ -35,8 +39,12 @@ const Thread = ({ match }: { match: any }) => (
         return (
           <Fragment>
             <ThreadContainer>
-              {`${match.url.split("/")[2].toUpperCase()} > ${data.thread.title.toUpperCase()}`}
+              <ThreadTitle>
+                {`${match.url.split("/")[2].toUpperCase()} > ${data.thread.title.toUpperCase()}`}
+              </ThreadTitle>
+
               <FadingLine/>
+
               <PostsContainer>
                 {data.thread.posts.map((post: any) => (
                   <MemeCard 
@@ -47,16 +55,18 @@ const Thread = ({ match }: { match: any }) => (
                   />
                 ))}
               </PostsContainer>
+
+              <Query query={LoginStatusQuery}>
+                {({ data }) => {
+                  return (
+                    <Fragment>
+                      {data.isLoggedIn && <NewPost thread={match.url.split("/")[3]} />}
+                    </Fragment>
+                  );
+                }}
+              </Query>
+
             </ThreadContainer>
-          </Fragment>
-        );
-      }}
-    </Query>
-    <Query query={LoginStatusQuery}>
-      {({ data }) => {
-        return (
-          <Fragment>
-            {data.isLoggedIn && <NewPost thread={match.url.split("/")[3]} />}
           </Fragment>
         );
       }}
