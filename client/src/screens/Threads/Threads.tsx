@@ -5,7 +5,7 @@ import LoginStatusQuery from '../../graphQL/LoginStatusQuery';
 import styled from 'styled-components';
 import ThreadComponent from './ThreadComponent';
 import FadingLine from '../../components/FadingLine';
-import NewThread from './NewThread';
+import New from '../New';
 
 const ThreadsContainer = styled.div`
   grid-area: content;
@@ -40,7 +40,7 @@ const Threads = ({ match } : { match: any }) => (
               {({ data }) => {
                 return (
                   <Fragment>
-                    {data.isLoggedIn && <NewThread forum={forum}/>}
+                    {data.isLoggedIn && <New forum={forum}/>}
                   </Fragment>
                 )
               }}

@@ -1,15 +1,15 @@
 import React from 'react';
-import NewThreadButton from './NewThreadButton';
 import { Mutation } from 'react-apollo';
-import NewThreadMutation from './NewThreadMutation';
+import NewThread from './NewThread';
+import NewThreadButton from './NewThread/NewThreadButton';
+import NewThreadMutation from './NewThread/NewThreadMutation';
 
-const NewThread = ({ forum } : { forum: String }) => {
+const New = ({ forum } : { forum: String }) => {
   return (
     <Mutation 
       mutation={ NewThreadMutation } 
       variables={{ title: "Thread 3", forum, content: "Post ZZZ" }}
       onCompleted={() => {
-        // console.log("Created thread");
       }}
     >
       {(newThread, { loading, error, data }) => { 
@@ -17,11 +17,12 @@ const NewThread = ({ forum } : { forum: String }) => {
         if (data) return <p>Created thread!</p>
 
         return (
-          <NewThreadButton newThread={ newThread }/>
-        )
-  }}
+          // <NewThreadButton newThread={ newThread }/>
+          <NewThread mutation={ newThread }/>
+        ) 
+      }}
     </Mutation>
   )
 }
 
-export default NewThread;
+export default New;

@@ -3,7 +3,7 @@ import Forums from './Forums';
 
 const Home = () => {
   return (
-    <Forums />
+    <Forums/>
   )
 }
 
