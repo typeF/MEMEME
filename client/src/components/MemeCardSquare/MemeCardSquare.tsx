@@ -22,7 +22,7 @@ const MemeCardSquareContainer = styled.div`
   padding: 10px;
   cursor: pointer;
   &:hover {
-    border: 4px dotted rgba(0, 0, 0, 1);
+    border: 2px dotted rgba(0, 0, 0, 1);
   }
   position: absolute;
   top: 0;
@@ -30,17 +30,19 @@ const MemeCardSquareContainer = styled.div`
   width: 100%;
 `;
 
-const MemeCardSquare = ({ img, counter, clickHandler } : { img: string, counter: any, clickHandler: any }) => {
+const MemeCardSquare = ({ img, counter, clickHandler }: { img: string, counter: any, clickHandler: any }) => {
   return (
-      <MemeCardSquareAspectRatio>
-        <MemeCardSquareContainer
-          onClick={() => clickHandler(img)}
-        >
+    <MemeCardSquareAspectRatio>
+      <MemeCardSquareContainer
+        onClick={() => clickHandler(img)}
+      >
+        {img !== "" &&
           <MemeCardImg
             img={img}
           />
-        </MemeCardSquareContainer>
-      </MemeCardSquareAspectRatio>
+        }
+      </MemeCardSquareContainer>
+    </MemeCardSquareAspectRatio>
   )
 }
 

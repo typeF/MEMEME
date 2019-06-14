@@ -6,7 +6,8 @@ import Button from '../../../../components/Button';
 
 const SubForumsContainer = styled.div`
   grid-area: content;
-  grid-gap: 35px;
+  grid-gap: 15px;
+  margin-bottom: 15px;
 `;
 
 const SubForumsTitle = styled.span`
@@ -23,7 +24,7 @@ const SubForumsButtonContainer = styled.div`
   margin-top: 10px;
 `;
 
-const NewThreadSubForums = ({ setForum } : { setForum: any}) => {
+const NewThreadSubForums = ({ setForum }: { setForum: any }) => {
   return (
     <SubForumsContainer>
       <SubForumsTitle>

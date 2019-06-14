@@ -1,23 +1,19 @@
 import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import SearchModal from '../../../../components/SearchModal';
+import MemeCardSquare from '../../../../components/MemeCardSquare';
 
 const NewContentDiv = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
-  height: 300px;
-  length: 300px;
-  border: 1px solid white;
-  border-radius: 10px;
-  cursor: pointer;
 `;
 
 const NewThreadPost = ({ content, setContent }: { content: string, setContent: any }) => {
   const [activeModal, setActiveModal] = useState(false);
 
-  const applyContent = (variables: any) => {
+  const applyContent = (data: any) => {
     setActiveModal(false);
-    setContent(variables.variables.content);
+    setContent(data.variables.content);
   }
 
   return (
@@ -25,10 +21,18 @@ const NewThreadPost = ({ content, setContent }: { content: string, setContent: a
       <SearchModal
         closeModal={() => setActiveModal(false)}
         active={activeModal}
-        thread={"test"}
+        thread={""}
         submitFunction={applyContent}
       />
-      <NewContentDiv onClick={() => setActiveModal(true)} />
+      <NewContentDiv
+        onClick={() => setActiveModal(true)}
+      >
+        <MemeCardSquare
+          img={content}
+          counter={""}
+          clickHandler={() => { }}
+        />
+      </NewContentDiv>
     </Fragment>
   )
 }

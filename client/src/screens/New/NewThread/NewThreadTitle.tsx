@@ -12,7 +12,7 @@ const ThreadTitle = styled.input`
     color: white;
   } 
   border-bottom: 1px solid white;
-  width: 75%;
+  width: 100%;
 `;
 
 const NewThreadTitle = ({ setTitle }: { setTitle: any }) => {
