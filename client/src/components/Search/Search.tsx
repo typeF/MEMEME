@@ -40,7 +40,7 @@ const SearchInput = styled.input`
   font-size: 1.5em;
 `;
 
-const Search = ({ postId, mutation } : { postId: String, mutation: any }) => {
+const Search = ({ postId, submitFunction }: { postId: String, submitFunction: any }) => {
   const [searchTerms, setSearchTerms] = useState("");
   const [searchSelect, setSearchSelect] = useState("");
   const [loading, setLoading] = useState(false);
@@ -58,19 +58,19 @@ const Search = ({ postId, mutation } : { postId: String, mutation: any }) => {
         limit: 9,
       }
     })
-    .then(results => {
-      const memesArray = results.data.data.map((result: any) => {
-        return result.images.original.url;
+      .then(results => {
+        const memesArray = results.data.data.map((result: any) => {
+          return result.images.original.url;
+        });
+        setResults(memesArray);
+        return memesArray;
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      .then(() => {
+        setLoading(false);
       });
-      setResults(memesArray);
-      return memesArray;
-    })
-    .catch(error => {
-      console.log(error);
-    })
-    .then(() => {
-      setLoading(false);
-    }); 
   }
 
   const handleKeyPress = (key: String) => {
@@ -81,8 +81,9 @@ const Search = ({ postId, mutation } : { postId: String, mutation: any }) => {
     setSearchSelect(src);
   }
 
-  const submitPost = () => {
-    mutation({ variables: {
+  const submit = () => {
+    submitFunction({
+      variables: {
         thread: postId,
         content: searchSelect
       }
@@ -91,17 +92,17 @@ const Search = ({ postId, mutation } : { postId: String, mutation: any }) => {
 
   return (
     <SearchContainer>
-      <SearchTitle title="Search Title"/>
-      <SearchSelect src={searchSelect}/>
+      <SearchTitle title="Search Title" />
+      <SearchSelect src={searchSelect} />
       <SearchInput
         className="input"
         type="text"
         placeholder="GIPHY Search"
         onKeyPress={e => handleKeyPress(e.key)}
-        onChange={e => { setSearchTerms(e.target.value); }}
+        onChange={e => { setSearchTerms(e.target.value) }}
       />
-      <SearchResults handleSelect={handleSelect} results={results}/>
-      <SearchSubmit clickHandler={submitPost}/>
+      <SearchResults handleSelect={handleSelect} results={results} />
+      <SearchSubmit cancel="" submit={submit} />
     </SearchContainer>
   )
 };

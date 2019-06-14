@@ -7,18 +7,18 @@ const ModalContent = styled.div`
   height: 80vh;
 `;
 
-const SearchModal = ({ active, closeModal, thread, newPost } : { active: boolean, closeModal: any, thread: String, newPost: any }) => {
+const SearchModal = ({ active, closeModal, thread, submitFunction }: { active: boolean, closeModal: any, thread: String, submitFunction: any }) => {
   return (
     <div className={active ? "modal is-active" : "modal"}>
-      <div 
+      <div
         className="modal-background"
         onClick={() => closeModal()}
       > </div>
       <ModalContent className="modal-content">
-        <Search postId={thread} mutation={newPost}/>
+        <Search postId={thread} submitFunction={submitFunction} />
       </ModalContent>
-      <button 
-        className="modal-close is-large" 
+      <button
+        className="modal-close is-large"
         aria-label="close"
         onClick={() => closeModal()}
       >

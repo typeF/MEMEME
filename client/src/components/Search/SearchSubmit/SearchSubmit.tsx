@@ -28,13 +28,13 @@ const SearchCancelButton = styled(SearchSubmitButton)`
   grid-column: 4;
 `;
 
-const SearchSubmit = ({ clickHandler } : { clickHandler: any}) => {
+const SearchSubmit = ({ cancel, submit } : { cancel: any, submit: any}) => {
   return (
     <SearchSubmitContainer>
       <SearchCancelButton>
         CANCEL
       </SearchCancelButton>
-      <SearchSubmitButton onClick={() => clickHandler()}>
+      <SearchSubmitButton onClick={() => submit()}>
         SUBMIT
       </SearchSubmitButton>
     </SearchSubmitContainer>

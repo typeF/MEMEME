@@ -43,14 +43,14 @@ const Thread = ({ match }: { match: any }) => (
                 {`${match.url.split("/")[2].toUpperCase()} > ${data.thread.title.toUpperCase()}`}
               </ThreadTitle>
 
-              <FadingLine/>
+              <FadingLine />
 
               <PostsContainer>
                 {data.thread.posts.map((post: any) => (
-                  <MemeCard 
+                  <MemeCard
                     key={post.id}
                     counter={post.number}
-                    img={post.content} 
+                    img={post.content}
                     footer={`[${post.author.username}] @${post.createdAt}`}
                   />
                 ))}

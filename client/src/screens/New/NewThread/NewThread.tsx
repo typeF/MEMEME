@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import NewThreadSubForums from './NewThreadSubForums';
+import NewThreadPost from './NewThreadPost';
+import NewThreadTitle from './NewThreadTitle';
+import NewThreadSubmit from './NewThreadSubmit';
 
 const NewThreadContainer = styled.div`
   grid-area: content;
   grid-gap: 35px;
 `;
 
-const NewThread = ({ mutation } : { mutation: any}) => {
+const NewThread = ({ mutation }: { mutation: any }) => {
 
   const [forum, setForum] = useState("");
   const [title, setTitle] = useState("");
@@ -25,9 +28,12 @@ const NewThread = ({ mutation } : { mutation: any}) => {
 
   return (
     <NewThreadContainer>
-      <NewThreadSubForums 
+      <NewThreadSubForums
         setForum={setForum}
       />
+      <NewThreadTitle setTitle={setTitle} />
+      <NewThreadPost content={content} setContent={setContent} />
+      <NewThreadSubmit />
     </NewThreadContainer>
   )
 }

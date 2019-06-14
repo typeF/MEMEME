@@ -3,19 +3,19 @@ import { Mutation } from 'react-apollo';
 import NewPostMutation from './NewPostMutation';
 import NewPostButton from './NewPostButton';
 
-const NewPost = ({ thread } : { thread: String }) => {
+const NewPost = ({ thread }: { thread: String }) => {
   return (
-    <Mutation 
-      mutation={ NewPostMutation } 
+    <Mutation
+      mutation={NewPostMutation}
       onCompleted={() => {
       }}
     >
-      {(newPost, { loading, error, data }) => { 
+      {(newPost, { loading, error, data }) => {
         if (loading) return <p>Loading...</p>;
         if (data) return <p>Posted!</p>;
 
         return (
-          <NewPostButton thread={ thread } newPost={ newPost }/>
+          <NewPostButton thread={thread} newPost={newPost} />
         )
       }}
     </Mutation>

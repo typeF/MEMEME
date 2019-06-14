@@ -3,27 +3,19 @@ import Button from '../../../components/Button';
 import SearchModal from '../../../components/SearchModal';
 import styled from 'styled-components';
 
-const NewPostButton = ({ newPost, thread } : { newPost: any, thread: String }) => {
+const NewPostButton = ({ newPost, thread }: { newPost: any, thread: String }) => {
   const [activeModal, setActiveModal] = useState(false);
-
-  const openModal = () => {
-    setActiveModal(true);
-  }
-
-  const closeModal = () => {
-    setActiveModal(false);
-  }
 
   return (
     <Fragment>
-      <SearchModal 
-        closeModal={closeModal} 
+      <SearchModal
+        closeModal={() => setActiveModal(false)}
         active={activeModal}
         thread={thread}
-        newPost={newPost}
+        submitFunction={newPost}
       />
-      <Button 
-        clickHandler={openModal}
+      <Button
+        clickHandler={() => setActiveModal(true)}
         text="REPLY"
       />
     </Fragment>
