@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from '../../../components/Button';
 
 const SearchSubmitContainer = styled.div`
   grid-area: search-submit;
@@ -15,7 +16,6 @@ const SearchSubmitButton = styled.button`
   border-radius: 3px;
   border: 1px solid white;
   height: 2.5rem;
-  // margin: 0.5rem 1rem;
   font-size: 1.5rem;
   color: white;
   padding: 0.3rem 0;
@@ -28,9 +28,15 @@ const SearchCancelButton = styled(SearchSubmitButton)`
   grid-column: 4;
 `;
 
-const SearchSubmit = ({ cancel, submit } : { cancel: any, submit: any}) => {
+const SearchSubmit = ({ cancel, submit }: { cancel: any, submit: any }) => {
   return (
     <SearchSubmitContainer>
+      <Button
+        isLoading={false}
+        isSelected={false}
+        onClick={() => { }}
+        text={"SUBMIT"}
+      />
       <SearchCancelButton>
         CANCEL
       </SearchCancelButton>

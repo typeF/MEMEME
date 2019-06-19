@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from 'react';
-import Button from '../../../components/Button';
+import ButtonBasic from '../../../components/ButtonBasic';
 import SearchModal from '../../../components/SearchModal';
-import styled from 'styled-components';
 
 const NewPostButton = ({ newPost, thread }: { newPost: any, thread: String }) => {
   const [activeModal, setActiveModal] = useState(false);
@@ -14,7 +13,7 @@ const NewPostButton = ({ newPost, thread }: { newPost: any, thread: String }) =>
         thread={thread}
         submitFunction={newPost}
       />
-      <Button
+      <ButtonBasic
         clickHandler={() => setActiveModal(true)}
         text="REPLY"
       />

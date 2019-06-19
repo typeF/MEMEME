@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Query } from "react-apollo";
 import getForumsQuery from '../../../Home/Forums/ForumsGetQuery';
-import Button from '../../../../components/Button';
+import ButtonBasic from '../../../../components/ButtonBasic';
 
 const SubForumsContainer = styled.div`
   grid-area: content;
@@ -38,7 +38,7 @@ const NewThreadSubForums = ({ setForum }: { setForum: any }) => {
           return (
             <SubForumsButtonContainer>
               {data.forums.map((forum: any) => (
-                <Button
+                <ButtonBasic
                   key={forum.id}
                   text={forum.name}
                   clickHandler={() => setForum(forum.name)}

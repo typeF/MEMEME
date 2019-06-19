@@ -1,25 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import "./Button.scss";
 
 const StyledButton = styled.button`
-  // margin: 0.5rem 1rem;
   background: transparent;
-  border-radius: 3px;
-  border-radius: 3px;
-  border: 1px solid white;
   color: white;
-  cursor: pointer;
-  display: inline-block;
+  border: 1px solid white;
   font-family: "Righteous", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   height: 2.5rem;
   padding: 0.3rem 0.5rem;
+  &:focus:not(:active) {
+    border-color: white;
+    box-shadow: none;
+  }
 `;
 
-const Button = ({ text, clickHandler }: { text: string, clickHandler: any }) => {
+const Button = ({ isLoading, isSelected, onClick, text }: { isLoading: boolean, isSelected: boolean, onClick: any, text: string }) => {
+  const className = "button is-inverted"
+    + (isLoading ? " is-loading" : "")
+    + (isSelected ? " is-selected" : "");
+
   return (
     <StyledButton
-      onClick={() => clickHandler()}
+      className={className}
+      onClick={onClick()}
     >
       {text}
     </StyledButton>
