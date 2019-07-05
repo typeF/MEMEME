@@ -16,15 +16,17 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({ isLoading, isSelected, onClick, text }: { isLoading: boolean, isSelected: boolean, onClick: any, text: string }) => {
+const Button = ({ isLoading, isSelectable, onClick, text }: { isLoading: boolean, isSelectable: boolean, onClick: any, text: string }) => {
+  const [isSelected, setIsSelected] = useState(false);
+
   const className = "button is-inverted"
     + (isLoading ? " is-loading" : "")
-    + (isSelected ? " is-selected" : "");
+    + ((isSelectable && isSelected) ? " is-selected" : "");
 
   return (
     <StyledButton
       className={className}
-      onClick={onClick()}
+      onClick={() => { setIsSelected(!isSelected); onClick() }}
     >
       {text}
     </StyledButton>

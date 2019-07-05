@@ -9,40 +9,33 @@ const SearchSubmitContainer = styled.div`
   grid-gap: 20px;
 `;
 
-const SearchSubmitButton = styled.button`
-  display: inline-block;
-  border-radius: 3px;
-  background: transparent;
-  border-radius: 3px;
-  border: 1px solid white;
-  height: 2.5rem;
-  font-size: 1.5rem;
-  color: white;
-  padding: 0.3rem 0;
-  font-family: "Righteous", sans-serif;
-  cursor: pointer;
-  grid-column: 5;
+const SearchCancelDiv = styled.div`
+  grid-column: 4;
 `;
 
-const SearchCancelButton = styled(SearchSubmitButton)`
-  grid-column: 4;
+const SearchSubmitDiv = styled.div`
+  grid-column: 5;
 `;
 
 const SearchSubmit = ({ cancel, submit }: { cancel: any, submit: any }) => {
   return (
     <SearchSubmitContainer>
-      <Button
-        isLoading={false}
-        isSelected={false}
-        onClick={() => { }}
-        text={"SUBMIT"}
-      />
-      <SearchCancelButton>
-        CANCEL
-      </SearchCancelButton>
-      <SearchSubmitButton onClick={() => submit()}>
-        SUBMIT
-      </SearchSubmitButton>
+      <SearchCancelDiv>
+        <Button
+          isLoading={false}
+          isSelectable={false}
+          onClick={() => { }}
+          text={"Cancel"}
+        />
+      </SearchCancelDiv>
+      <SearchSubmitDiv>
+        <Button
+          isLoading={false}
+          isSelectable={false}
+          onClick={() => submit()}
+          text={"Submit"}
+        />
+      </SearchSubmitDiv>
     </SearchSubmitContainer>
   )
 };
