@@ -1,13 +1,13 @@
 import React from 'react';
 import SearchSubmit from '../../../../components/Search/SearchSubmit';
 
-const NewThreadTitle = ({ submit }: { submit: any }) => {
+const NewThreadSubmit = ({ cancel, submit }: { cancel: any, submit: any }) => {
   return (
     <SearchSubmit
-      cancel=""
+      cancel={cancel}
       submit={submit}
     />
   )
 }
 
-export default NewThreadTitle;
+export default NewThreadSubmit;

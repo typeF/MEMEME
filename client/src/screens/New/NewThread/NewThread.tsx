@@ -4,6 +4,7 @@ import NewThreadSubForums from './NewThreadSubForums';
 import NewThreadPost from './NewThreadPost';
 import NewThreadTitle from './NewThreadTitle';
 import NewThreadSubmit from './NewThreadSubmit';
+import { createBrowserHistory } from 'history';
 
 const NewThreadContainer = styled.div`
   grid-area: content;
@@ -14,10 +15,11 @@ const NewThreadContainer = styled.div`
 `;
 
 const NewThread = ({ mutation }: { mutation: any }) => {
-
   const [forum, setForum] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+
+  const history = createBrowserHistory();
 
   const postThread = () => {
     mutation({
@@ -36,7 +38,7 @@ const NewThread = ({ mutation }: { mutation: any }) => {
       />
       <NewThreadTitle setTitle={setTitle} />
       <NewThreadPost content={content} setContent={setContent} />
-      <NewThreadSubmit submit={postThread} />
+      <NewThreadSubmit cancel={history.goBack} submit={postThread} />
     </NewThreadContainer>
   )
 }
