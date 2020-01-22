@@ -4,17 +4,17 @@ import Button from '../../../components/Button';
 
 const SearchSubmitContainer = styled.div`
   grid-area: search-submit;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 20px;
+  display: flex;
+  justify-content: flex-end;
+  // grid-template-columns: repeat(5, 1fr);
+  // grid-gap: 20px;
 `;
 
 const SearchCancelDiv = styled.div`
-  grid-column: 4;
 `;
 
 const SearchSubmitDiv = styled.div`
-  grid-column: 5;
+  margin-left: 20px;
 `;
 
 const SearchSubmit = ({ cancel, submit }: { cancel: any, submit: any }) => {

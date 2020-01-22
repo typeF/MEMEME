@@ -3,8 +3,9 @@ import Search from '../Search';
 import styled from 'styled-components';
 
 const ModalContent = styled.div`
-  width: 80vw;
+  max-width: 1000px;
   height: 80vh;
+  width: 80vw;
 `;
 
 const SearchModal = ({ active, closeModal, thread, submitFunction }: { active: boolean, closeModal: any, thread: String, submitFunction: any }) => {
