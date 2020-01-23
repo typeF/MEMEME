@@ -92,12 +92,14 @@ const Search = ({
   };
 
   const submit = () => {
-    submitFunction({
-      variables: {
-        thread: postId,
-        content: searchSelect
-      }
-    });
+    if (searchSelect) {
+      submitFunction({
+        variables: {
+          thread: postId,
+          content: searchSelect
+        }
+      });
+    }
   };
 
   return (

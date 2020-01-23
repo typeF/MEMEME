@@ -26,7 +26,7 @@ const Forum = ({ forum }: { forum: any }): JSX.Element => {
   const thread = forum.threads[0];
   const { author, content, createdAt } = thread.posts[0];
 
-  const link = `/forums/${name}/${thread.id}`;
+  const link = `/forums/${name}/`;
   const img = content;
   const footer = `[${author.username}] ${thread.title}`;
 

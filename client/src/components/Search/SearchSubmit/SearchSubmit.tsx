@@ -16,7 +16,13 @@ const SearchSubmitDiv = styled.div`
   margin-left: 20px;
 `;
 
-const SearchSubmit = ({ cancel, submit }: { cancel: any; submit: any }) => {
+const SearchSubmit = ({
+  cancel,
+  submit
+}: {
+  cancel: any;
+  submit: any;
+}): JSX.Element => {
   return (
     <SearchSubmitContainer>
       <SearchCancelDiv>
