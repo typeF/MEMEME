@@ -41,10 +41,12 @@ const SearchInput = styled.input`
 `;
 
 const Search = ({
+  closeModal,
   postId,
-  threadTitle,
-  submitFunction
+  submitFunction,
+  threadTitle
 }: {
+  closeModal: any;
   postId: string;
   threadTitle: string;
   submitFunction: any;
@@ -112,7 +114,7 @@ const Search = ({
         }}
       />
       <SearchResults handleSelect={handleSelect} results={results} />
-      <SearchSubmit cancel="" submit={submit} />
+      <SearchSubmit cancel={closeModal} submit={submit} />
     </SearchContainer>
   );
 };

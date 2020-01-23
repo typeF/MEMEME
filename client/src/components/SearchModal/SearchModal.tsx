@@ -28,6 +28,7 @@ const SearchModal = ({
       </div>
       <ModalContent className="modal-content">
         <Search
+          closeModal={closeModal}
           postId={thread}
           threadTitle={threadTitle}
           submitFunction={submitFunction}

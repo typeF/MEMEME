@@ -23,7 +23,7 @@ const SearchSubmit = ({ cancel, submit }: { cancel: any; submit: any }) => {
         <Button
           isLoading={false}
           isSelectable={false}
-          onClick={() => {}}
+          onClick={() => cancel()}
           text={"Cancel"}
         />
       </SearchCancelDiv>
