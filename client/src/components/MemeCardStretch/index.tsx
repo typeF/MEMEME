@@ -1,3 +1,3 @@
-import MemeCardStretch from './MemeCardStretch';
+import MemeCardStretch from "./MemeCardStretch";
 
 export default MemeCardStretch;

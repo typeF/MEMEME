@@ -1,3 +1,3 @@
-import LogoutMenu from './LogoutMenu';
+import LogoutMenu from "./LogoutMenu";
 
 export default LogoutMenu;

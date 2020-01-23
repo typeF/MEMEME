@@ -1,4 +1,4 @@
-import NewPost from './NewPost';
+import NewPost from "./NewPost";
 
 // export default NewPost;
 // import NewPost from './NewPostTest';

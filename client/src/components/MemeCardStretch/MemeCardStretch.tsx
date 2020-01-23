@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import MemeCardImg from '../MemeCard/MemeCardImg';
+import React from "react";
+import styled from "styled-components";
+import MemeCardImg from "../MemeCard/MemeCardImg";
 
 const MemeCardImgContainer = styled.div`
   border: 2px solid black;
@@ -11,12 +11,12 @@ const MemeCardImgContainer = styled.div`
   height: 100%;
 `;
 
-const MemeCardStretch = ({ img } : { img: string }) => {
+const MemeCardStretch = ({ img }: { img: string }) => {
   return (
     <MemeCardImgContainer>
-      <MemeCardImg img={img}/>
+      <MemeCardImg img={img} />
     </MemeCardImgContainer>
-  )
-}
+  );
+};
 
 export default MemeCardStretch;

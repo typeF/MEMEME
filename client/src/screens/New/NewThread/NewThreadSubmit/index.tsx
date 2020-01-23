@@ -1,3 +1,3 @@
-import NewThreadSubmit from './NewThreadSubmit';
+import NewThreadSubmit from "./NewThreadSubmit";
 
 export default NewThreadSubmit;

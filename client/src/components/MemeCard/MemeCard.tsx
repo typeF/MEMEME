@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
-import styled from 'styled-components';
-import MemeCardFooter from './MemeCardFooter';
-import MemeCardImg from './MemeCardImg';
+import React, { Fragment } from "react";
+import styled from "styled-components";
+import MemeCardFooter from "./MemeCardFooter";
+import MemeCardImg from "./MemeCardImg";
 
 const MemeCardContainer = styled.div`
   display: grid;
@@ -22,17 +22,25 @@ const MemeCardImgContainer = styled.div`
   min-width: 0;
 `;
 
-const MemeCard = ({ img, counter, footer } : { img: any, counter: any, footer: any}) => {
+const MemeCard = ({
+  img,
+  counter,
+  footer
+}: {
+  img: any;
+  counter: any;
+  footer: any;
+}) => {
   return (
     <Fragment>
       <MemeCardContainer>
         <MemeCardImgContainer>
-          <MemeCardImg img={img}/>
+          <MemeCardImg img={img} />
         </MemeCardImgContainer>
-        <MemeCardFooter text={footer}/>
+        <MemeCardFooter text={footer} />
       </MemeCardContainer>
     </Fragment>
-  )
-}
+  );
+};
 
 export default MemeCard;

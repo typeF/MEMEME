@@ -1,10 +1,8 @@
-import React from 'react';
-import Forums from './Forums';
+import React from "react";
+import Forums from "./Forums";
 
 const Home = () => {
-  return (
-    <Forums/>
-  )
-}
+  return <Forums />;
+};
 
 export default Home;

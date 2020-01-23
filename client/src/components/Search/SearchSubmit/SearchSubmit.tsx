@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import Button from '../../../components/Button';
+import React from "react";
+import styled from "styled-components";
+import Button from "../../../components/Button";
 
 const SearchSubmitContainer = styled.div`
   grid-area: search-submit;
@@ -10,21 +10,20 @@ const SearchSubmitContainer = styled.div`
   // grid-gap: 20px;
 `;
 
-const SearchCancelDiv = styled.div`
-`;
+const SearchCancelDiv = styled.div``;
 
 const SearchSubmitDiv = styled.div`
   margin-left: 20px;
 `;
 
-const SearchSubmit = ({ cancel, submit }: { cancel: any, submit: any }) => {
+const SearchSubmit = ({ cancel, submit }: { cancel: any; submit: any }) => {
   return (
     <SearchSubmitContainer>
       <SearchCancelDiv>
         <Button
           isLoading={false}
           isSelectable={false}
-          onClick={() => { }}
+          onClick={() => {}}
           text={"Cancel"}
         />
       </SearchCancelDiv>
@@ -37,7 +36,7 @@ const SearchSubmit = ({ cancel, submit }: { cancel: any, submit: any }) => {
         />
       </SearchSubmitDiv>
     </SearchSubmitContainer>
-  )
+  );
 };
 
 export default SearchSubmit;

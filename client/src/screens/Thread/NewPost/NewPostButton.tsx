@@ -1,8 +1,14 @@
-import React, { Fragment, useState } from 'react';
-import ButtonBasic from '../../../components/ButtonBasic';
-import SearchModal from '../../../components/SearchModal';
+import React, { Fragment, useState } from "react";
+import ButtonBasic from "../../../components/ButtonBasic";
+import SearchModal from "../../../components/SearchModal";
 
-const NewPostButton = ({ newPost, thread }: { newPost: any, thread: String }) => {
+const NewPostButton = ({
+  newPost,
+  thread
+}: {
+  newPost: any;
+  thread: String;
+}) => {
   const [activeModal, setActiveModal] = useState(false);
 
   return (
@@ -13,12 +19,9 @@ const NewPostButton = ({ newPost, thread }: { newPost: any, thread: String }) =>
         thread={thread}
         submitFunction={newPost}
       />
-      <ButtonBasic
-        clickHandler={() => setActiveModal(true)}
-        text="REPLY"
-      />
+      <ButtonBasic clickHandler={() => setActiveModal(true)} text="REPLY" />
     </Fragment>
-  )
-}
+  );
+};
 
 export default NewPostButton;

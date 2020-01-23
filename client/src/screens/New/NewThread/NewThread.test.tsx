@@ -1,9 +1,9 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import waait from 'waait';
-import { MockedProvider } from 'react-apollo/test-utils';
-import NewThread from './NewThread';
-import NewThreadMutation from './NewThreadMutation';
+import React from "react";
+import renderer from "react-test-renderer";
+import waait from "waait";
+import { MockedProvider } from "react-apollo/test-utils";
+import NewThread from "./NewThread";
+import NewThreadMutation from "./NewThreadMutation";
 
 const forum = "General";
 
@@ -28,30 +28,32 @@ const mocks = [
   }
 ];
 
-it('should render NewThread loading state', () => {
+it("should render NewThread loading state", () => {
   const component = renderer.create(
-    <MockedProvider mocks={ mocks } addTypename={ false }>
-      <NewThread forum={ forum }/>
-    </MockedProvider>);
+    <MockedProvider mocks={mocks} addTypename={false}>
+      <NewThread forum={forum} />
+    </MockedProvider>
+  );
 
-    const button = component.root.findByType('button');
-    button.props.onClick();
+  const button = component.root.findByType("button");
+  button.props.onClick();
 
-    const tree = component.toJSON();
-    expect(tree && tree.children).toContain('Loading...');
+  const tree = component.toJSON();
+  expect(tree && tree.children).toContain("Loading...");
 });
 
-it('should make a new thread and give visual feedback', async () => {
+it("should make a new thread and give visual feedback", async () => {
   const component = renderer.create(
-    <MockedProvider mocks={ mocks } addTypename={ false }>
-      <NewThread forum={ forum }/>
-    </MockedProvider>);
+    <MockedProvider mocks={mocks} addTypename={false}>
+      <NewThread forum={forum} />
+    </MockedProvider>
+  );
 
-    const button = component.root.findByType('button');
-    button.props.onClick();
+  const button = component.root.findByType("button");
+  button.props.onClick();
 
-    await waait(100);
+  await waait(100);
 
-    const tree = component.toJSON();
-    expect(tree && tree.children).toContain('Created thread!');
+  const tree = component.toJSON();
+  expect(tree && tree.children).toContain("Created thread!");
 });

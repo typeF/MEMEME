@@ -1,3 +1,3 @@
-import SearchSubmit from './SearchSubmit';
+import SearchSubmit from "./SearchSubmit";
 
 export default SearchSubmit;

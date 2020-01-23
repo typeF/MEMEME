@@ -1,3 +1,3 @@
-import FadingLine from './FadingLine';
+import FadingLine from "./FadingLine";
 
 export default FadingLine;

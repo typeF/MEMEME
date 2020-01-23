@@ -1,3 +1,3 @@
-import NewThreadPost from './NewThreadPost';
+import NewThreadPost from "./NewThreadPost";
 
 export default NewThreadPost;

@@ -1,3 +1,3 @@
-import NewThread from './NewThread';
+import NewThread from "./NewThread";
 
 export default NewThread;

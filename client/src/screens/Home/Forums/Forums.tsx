@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 import { Query } from "react-apollo";
-import getForumsQuery from './ForumsGetQuery';
-import styled from 'styled-components';
-import Forum from './Forum';
-import './Forums.scss';
+import getForumsQuery from "./ForumsGetQuery";
+import styled from "styled-components";
+import Forum from "./Forum";
+import "./Forums.scss";
 
 const ForumsContainer = styled.div`
   grid-area: content;
@@ -19,7 +19,7 @@ const Forums = () => (
   <Fragment>
     <Query query={getForumsQuery}>
       {({ loading, error, data }) => {
-        if (loading) return <p>Loading...</p>
+        if (loading) return <p>Loading...</p>;
         if (error) return `${error}`;
 
         return (
@@ -28,7 +28,7 @@ const Forums = () => (
               <Forum key={forum.id} forum={forum} />
             ))}
           </ForumsContainer>
-        )
+        );
       }}
     </Query>
   </Fragment>

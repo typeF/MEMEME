@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Img = styled.img`
   border-radius: 10px;
@@ -11,12 +11,8 @@ const Img = styled.img`
   min-width: 0;
 `;
 
-const MemeCardImg = ({ img } : { img: any}) => {
-  return (
-    <Img 
-      src={img}
-    />
-  )
-}
+const MemeCardImg = ({ img }: { img: any }) => {
+  return <Img src={img} />;
+};
 
 export default MemeCardImg;

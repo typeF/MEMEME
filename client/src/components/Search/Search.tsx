@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import axios from 'axios';
-import SearchResults from './SearchResults';
-import SearchSelect from './SearchSelect';
-import SearchTitle from './SearchTitle';
-import SearchSubmit from './SearchSubmit';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import axios from "axios";
+import SearchResults from "./SearchResults";
+import SearchSelect from "./SearchSelect";
+import SearchTitle from "./SearchTitle";
+import SearchSubmit from "./SearchSubmit";
 
 const SearchContainer = styled.div`
   border: 1px solid white;
@@ -29,10 +29,10 @@ const SearchInput = styled.input`
   height: 100%;
   &::placeholder {
     color: white;
-  } 
+  }
   background-color: rgba(0, 0, 0, 0.1);
   box-shadow: unset;
-  border-color: rgba(0, 0, 0, 0.0);
+  border-color: rgba(0, 0, 0, 0);
   text-align: center;
   text-transform: uppercase;
   font-family: "Righteous", sans-serif;
@@ -40,7 +40,13 @@ const SearchInput = styled.input`
   font-size: 1.5em;
 `;
 
-const Search = ({ postId, submitFunction }: { postId: String, submitFunction: any }) => {
+const Search = ({
+  postId,
+  submitFunction
+}: {
+  postId: String;
+  submitFunction: any;
+}) => {
   const [searchTerms, setSearchTerms] = useState("");
   const [searchSelect, setSearchSelect] = useState("");
   const [loading, setLoading] = useState(false);
@@ -50,12 +56,12 @@ const Search = ({ postId, submitFunction }: { postId: String, submitFunction: an
     setLoading(true);
 
     await axios({
-      method: 'get',
-      baseURL: 'https://api.giphy.com/v1/gifs/search',
+      method: "get",
+      baseURL: "https://api.giphy.com/v1/gifs/search",
       params: {
         api_key: "RsdXP2ToCVtMi8vC5bq7SkVg8q8NxKli",
         q: searchTerms,
-        limit: 9,
+        limit: 9
       }
     })
       .then(results => {
@@ -71,15 +77,15 @@ const Search = ({ postId, submitFunction }: { postId: String, submitFunction: an
       .then(() => {
         setLoading(false);
       });
-  }
+  };
 
   const handleKeyPress = (key: String) => {
-    if (key === 'Enter') getGifs();
-  }
+    if (key === "Enter") getGifs();
+  };
 
   const handleSelect = (src: string) => {
     setSearchSelect(src);
-  }
+  };
 
   const submit = () => {
     submitFunction({
@@ -88,7 +94,7 @@ const Search = ({ postId, submitFunction }: { postId: String, submitFunction: an
         content: searchSelect
       }
     });
-  }
+  };
 
   return (
     <SearchContainer>
@@ -99,12 +105,14 @@ const Search = ({ postId, submitFunction }: { postId: String, submitFunction: an
         type="text"
         placeholder="GIPHY Search"
         onKeyPress={e => handleKeyPress(e.key)}
-        onChange={e => { setSearchTerms(e.target.value) }}
+        onChange={e => {
+          setSearchTerms(e.target.value);
+        }}
       />
       <SearchResults handleSelect={handleSelect} results={results} />
       <SearchSubmit cancel="" submit={submit} />
     </SearchContainer>
-  )
+  );
 };
 
 export default Search;

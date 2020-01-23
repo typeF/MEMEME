@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 import { Query } from "react-apollo";
-import GetThreads from './ThreadsGetQuery';
-import LoginStatusQuery from '../../graphQL/LoginStatusQuery';
-import styled from 'styled-components';
-import ThreadComponent from './ThreadComponent';
-import FadingLine from '../../components/FadingLine';
-import New from '../New';
+import GetThreads from "./ThreadsGetQuery";
+import LoginStatusQuery from "../../graphQL/LoginStatusQuery";
+import styled from "styled-components";
+import ThreadComponent from "./ThreadComponent";
+import FadingLine from "../../components/FadingLine";
+import New from "../New";
 
 const ThreadsContainer = styled.div`
   grid-area: content;
@@ -42,11 +42,11 @@ const Threads = ({ match }: { match: any }) => (
                 <Fragment>
                   {/* {data.isLoggedIn && <New forum={forum}/>} */}
                 </Fragment>
-              )
+              );
             }}
           </Query>
         </Fragment>
-      )
+      );
     }}
   </Query>
 );

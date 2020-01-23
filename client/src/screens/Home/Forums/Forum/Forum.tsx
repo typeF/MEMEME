@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import MemeCard from '../../../../components/MemeCard';
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import MemeCard from "../../../../components/MemeCard";
 
 const ForumContainer = styled.div`
   display: grid;
@@ -33,21 +33,13 @@ const Forum = ({ forum }: { forum: any }) => {
   return (
     <Fragment>
       <ForumContainer>
-        <ForumTitle
-          to={`/forums/${name}`}
-        >
-          {name}
-        </ForumTitle>
+        <ForumTitle to={`/forums/${name}`}>{name}</ForumTitle>
         <ForumThreadLink to={link}>
-          <MemeCard 
-            counter=""
-            img={img} 
-            footer={footer}
-          />
+          <MemeCard counter="" img={img} footer={footer} />
         </ForumThreadLink>
       </ForumContainer>
     </Fragment>
-  )
-}
+  );
+};
 
 export default Forum;

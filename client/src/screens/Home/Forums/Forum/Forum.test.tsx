@@ -14,12 +14,13 @@ const props = {
           author: {
             username: "Alice"
           },
-          content: "https://images.unsplash.com/photo-1556647034-7aa9a4ea7437?ixlib=rb-1.2.1&auto=format&fit=crop&w=2700&q=80",
+          content:
+            "https://images.unsplash.com/photo-1556647034-7aa9a4ea7437?ixlib=rb-1.2.1&auto=format&fit=crop&w=2700&q=80",
           createdAt: "2019-01-01 00:00:00"
         }
       ]
     }
-  ],
+  ]
 };
 
 it("should render all Forum props", async () => {

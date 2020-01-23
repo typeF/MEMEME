@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import MemeCardSquare from '../../../components/MemeCardSquare';
+import React from "react";
+import styled from "styled-components";
+import MemeCardSquare from "../../../components/MemeCardSquare";
 
 const SearchResultsContainer = styled.div`
   grid-area: search-results;
@@ -9,19 +9,25 @@ const SearchResultsContainer = styled.div`
   grid-gap: 20px;
 `;
 
-const SearchResults = ({ results, handleSelect }: { results: any, handleSelect: any }) => {
+const SearchResults = ({
+  results,
+  handleSelect
+}: {
+  results: any;
+  handleSelect: any;
+}) => {
   return (
     <SearchResultsContainer>
       {results.map((result: any) => (
-          <MemeCardSquare
-            key={result}
-            img={result}
-            counter=""
-            clickHandler={handleSelect}
-          />
+        <MemeCardSquare
+          key={result}
+          img={result}
+          counter=""
+          clickHandler={handleSelect}
+        />
       ))}
     </SearchResultsContainer>
-  )
+  );
 };
 
 export default SearchResults;

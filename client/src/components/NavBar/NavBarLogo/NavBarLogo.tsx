@@ -1,6 +1,6 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
-import logo from '../../../assets/images/logo.svg';
+import React from "react";
+import styled, { keyframes } from "styled-components";
+import logo from "../../../assets/images/logo.svg";
 
 const rotate = keyframes`
   from {
@@ -22,7 +22,7 @@ const NavBarLogo = () => {
     <div>
       <AppLogo src={logo}></AppLogo>
     </div>
-  )
-}
+  );
+};
 
 export default NavBarLogo;

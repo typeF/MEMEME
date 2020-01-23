@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
 const GetThread = gql`
-  query Thread($threadId: ID!){
+  query Thread($threadId: ID!) {
     thread(where: { id: $threadId }) {
       title
       author {

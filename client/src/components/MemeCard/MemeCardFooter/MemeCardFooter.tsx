@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Footer = styled.span`
   color: white;
@@ -12,12 +12,8 @@ const Footer = styled.span`
   height: 100%;
 `;
 
-const MemeCardFooter = ({ text } : { text: any}) => {
-  return (
-    <Footer>
-      {text}
-    </Footer>
-  )
-}
+const MemeCardFooter = ({ text }: { text: any }) => {
+  return <Footer>{text}</Footer>;
+};
 
 export default MemeCardFooter;

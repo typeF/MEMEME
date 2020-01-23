@@ -1,3 +1,3 @@
-import NavBarLogo from './NavBarLogo';
+import NavBarLogo from "./NavBarLogo";
 
 export default NavBarLogo;

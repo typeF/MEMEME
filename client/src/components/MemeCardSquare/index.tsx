@@ -1,3 +1,3 @@
-import MemeCardSquare from './MemeCardSquare';
+import MemeCardSquare from "./MemeCardSquare";
 
 export default MemeCardSquare;

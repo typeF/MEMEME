@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 const GetThreads = gql`
-  query Threads($forum: String!){
-    threads(where: { forum: { name: $forum }}) {
+  query Threads($forum: String!) {
+    threads(where: { forum: { name: $forum } }) {
       id
       title
       author {

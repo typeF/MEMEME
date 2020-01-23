@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 import "./Button.scss";
 
 const StyledButton = styled.button`
@@ -16,21 +16,35 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({ isLoading, isSelectable, onClick, text }: { isLoading: boolean, isSelectable: boolean, onClick: any, text: string }) => {
+const Button = ({
+  isLoading,
+  isSelectable,
+  onClick,
+  text
+}: {
+  isLoading: boolean;
+  isSelectable: boolean;
+  onClick: any;
+  text: string;
+}): JSX.Element => {
   const [isSelected, setIsSelected] = useState(false);
 
-  const className = "button is-inverted"
-    + (isLoading ? " is-loading" : "")
-    + ((isSelectable && isSelected) ? " is-selected" : "");
+  const className =
+    "button is-inverted" +
+    (isLoading ? " is-loading" : "") +
+    (isSelectable && isSelected ? " is-selected" : "");
 
   return (
     <StyledButton
       className={className}
-      onClick={() => { setIsSelected(!isSelected); onClick() }}
+      onClick={() => {
+        setIsSelected(!isSelected);
+        onClick();
+      }}
     >
       {text}
     </StyledButton>
-  )
-}
+  );
+};
 
 export default Button;

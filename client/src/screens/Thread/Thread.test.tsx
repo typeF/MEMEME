@@ -1,26 +1,26 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockedProvider } from 'react-apollo/test-utils';
-import waait from 'waait';
-import Thread from './Thread';
-import GetThread from './ThreadGetQuery';
-import LoginStatusQuery from '../../graphQL/LoginStatusQuery';
+import React from "react";
+import renderer from "react-test-renderer";
+import { MockedProvider } from "react-apollo/test-utils";
+import waait from "waait";
+import Thread from "./Thread";
+import GetThread from "./ThreadGetQuery";
+import LoginStatusQuery from "../../graphQL/LoginStatusQuery";
 
-const title = "Test title"
-const content = "Post 1 Content"
+const title = "Test title";
+const content = "Post 1 Content";
 
 const match = {
   url: "/localhost:3000/General/ABC123"
 };
 
-const threadId = match.url.split("/")[3]
+const threadId = match.url.split("/")[3];
 
 const mocks = [
   {
     request: {
       query: GetThread,
       variables: {
-        threadId,
+        threadId
       }
     },
     result: {
@@ -39,14 +39,15 @@ const mocks = [
               },
               content,
               createdAt: "2019-01-01 00:00:00"
-            }, 
+            }
           ]
         }
       }
     }
-  }, {
+  },
+  {
     request: {
-      query: LoginStatusQuery,
+      query: LoginStatusQuery
     },
     result: {
       data: {
@@ -56,29 +57,30 @@ const mocks = [
   }
 ];
 
-it('should render Thread loading component initially', () => {
+it("should render Thread loading component initially", () => {
   const component = renderer.create(
-    <MockedProvider mocks={ mocks } addTypename={ false }>
-      <Thread match={ match }/>
-    </MockedProvider>);
+    <MockedProvider mocks={mocks} addTypename={false}>
+      <Thread match={match} />
+    </MockedProvider>
+  );
 
-    const tree = component.toJSON();
-    expect(tree && tree.children).toContain("Loading...");
+  const tree = component.toJSON();
+  expect(tree && tree.children).toContain("Loading...");
 });
 
-it('should render Thread', async () => {
+it("should render Thread", async () => {
   const component = renderer.create(
-    <MockedProvider mocks={ mocks } addTypename={ false }>
-      <Thread match={ match }/>
-    </MockedProvider>);
+    <MockedProvider mocks={mocks} addTypename={false}>
+      <Thread match={match} />
+    </MockedProvider>
+  );
 
-    await waait(0);
+  await waait(0);
 
-    const div = component.root.findByType('div');
-    const li = component.root.findByType('li');
-    expect(div.children).toContain(title);
-    expect(li.children).toContain(content);
-
+  const div = component.root.findByType("div");
+  const li = component.root.findByType("li");
+  expect(div.children).toContain(title);
+  expect(li.children).toContain(content);
 });
 
 // As of Apollo Client 2.5.1, MockedProvider does not provide @client queries

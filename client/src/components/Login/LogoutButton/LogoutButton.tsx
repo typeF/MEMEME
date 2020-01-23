@@ -1,10 +1,9 @@
-import React from 'react';
+import React from "react";
 import { Mutation, ApolloConsumer } from "react-apollo";
 import gql from "graphql-tag";
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const StyledButton = styled.button`
-`;
+const StyledButton = styled.button``;
 
 const LogoutMutation = gql`
   mutation Logout {
@@ -18,30 +17,31 @@ const LogoutButton = () => {
   return (
     <ApolloConsumer>
       {client => (
-        <Mutation 
-          mutation={ LogoutMutation } 
-          onCompleted={() => { 
-            console.log('Logging out & removing cookies...');
-            client.writeData({ data: { isLoggedIn: false }});
+        <Mutation
+          mutation={LogoutMutation}
+          onCompleted={() => {
+            console.log("Logging out & removing cookies...");
+            client.writeData({ data: { isLoggedIn: false } });
           }}
         >
-          {(logout, { loading }) => { 
-              if (loading) return (<div>Logging out...</div>);
-              // if (error) return `${error}`;
+          {(logout, { loading }) => {
+            if (loading) return <div>Logging out...</div>;
+            // if (error) return `${error}`;
 
-              return (
-                <a 
-                  // className='button is-danger is-outlined' 
-                  className='dropdown-item' 
-                  onClick={() => logout()}>
-                  Logout
-                </a>
-              )
+            return (
+              <a
+                // className='button is-danger is-outlined'
+                className="dropdown-item"
+                onClick={() => logout()}
+              >
+                Logout
+              </a>
+            );
           }}
         </Mutation>
       )}
     </ApolloConsumer>
-  )
-}
+  );
+};
 
 export default LogoutButton;

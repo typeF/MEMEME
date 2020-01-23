@@ -1,3 +1,3 @@
-import SearchSelect from './SearchSelect';
+import SearchSelect from "./SearchSelect";
 
 export default SearchSelect;

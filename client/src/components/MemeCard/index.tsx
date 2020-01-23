@@ -1,3 +1,3 @@
-import MemeCard from './MemeCard';
+import MemeCard from "./MemeCard";
 
 export default MemeCard;

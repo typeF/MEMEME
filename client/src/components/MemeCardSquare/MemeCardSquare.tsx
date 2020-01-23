@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import MemeCardImg from '../MemeCard/MemeCardImg';
+import React from "react";
+import styled from "styled-components";
+import MemeCardImg from "../MemeCard/MemeCardImg";
 
 const MemeCardSquareAspectRatio = styled.div`
   position: relative;
@@ -30,20 +30,22 @@ const MemeCardSquareContainer = styled.div`
   width: 100%;
 `;
 
-const MemeCardSquare = ({ img, counter, clickHandler }: { img: string, counter: any, clickHandler: any }) => {
+const MemeCardSquare = ({
+  img,
+  counter,
+  clickHandler
+}: {
+  img: string;
+  counter: any;
+  clickHandler: any;
+}) => {
   return (
     <MemeCardSquareAspectRatio>
-      <MemeCardSquareContainer
-        onClick={() => clickHandler(img)}
-      >
-        {img !== "" &&
-          <MemeCardImg
-            img={img}
-          />
-        }
+      <MemeCardSquareContainer onClick={() => clickHandler(img)}>
+        {img !== "" && <MemeCardImg img={img} />}
       </MemeCardSquareContainer>
     </MemeCardSquareAspectRatio>
-  )
-}
+  );
+};
 
 export default MemeCardSquare;

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import NewThreadSubForums from './NewThreadSubForums';
-import NewThreadPost from './NewThreadPost';
-import NewThreadTitle from './NewThreadTitle';
-import NewThreadSubmit from './NewThreadSubmit';
-import { createBrowserHistory } from 'history';
+import React, { useState } from "react";
+import styled from "styled-components";
+import NewThreadSubForums from "./NewThreadSubForums";
+import NewThreadPost from "./NewThreadPost";
+import NewThreadTitle from "./NewThreadTitle";
+import NewThreadSubmit from "./NewThreadSubmit";
+import { createBrowserHistory } from "history";
 
 const NewThreadContainer = styled.div`
   grid-area: content;
@@ -29,18 +29,16 @@ const NewThread = ({ mutation }: { mutation: any }) => {
         content
       }
     });
-  }
+  };
 
   return (
     <NewThreadContainer>
-      <NewThreadSubForums
-        setForum={setForum}
-      />
+      <NewThreadSubForums setForum={setForum} />
       <NewThreadTitle setTitle={setTitle} />
       <NewThreadPost content={content} setContent={setContent} />
       <NewThreadSubmit cancel={history.goBack} submit={postThread} />
     </NewThreadContainer>
-  )
-}
+  );
+};
 
 export default NewThread;

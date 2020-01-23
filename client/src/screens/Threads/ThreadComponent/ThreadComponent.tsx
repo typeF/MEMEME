@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import MemeCardSquare from '../../../components/MemeCardSquare';
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import MemeCardSquare from "../../../components/MemeCardSquare";
 
 const Thread = styled.div`
   margin-bottom: 50px;
@@ -30,26 +30,22 @@ const ThreadContainer = styled.div`
   // }
 `;
 
-const ThreadComponent = ({ thread, link }: { thread: any, link: any }) => {
+const ThreadComponent = ({ thread, link }: { thread: any; link: any }) => {
   return (
     <Thread>
-      <ThreadLink
-        to={link}
-      >
-        {thread.title}
-      </ThreadLink>
+      <ThreadLink to={link}>{thread.title}</ThreadLink>
       <ThreadContainer>
         {thread.posts.map((post: any) => (
           <MemeCardSquare
             key={post.id}
             counter=""
-            img={post.content} 
+            img={post.content}
             clickHandler=""
           />
         ))}
       </ThreadContainer>
     </Thread>
-  )
+  );
 };
 
 export default ThreadComponent;

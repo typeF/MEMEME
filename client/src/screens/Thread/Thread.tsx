@@ -3,9 +3,9 @@ import { Query } from "react-apollo";
 import GetThread from "./ThreadGetQuery";
 import LoginStatusQuery from "../../graphQL/LoginStatusQuery";
 import { Link } from "react-router-dom";
-import styled from 'styled-components';
-import MemeCard from '../../components/MemeCard';
-import FadingLine from '../../components/FadingLine';
+import styled from "styled-components";
+import MemeCard from "../../components/MemeCard";
+import FadingLine from "../../components/FadingLine";
 import NewPost from "./NewPost";
 import "./Thread.scss";
 
@@ -40,7 +40,9 @@ const Thread = ({ match }: { match: any }) => (
           <Fragment>
             <ThreadContainer>
               <ThreadTitle>
-                {`${match.url.split("/")[2].toUpperCase()} > ${data.thread.title.toUpperCase()}`}
+                {`${match.url
+                  .split("/")[2]
+                  .toUpperCase()} > ${data.thread.title.toUpperCase()}`}
               </ThreadTitle>
 
               <FadingLine />
@@ -60,12 +62,13 @@ const Thread = ({ match }: { match: any }) => (
                 {({ data }) => {
                   return (
                     <Fragment>
-                      {data.isLoggedIn && <NewPost thread={match.url.split("/")[3]} />}
+                      {data.isLoggedIn && (
+                        <NewPost thread={match.url.split("/")[3]} />
+                      )}
                     </Fragment>
                   );
                 }}
               </Query>
-
             </ThreadContainer>
           </Fragment>
         );

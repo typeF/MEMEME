@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyledButton = styled.button`
   // margin: 0.5rem 1rem;
@@ -16,14 +16,14 @@ const StyledButton = styled.button`
   padding: 0.3rem 0.5rem;
 `;
 
-const ButtonBasic = ({ text, clickHandler }: { text: string, clickHandler: any }) => {
-  return (
-    <StyledButton
-      onClick={() => clickHandler()}
-    >
-      {text}
-    </StyledButton>
-  )
-}
+const ButtonBasic = ({
+  text,
+  clickHandler
+}: {
+  text: string;
+  clickHandler: any;
+}) => {
+  return <StyledButton onClick={() => clickHandler()}>{text}</StyledButton>;
+};
 
 export default ButtonBasic;

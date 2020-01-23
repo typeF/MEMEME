@@ -1,3 +1,3 @@
-import ThreadComponent from './ThreadComponent';
+import ThreadComponent from "./ThreadComponent";
 
 export default ThreadComponent;

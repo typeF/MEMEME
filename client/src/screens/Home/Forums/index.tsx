@@ -1,3 +1,3 @@
-import Forums from './Forums';
+import Forums from "./Forums";
 
 export default Forums;
