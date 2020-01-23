@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Query } from "react-apollo";
 import LoginStatusQuery from "../../graphQL/LoginStatusQuery";
+import Button from "../Button";
 import NavBarLogo from "./NavBarLogo";
 import NavBarMenuButton from "./NavBarMenuButton";
 import Login from "../Login";
@@ -19,23 +20,43 @@ const NavBar = () => {
       </div>
       <div id="navbar-right">
         {/* <Login /> */}
-        <div className="dropdown is-hoverable">
-          <div className="dropdown-trigger">
-            <NavBarMenuButton />
-          </div>
-          <div className="dropdown-menu" role="menu">
-            <div className="dropdown-content">
-              <Query query={LoginStatusQuery}>
-                {({ data }) => {
-                  return (
-                    <Fragment>
-                      {data.isLoggedIn ? <LogoutMenu /> : <LoginMenu />}
-                    </Fragment>
-                  );
-                }}
-              </Query>
-              <hr className="dropdown-divider" />
-              <span className="dropdown-item">THEME</span>
+        <div className="navbar-item">
+          <div className="buttons">
+            <Query query={LoginStatusQuery}>
+              {({ data }) => {
+                return (
+                  <Fragment>
+                    {data.isLoggedIn && (
+                      <Button
+                        isLoading={false}
+                        isSelectable={false}
+                        text="New Topic"
+                        onClick={(): void => {}}
+                      />
+                    )}
+                  </Fragment>
+                );
+              }}
+            </Query>
+            <div className="dropdown is-hoverable">
+              <div className="dropdown-trigger">
+                <NavBarMenuButton />
+              </div>
+              <div className="dropdown-menu" role="menu">
+                <div className="dropdown-content">
+                  <Query query={LoginStatusQuery}>
+                    {({ data }) => {
+                      return (
+                        <Fragment>
+                          {data.isLoggedIn ? <LogoutMenu /> : <LoginMenu />}
+                        </Fragment>
+                      );
+                    }}
+                  </Query>
+                  <hr className="dropdown-divider" />
+                  <span className="dropdown-item">THEME</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

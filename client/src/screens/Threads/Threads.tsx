@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { Query } from "react-apollo";
 import GetThreads from "./ThreadsGetQuery";
-import LoginStatusQuery from "../../graphQL/LoginStatusQuery";
 import styled from "styled-components";
 import ThreadComponent from "./ThreadComponent";
 import FadingLine from "../../components/FadingLine";
@@ -35,15 +34,6 @@ const Threads = ({ match }: { match: any }): JSX.Element => (
               />
             ))}
           </ThreadsContainer>
-          <Query query={LoginStatusQuery}>
-            {({ data }) => {
-              return (
-                <Fragment>
-                  {/* {data.isLoggedIn && <New forum={forum}/>} */}
-                </Fragment>
-              );
-            }}
-          </Query>
         </Fragment>
       );
     }}
