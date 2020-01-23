@@ -21,7 +21,7 @@ const ForumThreadLink = styled(Link)`
   min-width: 0;
 `;
 
-const Forum = ({ forum }: { forum: any }) => {
+const Forum = ({ forum }: { forum: any }): JSX.Element => {
   const { name } = forum;
   const thread = forum.threads[0];
   const { author, content, createdAt } = thread.posts[0];

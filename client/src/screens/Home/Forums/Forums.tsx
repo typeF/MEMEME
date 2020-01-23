@@ -15,7 +15,7 @@ const ForumsContainer = styled.div`
   min-width: 0;
 `;
 
-const Forums = () => (
+const Forums = (): JSX.Element => (
   <Fragment>
     <Query query={getForumsQuery}>
       {({ loading, error, data }) => {

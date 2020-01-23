@@ -5,7 +5,6 @@ import LoginStatusQuery from "../../graphQL/LoginStatusQuery";
 import styled from "styled-components";
 import ThreadComponent from "./ThreadComponent";
 import FadingLine from "../../components/FadingLine";
-import New from "../New";
 
 const ThreadsContainer = styled.div`
   grid-area: content;
@@ -16,7 +15,7 @@ const ThreadsContainer = styled.div`
   font-family: "Righteous", sans-serif;
 `;
 
-const Threads = ({ match }: { match: any }) => (
+const Threads = ({ match }: { match: any }): JSX.Element => (
   <Query query={GetThreads} variables={{ forum: match.url.split("/")[2] }}>
     {({ loading, error, data }) => {
       const forum = match.url.split("/")[2];

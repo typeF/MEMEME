@@ -4,11 +4,13 @@ import SearchModal from "../../../components/SearchModal";
 
 const NewPostButton = ({
   newPost,
-  thread
+  thread,
+  threadTitle
 }: {
   newPost: any;
-  thread: String;
-}) => {
+  thread: string;
+  threadTitle: string;
+}): JSX.Element => {
   const [activeModal, setActiveModal] = useState(false);
 
   return (
@@ -17,6 +19,7 @@ const NewPostButton = ({
         closeModal={() => setActiveModal(false)}
         active={activeModal}
         thread={thread}
+        threadTitle={threadTitle}
         submitFunction={newPost}
       />
       <ButtonBasic clickHandler={() => setActiveModal(true)} text="REPLY" />

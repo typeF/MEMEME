@@ -14,7 +14,7 @@ const NewThreadPost = ({
 }: {
   content: string;
   setContent: any;
-}) => {
+}): JSX.Element => {
   const [activeModal, setActiveModal] = useState(false);
 
   const applyContent = (data: any) => {
@@ -28,6 +28,7 @@ const NewThreadPost = ({
         closeModal={() => setActiveModal(false)}
         active={activeModal}
         thread={""}
+        threadTitle={""}
         submitFunction={applyContent}
       />
       <NewContentDiv onClick={() => setActiveModal(true)}>

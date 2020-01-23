@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const SearchTitleSpan = styled.div`
   grid-area: search-title;
@@ -8,12 +8,8 @@ const SearchTitleSpan = styled.div`
   font-size: 1.5rem;
 `;
 
-const SearchTitle = ({ title } : { title: string }) => {
-  return (
-    <SearchTitleSpan>
-      {title}
-    </SearchTitleSpan>
-  )
+const SearchTitle = ({ title }: { title: string }): JSX.Element => {
+  return <SearchTitleSpan>{title}</SearchTitleSpan>;
 };
 
 export default SearchTitle;

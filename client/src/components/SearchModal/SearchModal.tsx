@@ -12,20 +12,26 @@ const SearchModal = ({
   active,
   closeModal,
   thread,
+  threadTitle,
   submitFunction
 }: {
   active: boolean;
   closeModal: any;
-  thread: String;
+  thread: string;
+  threadTitle: string;
   submitFunction: any;
-}) => {
+}): JSX.Element => {
   return (
     <div className={active ? "modal is-active" : "modal"}>
       <div className="modal-background" onClick={() => closeModal()}>
         {" "}
       </div>
       <ModalContent className="modal-content">
-        <Search postId={thread} submitFunction={submitFunction} />
+        <Search
+          postId={thread}
+          threadTitle={threadTitle}
+          submitFunction={submitFunction}
+        />
       </ModalContent>
       <button
         className="modal-close is-large"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import SearchResults from "./SearchResults";
@@ -42,11 +42,13 @@ const SearchInput = styled.input`
 
 const Search = ({
   postId,
+  threadTitle,
   submitFunction
 }: {
-  postId: String;
+  postId: string;
+  threadTitle: string;
   submitFunction: any;
-}) => {
+}): JSX.Element => {
   const [searchTerms, setSearchTerms] = useState("");
   const [searchSelect, setSearchSelect] = useState("");
   const [loading, setLoading] = useState(false);
@@ -79,7 +81,7 @@ const Search = ({
       });
   };
 
-  const handleKeyPress = (key: String) => {
+  const handleKeyPress = (key: string) => {
     if (key === "Enter") getGifs();
   };
 
@@ -98,7 +100,7 @@ const Search = ({
 
   return (
     <SearchContainer>
-      <SearchTitle title="Search Title" />
+      <SearchTitle title={threadTitle} />
       <SearchSelect src={searchSelect} />
       <SearchInput
         className="input"

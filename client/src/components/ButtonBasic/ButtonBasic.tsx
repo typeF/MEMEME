@@ -22,7 +22,7 @@ const ButtonBasic = ({
 }: {
   text: string;
   clickHandler: any;
-}) => {
+}): JSX.Element => {
   return <StyledButton onClick={() => clickHandler()}>{text}</StyledButton>;
 };
 

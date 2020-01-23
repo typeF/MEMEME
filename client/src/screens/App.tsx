@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 import Routes from "./Routes";
 
 class App extends Component {
-  render() {
+  render(): JSX.Element {
     return (
       <Fragment>
         <NavBar />

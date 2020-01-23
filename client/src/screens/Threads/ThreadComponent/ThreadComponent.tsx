@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import MemeCardSquare from "../../../components/MemeCardSquare";
@@ -30,7 +30,13 @@ const ThreadContainer = styled.div`
   // }
 `;
 
-const ThreadComponent = ({ thread, link }: { thread: any; link: any }) => {
+const ThreadComponent = ({
+  thread,
+  link
+}: {
+  thread: any;
+  link: any;
+}): JSX.Element => {
   return (
     <Thread>
       <ThreadLink to={link}>{thread.title}</ThreadLink>

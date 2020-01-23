@@ -36,13 +36,13 @@ const Thread = ({ match }: { match: any }) => (
         if (error) return <p>error...</p>;
         // if (error) return `${error}`;
 
+        const threadTitle = data.thread.title.toUpperCase();
+
         return (
           <Fragment>
             <ThreadContainer>
               <ThreadTitle>
-                {`${match.url
-                  .split("/")[2]
-                  .toUpperCase()} > ${data.thread.title.toUpperCase()}`}
+                {`${match.url.split("/")[2].toUpperCase()} > ${threadTitle}`}
               </ThreadTitle>
 
               <FadingLine />
@@ -59,11 +59,14 @@ const Thread = ({ match }: { match: any }) => (
               </PostsContainer>
 
               <Query query={LoginStatusQuery}>
-                {({ data }) => {
+                {({ data }): JSX.Element => {
                   return (
                     <Fragment>
                       {data.isLoggedIn && (
-                        <NewPost thread={match.url.split("/")[3]} />
+                        <NewPost
+                          thread={match.url.split("/")[3]}
+                          threadTitle={threadTitle}
+                        />
                       )}
                     </Fragment>
                   );

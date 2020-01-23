@@ -9,7 +9,7 @@ const Button = ({
 }: {
   clickFunction: any;
   text: string;
-}) => {
+}): JSX.Element => {
   return (
     <StyledButton
       className="button is-success is-outlined"
