@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import "./Button.scss";
+import "./SubForumButton.scss";
 
 const StyledButton = styled.button`
   background: transparent;
@@ -16,7 +16,7 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({
+const SubForumButton = ({
   isLoading,
   isSelectable,
   onClick,
@@ -30,7 +30,10 @@ const Button = ({
   const [isSelected, setIsSelected] = useState(false);
 
   const className =
-    "button is-inverted" +
+    "button is-inverted " +
+    "subForum-btn " +
+    "forum-" +
+    text +
     (isLoading ? " is-loading" : "") +
     (isSelectable && isSelected ? " is-selected" : "");
 
@@ -47,4 +50,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default SubForumButton;

@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Query } from "react-apollo";
 import getForumsQuery from "../../../Home/Forums/ForumsGetQuery";
-import ButtonBasic from "../../../../components/ButtonBasic";
-import Button from "../../../../components/Button";
+import SubForumButton from "./SubForumButton";
 
 const SubForumsContainer = styled.div`
   grid-area: content;
@@ -25,26 +24,35 @@ const SubForumsButtonContainer = styled.div`
   margin-top: 10px;
 `;
 
-const NewThreadSubForums = ({ setForum }: { setForum: any }) => {
+const NewThreadSubForums = ({
+  setForum
+}: {
+  forum: string;
+  setForum: any;
+}): JSX.Element => {
   return (
     <SubForumsContainer>
       <SubForumsTitle>Subforum</SubForumsTitle>
       <Query query={getForumsQuery}>
-        {({ loading, error, data }) => {
+        {({ loading, error, data, refetch }) => {
           if (loading) return <p>Loading...</p>;
           if (error) return `${error}`;
 
           return (
             <SubForumsButtonContainer>
-              {data.forums.map((forum: any) => (
-                <Button
-                  key={forum.id}
-                  isLoading={false}
-                  isSelectable={true}
-                  onClick={() => setForum(forum.name)}
-                  text={forum.name}
-                />
-              ))}
+              {data.forums.map(
+                (forum: any): JSX.Element => (
+                  <SubForumButton
+                    key={forum.id}
+                    isLoading={false}
+                    isSelectable={true}
+                    onClick={(): void => {
+                      setForum(forum.name);
+                    }}
+                    text={forum.name}
+                  />
+                )
+              )}
             </SubForumsButtonContainer>
           );
         }}

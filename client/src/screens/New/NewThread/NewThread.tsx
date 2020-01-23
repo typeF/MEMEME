@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import NewThreadSubForums from "./NewThreadSubForums";
 import NewThreadPost from "./NewThreadPost";
@@ -14,14 +14,14 @@ const NewThreadContainer = styled.div`
   margin-right: auto;
 `;
 
-const NewThread = ({ mutation }: { mutation: any }) => {
+const NewThread = ({ mutation }: { mutation: any }): JSX.Element => {
   const [forum, setForum] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const history = createBrowserHistory();
 
-  const postThread = () => {
+  const postThread = (): void => {
     mutation({
       variables: {
         forum,
@@ -31,9 +31,22 @@ const NewThread = ({ mutation }: { mutation: any }) => {
     });
   };
 
+  const removeHighlightsFromUnselected = (): void => {
+    const unselectedSubForums = document.querySelectorAll(
+      `.subForum-btn:not(.forum-${forum}`
+    );
+    unselectedSubForums.forEach(subForumBtn => {
+      subForumBtn.classList.remove("is-selected");
+    });
+  };
+
+  useEffect((): void => {
+    removeHighlightsFromUnselected();
+  });
+
   return (
     <NewThreadContainer>
-      <NewThreadSubForums setForum={setForum} />
+      <NewThreadSubForums forum={forum} setForum={setForum} />
       <NewThreadTitle setTitle={setTitle} />
       <NewThreadPost content={content} setContent={setContent} />
       <NewThreadSubmit cancel={history.goBack} submit={postThread} />

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import MemeCardSquare from "../../../components/MemeCardSquare";
 import MemeCardStretch from "../../../components/MemeCardStretch";
 
 const SearchResultContainer = styled.div`
@@ -19,7 +18,7 @@ const SearchResultBackground = styled.div`
   background: rgba(0, 0, 0, 0.1);
 `;
 
-const SearchSelect = ({ src }: { src: string }) => {
+const SearchSelect = ({ src }: { src: string }): JSX.Element => {
   return (
     <SearchResultContainer>
       <SearchResultBackground>

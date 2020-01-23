@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import { Query } from "react-apollo";
 import LoginStatusQuery from "../../graphQL/LoginStatusQuery";
 import Button from "../Button";
-import NavBarLogo from "./NavBarLogo";
 import NavBarMenuButton from "./NavBarMenuButton";
-import Login from "../Login";
 import LoginMenu from "./LoginMenu";
 import LogoutMenu from "./LogoutMenu";
 import "./NavBar.scss";
@@ -27,12 +25,14 @@ const NavBar = () => {
                 return (
                   <Fragment>
                     {data.isLoggedIn && (
-                      <Button
-                        isLoading={false}
-                        isSelectable={false}
-                        text="New Topic"
-                        onClick={(): void => {}}
-                      />
+                      <Link to={"/new"}>
+                        <Button
+                          isLoading={false}
+                          isSelectable={false}
+                          text="New Topic"
+                          onClick={(): void => {}}
+                        />
+                      </Link>
                     )}
                   </Fragment>
                 );

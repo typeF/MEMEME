@@ -1,9 +1,6 @@
 import React from "react";
 import { Mutation, ApolloConsumer } from "react-apollo";
 import gql from "graphql-tag";
-import styled from "styled-components";
-
-const StyledButton = styled.button``;
 
 const LoginMutation = gql`
   mutation Login($email: String!, $password: String!) {

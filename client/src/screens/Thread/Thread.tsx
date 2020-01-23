@@ -1,11 +1,9 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Query } from "react-apollo";
 import GetThread from "./ThreadGetQuery";
 import LoginStatusQuery from "../../graphQL/LoginStatusQuery";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import MemeCard from "../../components/MemeCard";
-import MemeCardSquareWithFooter from "../../components/MemeCardSquareWithFooter";
 import FadingLine from "../../components/FadingLine";
 import NewPost from "./NewPost";
 import "./Thread.scss";
