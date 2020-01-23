@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import MemeCard from "../../../../components/MemeCard";
+import MemeCardSquare from "../../../../components/MemeCardSquare";
 
 const ForumContainer = styled.div`
   display: grid;
@@ -36,6 +37,7 @@ const Forum = ({ forum }: { forum: any }): JSX.Element => {
         <ForumTitle to={`/forums/${name}`}>{name}</ForumTitle>
         <ForumThreadLink to={link}>
           <MemeCard counter="" img={img} footer={footer} />
+          {/* <MemeCardSquare counter="" img={img} clickHandler={(): void => {}} /> */}
         </ForumThreadLink>
       </ForumContainer>
     </Fragment>

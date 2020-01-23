@@ -15,7 +15,7 @@ const SearchResults = ({
 }: {
   results: any;
   handleSelect: any;
-}) => {
+}): JSX.Element => {
   return (
     <SearchResultsContainer>
       {results.map((result: any) => (

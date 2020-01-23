@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 import MemeCardImg from "../MemeCard/MemeCardImg";
+import MemeCardFooter from "../MemeCard/MemeCardFooter";
 
 const MemeCardSquareAspectRatio = styled.div`
   position: relative;
@@ -30,22 +31,27 @@ const MemeCardSquareContainer = styled.div`
   width: 100%;
 `;
 
-const MemeCardSquare = ({
+const MemeCardSquareWithFooter = ({
+  footer,
   img,
   counter,
   clickHandler
 }: {
+  footer: string;
   img: string;
   counter: any;
   clickHandler: any;
 }): JSX.Element => {
   return (
-    <MemeCardSquareAspectRatio>
-      <MemeCardSquareContainer onClick={(): void => clickHandler(img)}>
-        {img !== "" && <MemeCardImg img={img} />}
-      </MemeCardSquareContainer>
-    </MemeCardSquareAspectRatio>
+    <Fragment>
+      <MemeCardSquareAspectRatio>
+        <MemeCardSquareContainer onClick={(): void => clickHandler(img)}>
+          {img !== "" && <MemeCardImg img={img} />}
+        </MemeCardSquareContainer>
+      </MemeCardSquareAspectRatio>
+      <MemeCardFooter text={footer} />
+    </Fragment>
   );
 };
 
-export default MemeCardSquare;
+export default MemeCardSquareWithFooter;

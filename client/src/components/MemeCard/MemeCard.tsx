@@ -27,10 +27,10 @@ const MemeCard = ({
   counter,
   footer
 }: {
-  img: any;
-  counter: any;
-  footer: any;
-}) => {
+  img: string;
+  counter: string;
+  footer: string;
+}): JSX.Element => {
   return (
     <Fragment>
       <MemeCardContainer>

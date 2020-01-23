@@ -5,6 +5,7 @@ import LoginStatusQuery from "../../graphQL/LoginStatusQuery";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import MemeCard from "../../components/MemeCard";
+import MemeCardSquareWithFooter from "../../components/MemeCardSquareWithFooter";
 import FadingLine from "../../components/FadingLine";
 import NewPost from "./NewPost";
 import "./Thread.scss";
@@ -14,7 +15,6 @@ const ThreadContainer = styled.div`
 `;
 
 const ThreadTitle = styled.span`
-  grid-area: content;
   color: white;
   font-size: 3rem;
   font-family: "Righteous", sans-serif;
@@ -24,7 +24,7 @@ const PostsContainer = styled.div`
   margin-top: 1.5rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: minmax(250px, 400px);
+  grid-auto-rows: minmax(350px, auto);
   grid-gap: 20px;
 `;
 
