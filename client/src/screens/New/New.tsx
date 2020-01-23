@@ -3,7 +3,7 @@ import { Mutation } from "react-apollo";
 import NewThread from "./NewThread";
 import NewThreadMutation from "./NewThread/NewThreadMutation";
 
-const New = ({ forum }: { forum: String }) => {
+const New = ({ forum }: { forum: string }): JSX.Element => {
   return (
     <Mutation mutation={NewThreadMutation} onCompleted={() => {}}>
       {(newThread, { loading, error, data }) => {

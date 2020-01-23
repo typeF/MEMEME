@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import styled from "styled-components";
+import { Query } from "react-apollo";
+import LoginStatusQuery from "../../../graphQL/LoginStatusQuery";
 import NewThreadSubForums from "./NewThreadSubForums";
 import NewThreadPost from "./NewThreadPost";
 import NewThreadTitle from "./NewThreadTitle";
 import NewThreadSubmit from "./NewThreadSubmit";
+import NotLoggedIn from "./NotLoggedIn";
 import { createBrowserHistory } from "history";
 
 const NewThreadContainer = styled.div`
@@ -45,12 +48,24 @@ const NewThread = ({ mutation }: { mutation: any }): JSX.Element => {
   });
 
   return (
-    <NewThreadContainer>
-      <NewThreadSubForums forum={forum} setForum={setForum} />
-      <NewThreadTitle setTitle={setTitle} />
-      <NewThreadPost content={content} setContent={setContent} />
-      <NewThreadSubmit cancel={history.goBack} submit={postThread} />
-    </NewThreadContainer>
+    <Query query={LoginStatusQuery}>
+      {({ data }): JSX.Element => {
+        return (
+          <Fragment>
+            {data.isLoggedIn ? (
+              <NewThreadContainer>
+                <NewThreadSubForums forum={forum} setForum={setForum} />
+                <NewThreadTitle setTitle={setTitle} />
+                <NewThreadPost content={content} setContent={setContent} />
+                <NewThreadSubmit cancel={history.goBack} submit={postThread} />
+              </NewThreadContainer>
+            ) : (
+              <NotLoggedIn />
+            )}
+          </Fragment>
+        );
+      }}
+    </Query>
   );
 };
 
