@@ -35,7 +35,7 @@ const ThreadComponent = ({
             key={post.id}
             counter=""
             img={post.content}
-            clickHandler=""
+            clickHandler={() => {}}
           />
         ))}
       </ThreadContainer>
