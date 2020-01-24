@@ -18,7 +18,7 @@ MEMEME is a GIF-based message board that sources from the GIPHY API. This projec
 ![Topics](/client/public/Screenshots/Topics.png)
 ![Topic](/client/public/Screenshots/Topic.png)
 ![Reply](/client/public/Screenshots/Reply.png)
-![NewTopic](/client/public/Screenshots/New Topic.png)
+![NewTopic](/client/public/Screenshots/NewTopic.png)
 
 ## Tech Stack
 
