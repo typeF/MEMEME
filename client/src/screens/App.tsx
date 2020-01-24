@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import Routes from "./Routes";
 
 class App extends Component {
@@ -8,6 +9,7 @@ class App extends Component {
       <Fragment>
         <NavBar />
         <Routes />
+        <Footer />
       </Fragment>
     );
   }
