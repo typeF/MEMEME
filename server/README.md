@@ -1,32 +1,34 @@
-## Backend Setup
+# Backend Setup
 
-# Prisma Docker setup
+## Prisma Docker setup
 
 ```
 docker compose up -d
 ```
 
-# Prisma Intialization
+## Prisma Intialization
 
 ```
 prisma init --endpoint http://localhost:4466
 ```
 
-# Reset all DB Data
+## Prisma Schema & Data seeding
 
-Need to install Prisma CLI first
+Install Prisma CLI first
+
+Reset Prisma Data
 
 ```
 prisma reset
 ```
 
-# Deploy Prisma Schema
+Deploy Prisma Schema
 
 ```
 prisma deploy
 ```
 
-# Seed data
+Seed Data
 
 ```
 npm run seed
