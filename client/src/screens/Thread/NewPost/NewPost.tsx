@@ -4,9 +4,11 @@ import NewPostMutation from "./NewPostMutation";
 import NewPostButton from "./NewPostButton";
 
 const NewPost = ({
+  refetch,
   thread,
   threadTitle
 }: {
+  refetch: any;
   thread: string;
   threadTitle: string;
 }): JSX.Element => {
@@ -14,7 +16,9 @@ const NewPost = ({
     <Mutation mutation={NewPostMutation} onCompleted={() => {}}>
       {(newPost, { loading, error, data }) => {
         if (loading) return <p>Loading...</p>;
-        if (data) return <p>Posted!</p>;
+        // if (data) return <p>Posted!</p>;
+        // eslint-diable no-restricted-globals
+        if (data) refetch();
 
         return (
           <NewPostButton

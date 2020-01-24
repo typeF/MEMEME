@@ -29,7 +29,7 @@ const PostsContainer = styled.div`
 const Thread = ({ match }: { match: any }) => (
   <Fragment>
     <Query query={GetThread} variables={{ threadId: match.url.split("/")[3] }}>
-      {({ loading, error, data }) => {
+      {({ loading, error, data, refetch }) => {
         if (loading) return <p>Loading...</p>;
         if (error) return <p>error...</p>;
         // if (error) return `${error}`;
@@ -62,6 +62,7 @@ const Thread = ({ match }: { match: any }) => (
                     <Fragment>
                       {data.isLoggedIn && (
                         <NewPost
+                          refetch={refetch}
                           thread={match.url.split("/")[3]}
                           threadTitle={threadTitle}
                         />
