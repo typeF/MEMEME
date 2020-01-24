@@ -11,7 +11,7 @@ const Img = styled.img`
   min-width: 0;
 `;
 
-const MemeCardImg = ({ img }: { img: any }) => {
+const MemeCardImg = ({ img }: { img: string }): JSX.Element => {
   return <Img src={img} />;
 };
 

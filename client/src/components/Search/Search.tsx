@@ -53,6 +53,7 @@ const Search = ({
 }): JSX.Element => {
   const [searchTerms, setSearchTerms] = useState("");
   const [searchSelect, setSearchSelect] = useState("");
+  // eslint-disable-next-line
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<string[]>([]);
 
@@ -63,7 +64,7 @@ const Search = ({
       method: "get",
       baseURL: "https://api.giphy.com/v1/gifs/search",
       params: {
-        api_key: "RsdXP2ToCVtMi8vC5bq7SkVg8q8NxKli",
+        api_key: process.env.REACT_APP_GIPHY_API_KEY,
         q: searchTerms,
         limit: 9
       }

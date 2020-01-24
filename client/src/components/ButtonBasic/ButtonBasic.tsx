@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  // margin: 0.5rem 1rem;
   background: transparent;
   border-radius: 3px;
   border-radius: 3px;

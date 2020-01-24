@@ -12,7 +12,7 @@ const Footer = styled.span`
   height: 100%;
 `;
 
-const MemeCardFooter = ({ text }: { text: any }) => {
+const MemeCardFooter = ({ text }: { text: string }): JSX.Element => {
   return <Footer>{text}</Footer>;
 };
 

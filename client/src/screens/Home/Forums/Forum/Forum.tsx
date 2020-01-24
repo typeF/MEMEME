@@ -24,6 +24,7 @@ const ForumThreadLink = styled(Link)`
 const Forum = ({ forum }: { forum: any }): JSX.Element => {
   const { name } = forum;
   const thread = forum.threads[0];
+  // eslint-disable-next-line
   const { author, content, createdAt } = thread.posts[0];
 
   const link = `/forums/${name}/`;

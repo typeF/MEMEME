@@ -11,7 +11,7 @@ const MemeCardImgContainer = styled.div`
   height: 100%;
 `;
 
-const MemeCardStretch = ({ img }: { img: string }) => {
+const MemeCardStretch = ({ img }: { img: string }): JSX.Element => {
   return (
     <MemeCardImgContainer>
       <MemeCardImg img={img} />

@@ -36,7 +36,7 @@ const MemeCardSquare = ({
   clickHandler
 }: {
   img: string;
-  counter: any;
+  counter: string;
   clickHandler: any;
 }): JSX.Element => {
   return (

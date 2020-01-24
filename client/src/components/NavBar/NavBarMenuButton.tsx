@@ -17,7 +17,7 @@ const StyledButton = styled.button`
   cursor: pointer;
 `;
 
-const NavBarMenuItem = () => {
+const NavBarMenuItem = (): JSX.Element => {
   return (
     <StyledButton
       className="navbar-menu-button"

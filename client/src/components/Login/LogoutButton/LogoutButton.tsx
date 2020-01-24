@@ -23,14 +23,10 @@ const LogoutButton = () => {
         >
           {(logout, { loading }) => {
             if (loading) return <div>Logging out...</div>;
-            // if (error) return `${error}`;
 
             return (
-              <a
-                // className='button is-danger is-outlined'
-                className="dropdown-item"
-                onClick={() => logout()}
-              >
+              // eslint-disable-next-line
+              <a className="dropdown-item" onClick={() => logout()}>
                 Logout
               </a>
             );

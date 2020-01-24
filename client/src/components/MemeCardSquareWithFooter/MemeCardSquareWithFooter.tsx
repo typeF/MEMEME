@@ -39,7 +39,7 @@ const MemeCardSquareWithFooter = ({
 }: {
   footer: string;
   img: string;
-  counter: any;
+  counter: string;
   clickHandler: any;
 }): JSX.Element => {
   return (

@@ -29,13 +29,11 @@ const LoginButton = ({ loginInfo }: { loginInfo: any }) => {
         >
           {(login, { loading }) => {
             if (loading) return <div>Logging in...</div>;
-            // if (error) return `${error}`;
 
             return (
+              // eslint-disable-next-line
               <a
-                // className='button is-success is-outlined'
                 className="dropdown-item"
-                // onClick={() => login({ variables: { email: 'alice@mememe.com', password: '1' }})}>
                 onClick={() => login({ variables: { email, password } })}
               >
                 {username}
