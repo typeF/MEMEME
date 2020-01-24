@@ -12,6 +12,14 @@ MEMEME is a GIF-based message board that sources from the GIPHY API. This projec
 - CSS Grid
 - Folder structure and organization
 
+## Screenshots
+
+![Home](/client/public/Screenshots/Home.png)
+![Topics](/client/public/Screenshots/Topics.png)
+![Topic](/client/public/Screenshots/Topic.png)
+![Reply](/client/public/Screenshots/Reply.png)
+![NewTopic](/client/public/Screenshots/New Topic.png)
+
 ## Tech Stack
 
 ### Frontend
