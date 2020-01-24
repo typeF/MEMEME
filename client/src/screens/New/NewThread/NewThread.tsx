@@ -24,14 +24,23 @@ const NewThread = ({ mutation }: { mutation: any }): JSX.Element => {
 
   const history = createBrowserHistory();
 
+  const contentNotEmpty = (): boolean => {
+    if (content === "") return false;
+    if (forum === "") return false;
+    if (title === "") return false;
+    return true;
+  };
+
   const postThread = (): void => {
-    mutation({
-      variables: {
-        forum,
-        title,
-        content
-      }
-    });
+    if (contentNotEmpty) {
+      mutation({
+        variables: {
+          forum,
+          title,
+          content
+        }
+      });
+    }
   };
 
   const removeHighlightsFromUnselected = (): void => {

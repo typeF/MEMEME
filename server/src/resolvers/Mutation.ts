@@ -1,19 +1,20 @@
-import { stringArg, idArg, mutationType } from 'nexus';
-import { hash, compare } from 'bcrypt';
-import { PRIVATE_KEY, getUserId } from '../utils/authentication';
-import { sign } from 'jsonwebtoken';
+import { stringArg, idArg, mutationType } from "nexus";
+import { hash, compare } from "bcrypt";
+import { PRIVATE_KEY, getUserId } from "../utils/authentication";
+import { sign } from "jsonwebtoken";
+import { threadId } from "worker_threads";
 
 export const Mutation = mutationType({
   definition(t) {
-    t.field('signup', {
-      type: 'AuthPayload',
+    t.field("signup", {
+      type: "AuthPayload",
       args: {
         username: stringArg(),
         email: stringArg(),
         password: stringArg()
       },
       resolve: async (parent, { username, email, password }, context) => {
-        const hashedPassword = await hash(password, 10)
+        const hashedPassword = await hash(password, 10);
         const user = await context.prisma.createUser({
           username,
           email,
@@ -21,21 +22,27 @@ export const Mutation = mutationType({
         });
         return {
           user
-        }
+        };
       }
     });
 
-    t.field('login', {
-      type: 'AuthPayload',
+    t.field("login", {
+      type: "AuthPayload",
       args: {
         email: stringArg(),
-        password: stringArg(),
+        password: stringArg()
       },
       resolve: async (parent, { email, password }, context) => {
         console.log("Login attempt with user/pass: " + email + ", " + password);
 
         let autoLogin = false;
-        const authorizedAutoLogins = ["100yrgrandma@mememe.com", "alice@mememe.com", "bob@mememe.com", "chicken@mememe.com", "dinosaur@mememe.com"];
+        const authorizedAutoLogins = [
+          "100yrgrandma@mememe.com",
+          "alice@mememe.com",
+          "bob@mememe.com",
+          "chicken@mememe.com",
+          "dinosaur@mememe.com"
+        ];
         for (let i = 0; i < authorizedAutoLogins.length; i++) {
           if (authorizedAutoLogins[i] === email) {
             autoLogin = true;
@@ -43,7 +50,7 @@ export const Mutation = mutationType({
           }
         }
 
-        const user = await context.prisma.user({ email })
+        const user = await context.prisma.user({ email });
         if (!user) {
           throw new Error(`No user found for email: ${email}`);
         }
@@ -52,7 +59,7 @@ export const Mutation = mutationType({
           const passwordValid = await compare(password, user.password);
           if (!passwordValid) {
             context.request.session.jwt = null;
-            throw new Error('Invalid password');
+            throw new Error("Invalid password");
           }
         }
 
@@ -63,23 +70,23 @@ export const Mutation = mutationType({
 
         return {
           user
-        }
+        };
       }
     });
 
-    t.field('logout', {
-      type: 'User',
+    t.field("logout", {
+      type: "User",
       nullable: true, // Allows mutation to return null
-      resolve: async (parent, { }, context) => {
-        console.log('Logged user out');
+      resolve: async (parent, {}, context) => {
+        console.log("Logged user out");
         context.request.session.cookie.maxAge = new Date(Date.now() - 1);
         context.request.session.jwt = "Good-bye!";
         return null;
       }
     });
 
-    t.field('updateUser', {
-      type: 'User',
+    t.field("updateUser", {
+      type: "User",
       nullable: true,
       args: {
         id: idArg(),
@@ -93,8 +100,8 @@ export const Mutation = mutationType({
       }
     });
 
-    t.field('createThread', {
-      type: 'Thread',
+    t.field("createThread", {
+      type: "Thread",
       nullable: true,
       args: {
         forum: stringArg(),
@@ -102,7 +109,6 @@ export const Mutation = mutationType({
         content: stringArg()
       },
       resolve: async (parent, { forum, title, content }, context) => {
-
         console.log("Creating thread...");
 
         const author = getUserId(context);
@@ -118,31 +124,34 @@ export const Mutation = mutationType({
 
         const lastThreadNumber = mostRecentThread[0].threadnumber;
 
-        return context.prisma.createThread({
+        const thread = await context.prisma.createThread({
           forum: { connect: { name: forum } },
           author: { connect: { id: author } },
           threadnumber: lastThreadNumber + 1,
           title,
           posts: {
-            create: [{
-              author: { connect: { id: author } },
-              postnumber: 1,
-              content,
-            }]
+            create: [
+              {
+                author: { connect: { id: author } },
+                postnumber: 1,
+                content
+              }
+            ]
           }
         });
+
+        return thread;
       }
     });
 
-    t.field('createPost', {
-      type: 'Post',
+    t.field("createPost", {
+      type: "Post",
       nullable: true,
       args: {
         thread: stringArg(),
         content: stringArg()
       },
       resolve: async (parent, { thread, content }, context) => {
-
         console.log("Creating new post...");
 
         const author = getUserId(context);
@@ -168,5 +177,5 @@ export const Mutation = mutationType({
         return post;
       }
     });
-  },
+  }
 });
