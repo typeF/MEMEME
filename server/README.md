@@ -1,9 +1,15 @@
 # Backend Setup
 
+## Environment variables
+
+```
+Set the environment variable PRISMA_MANAGEMENT_API_SECRET in bash or server environment
+```
+
 ## Prisma Docker setup
 
 ```
-docker compose up -d
+docker-compose up -d
 ```
 
 ## Prisma Intialization
