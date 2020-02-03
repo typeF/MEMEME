@@ -1,12 +1,12 @@
-import { GraphQLServer } from 'graphql-yoga';
-import { prisma } from './generated/prisma-client';
-import datamodelInfo from './generated/nexus-prisma';
-import { makePrismaSchema } from 'nexus-prisma';
-import { permissions } from './permissions';
-import { PRIVATE_KEY } from './utils/authentication';
-import * as session from 'express-session';
-import * as path from 'path';
-import * as allTypes from './resolvers';
+import { GraphQLServer } from "graphql-yoga";
+import { prisma } from "./generated/prisma-client";
+import datamodelInfo from "./generated/nexus-prisma";
+import { makePrismaSchema } from "nexus-prisma";
+import { permissions } from "./permissions";
+import { PRIVATE_KEY } from "./utils/authentication";
+import * as session from "express-session";
+import * as path from "path";
+import * as allTypes from "./resolvers";
 
 const schema = makePrismaSchema({
   types: allTypes,
@@ -17,9 +17,9 @@ const schema = makePrismaSchema({
   },
 
   outputs: {
-    schema: path.join(__dirname, './generated/schema.graphql'),
-    typegen: path.join(__dirname, './generated/nexus.ts'),
-  },
+    schema: path.join(__dirname, "./generated/schema.graphql"),
+    typegen: path.join(__dirname, "./generated/nexus.ts")
+  }
 });
 
 const server = new GraphQLServer({
@@ -29,25 +29,38 @@ const server = new GraphQLServer({
     return {
       ...request,
       prisma
-    }
+    };
   }
 });
 
-server.express.use(session({
-  name: 'qid',
-  secret: PRIVATE_KEY,
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-  },
-  unset: 'destroy'
-}));
+server.express.use(
+  session({
+    name: "qid",
+    secret: PRIVATE_KEY,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production"
+    },
+    unset: "destroy"
+  })
+);
 
 const cors = {
   credentials: true,
   origin: "http://localhost:3000"
-}
+};
 
-server.start({cors}, () => console.log('Server is running on http://localhost:4000'));
+const options = {
+  cors,
+  port: 4000
+};
+
+// const PORT = {
+//   port: 5000
+// };
+
+server.start(options, ({ port }) =>
+  console.log(`Server is running on http://localhost:${port}`)
+);
