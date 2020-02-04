@@ -30,6 +30,7 @@ const client = new ApolloClient({
       if (networkError) console.log(`[Network error]: ${networkError}`);
     }),
     new HttpLink({
+      // Temp - Modify URI to server IP:4000 when running on production
       uri: "http://127.0.0.1:4000",
       credentials: "include"
     })

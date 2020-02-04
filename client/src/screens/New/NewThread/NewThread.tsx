@@ -47,7 +47,6 @@ const NewThread = ({ mutation }: { mutation: any }): JSX.Element => {
     const unselectedSubForums = document.querySelectorAll(
       `.subForum-btn:not(.forum-${forum}`
     );
-    console.log(unselectedSubForums);
     unselectedSubForums.forEach(subForumBtn => {
       subForumBtn.classList.remove("is-selected");
     });

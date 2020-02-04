@@ -11,7 +11,5 @@ RUN apk add --no-cache make gcc g++ python && \
 
 COPY . ./
 
-RUN prisma deploy
-
 EXPOSE 4000
 CMD ["npm", "run", "start"]

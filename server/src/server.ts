@@ -47,6 +47,7 @@ server.express.use(
   })
 );
 
+// Temp - Modify localhost to server IP:80 when running on production
 const cors = {
   credentials: true,
   origin: "http://localhost:3000"
@@ -56,10 +57,6 @@ const options = {
   cors,
   port: 4000
 };
-
-// const PORT = {
-//   port: 5000
-// };
 
 server.start(options, ({ port }) =>
   console.log(`Server is running on http://localhost:${port}`)

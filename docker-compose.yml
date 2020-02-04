@@ -25,20 +25,9 @@ services:
       POSTGRES_PASSWORD: prisma
     volumes:
       - postgres:/var/lib/postgresql/data
-  server:
-    environment:
-      - PRISMA_MANAGEMENT_API_SECRET
-      - PRISMA_ENDPOINT
-    build:
-      context: ./server
-      args:
-        - PRISMA_MANAGEMENT_API_SECRET
-        - PRISMA_ENDPOINT
-    ports:
-      - "4000:4000"
   client:
     build: ./client
     ports:
-      - "3000:80"
+      - "80:80"
 volumes:
   postgres:
