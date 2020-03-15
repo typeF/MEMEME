@@ -10,7 +10,7 @@
     "@types/react-router-dom": "^4.3.1",
     "@types/react-test-renderer": "^16.8.1",
     "@types/styled-components": "^4.1.12",
-    "acorn": "^7.1.0",
+    "acorn": "^7.1.1",
     "apollo-cache-inmemory": "^1.5.1",
     "apollo-client": "^2.5.1",
     "apollo-link": "^1.2.11",
