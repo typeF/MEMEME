@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/jsonwebtoken": "^8.3.2",
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "express-session": "^1.15.6",
     "graphql": "^14.1.1",
     "graphql-shield": "^5.3.1",
